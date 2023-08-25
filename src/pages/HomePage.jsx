@@ -2,6 +2,7 @@ import homepageImgs from "../assets/images/homepage_img.png"
 import userProfileIcon from "../assets/images/user_profile_icon.png"
 import userProfilePic from "../assets/images/user_profile_picture.png"
 import yogaPoseCardPic from "../assets/images/yoga-pose-for-card.png"
+import UserName from "../components/UserName/UserName"
 
 const HomePage = () => {
   return (
@@ -10,8 +11,7 @@ const HomePage = () => {
             <img src={userProfileIcon} alt="" className="user-profile-icon"/>
                 <div><img src={userProfilePic} alt="" className="user-profile-pic"/></div>
         </div>
-      <h1 className="homepage-title1">Namaste,</h1>
-      <h1 className="homepage-title2">Vani</h1>
+      <div><UserName/></div>
       <div className="homepage-img"><img src={homepageImgs} alt=""/></div>
       <h2 className="homepage-subtitle1">{"Let's start basics"}</h2>
       <h2 className="homepage-subtitle2">yoga and meditation</h2>
