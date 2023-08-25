@@ -1,7 +1,11 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #EAF2F2;
-    height: 100%;
-    box-sizing: border-box;
-} 
+:root{
+    background-color: #eaf2f2;
+    font-family: 'Lora', serif;
+    height: 100vh;
+}
+*{
+    font-family: 'Lora', serif;
+margin: 0;
+padding: 0;
+}
+
