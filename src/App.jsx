@@ -3,7 +3,7 @@ import CourseFavouritePage from './pages/CourseFavouritePage/CourseFavouritePage
 import CourseLessonPage from './pages/CourseLessonPage/CourseLessonPage';
 import CoursePage from './pages/CoursePage/CoursePage';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/homePage'
+import HomePage from './pages/HomePage/HomePage'
 import StartJourney from './pages/Start-Journey-Page/StartJourney'
 import StartJourneyTwo from './pages/Start-Journey-Page/StartJourneyTwo';
 import StartJourneyThree from './pages/Start-Journey-Page/StartJourneyThree';
