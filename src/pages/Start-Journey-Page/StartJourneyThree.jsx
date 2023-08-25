@@ -28,7 +28,7 @@ function StartJourneyThree() {
           />
         </div>
         <div className="journey-button">
-          <Link to="/3">
+          <Link to="/start-journey-3">
             <NextButton
               data={journeyData.find((data) => data.id === id)}
             />
