@@ -1,4 +1,5 @@
 import './App.css';
+import CoursePage from './pages/course-page/CoursePage';
 
 
 
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>Upsilon</h1>
+      <CoursePage/>
      
     </>
   )
