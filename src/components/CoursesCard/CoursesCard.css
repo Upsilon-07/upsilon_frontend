@@ -13,7 +13,6 @@
 
 .course-container {
  width: 100%;
- 
   }
 
   .left-and-right-container{
@@ -66,6 +65,55 @@
     width: 5px;
     height: 5px;
 }
+
+@media screen and (min-width:768px) {
+    .title-courses {
+        display: flex;
+        justify-content: center;
+    }
+    .course-container{
+        margin: 0 auto;
+        width: 90%;
+
+    }
+  }
+  
+    
+  @media screen and (min-width:1440px) {
+    
+    .title-courses {
+        display: flex;
+        justify-content: center;
+    }
+    .course-container{
+        margin: 0 auto;
+        width: 50%;
+
+    }
+
+
+  }
+  
+  
+
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  
+
+
 
 
 
