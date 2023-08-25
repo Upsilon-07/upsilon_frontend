@@ -1,5 +1,8 @@
 import './App.css';
-import CoursePage from './pages/course-page/CoursePage';
+import CourseFavouritePage from './pages/CourseFavouritePage/CourseFavouritePage';
+import CoursePage from './pages/CoursePage/CoursePage';
+import { Routes, Route } from 'react-router-dom';
+
 
 
 
@@ -7,7 +10,11 @@ function App() {
 
   return (
     <>
-      <CoursePage/>
+     
+      <Routes>
+        <Route path="/courses" element={<CoursePage/>} />
+        <Route path="/courses/favourite" element={<CourseFavouritePage/>} />
+      </Routes>
      
     </>
   )
