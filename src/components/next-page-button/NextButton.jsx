@@ -1,19 +1,17 @@
 import PropTypes from "prop-types";
 import './nextbuttonstyles.css'
-function NextButton({journeyData}){
+function Button({data}){
     return(
-        <div className="button">
-            <button>{`${journeyData.buttonContent}`}</button>
+        <div className="button-card">
+            <button className="button" id={`${data.buttonId}`}>{`${data.buttonContent}`}</button>
         </div>
     )
 }
 
-NextButton.propTypes ={
-    journeyData: PropTypes.shape({
-        id: PropTypes.number,
-        title: PropTypes.string,
-        description: PropTypes.string,
+Button.propTypes ={
+    data: PropTypes.shape({
         buttonContent: PropTypes.string,
+        buttonId: PropTypes.string,
     })
 }
-export default NextButton;
+export default Button;

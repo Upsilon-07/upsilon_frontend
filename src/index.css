@@ -1,37 +1,9 @@
 :root{
     background-color: #eaf2f2;
     font-family: 'Lora', serif;
+    height: 100vh;
 }
 button{
     font-family: 'Lora', serif;
 }
-/* ------------------- JOURNEY PAGE ------------------- */
-.journey-page{
-display: flex;
-flex-direction: column;
-height: 100vh;
-}
 
-.journey-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.journey-image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.journey-title{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.journey-description{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
