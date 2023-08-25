@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 21.4375rem;
+    height: 3.9375rem;
+    border-radius: 3.5rem;
+    background: #FEFEFE;
+    box-shadow: 0px 1px 42px 0px rgba(43, 43, 43, 0.10);
+    justify-content: space-around;
+    align-items: center;
+    position:fixed;
+    bottom: 3%;
+}
