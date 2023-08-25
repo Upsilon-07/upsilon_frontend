@@ -13,7 +13,6 @@ import StartJourneyFour from './pages/Start-Journey-Page/StartJourneyFour';
 
 
 function App() {
-
   return (
     <>
      
@@ -30,7 +29,7 @@ function App() {
       </Routes>
      
     </>
-  )
+  );
 }
 
 
