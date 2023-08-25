@@ -14,7 +14,7 @@ const CoursePage = () => {
         <Link to="/courses/favourite"><StarButton/></Link>
         </div>
         <h1 className='title-courses'>Courses</h1>
-        <CoursesCard/>
+        <Link className="card-link" to="/courses/lessons"><CoursesCard/></Link>
     </div>
   )
 }
