@@ -1,0 +1,22 @@
+.button{
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 240px;
+    height: 59px;
+}
+
+#orange-button{
+    color: white;
+    background-color: #EB784E;
+}
+
+#white-button{
+    background-color:white ;
+    color: #EB784E ;
+    margin-top: 15px;
+}
