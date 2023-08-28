@@ -6,6 +6,7 @@
 .navbar-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
     width: 21.4375rem;
     height: 3.9375rem;
     border-radius: 3.5rem;
@@ -14,5 +15,11 @@
     justify-content: space-around;
     align-items: center;
     position:fixed;
-    bottom: 3%;
+    bottom: 3.203791469194313%;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-container {
+        top: 3.203791469194313%;
+    }
 }

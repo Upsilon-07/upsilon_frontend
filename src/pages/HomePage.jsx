@@ -2,6 +2,7 @@ import homepageImgs from "../assets/images/homepage_img.png"
 import userProfileIcon from "../assets/images/user_profile_icon.png"
 import userProfilePic from "../assets/images/user_profile_picture.png"
 import yogaPoseCardPic from "../assets/images/yoga-pose-for-card.png"
+import Navbar from '../components/navbar/Navbar';
 
 const HomePage = () => {
   return (
@@ -30,6 +31,7 @@ const HomePage = () => {
                 </div>
                 </div>
         </div>
+        <Navbar/>
     </div>
   )
 }
