@@ -11,7 +11,7 @@ function StartJourneyTwo() {
   return (
     <>
       <div className="journey-page">
-        <div className="journey-image">
+        <div className="journey-image" id="image-journey-two">
           <JourneyImage
             data={journeyData.find((data) => data.id === id)}
           />

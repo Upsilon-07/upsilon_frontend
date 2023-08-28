@@ -11,7 +11,7 @@ function StartJourneyThree() {
     <>
       <div className="journey-page">
         <circle className="bg-green" cx="60" cy="60" r="50"/>
-        <div className="journey-image bg-green" >
+        <div className="journey-image bg-green" id="image-journey-three">
           <JourneyImage
             data={journeyData.find((data) => data.id === id)}
           />

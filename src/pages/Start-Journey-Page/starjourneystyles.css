@@ -3,34 +3,57 @@
     flex-direction: column;
     height: 100vh;
     align-items: center;
+    justify-content: flex-end;
+}
+
+.journey-button{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    }
-    
-    .journey-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .journey-image{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .journey-title{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .journey-description{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    margin-top: 32px;
+    margin-bottom: 11px;
+}
+
+.journey-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    mix-blend-mode: multiply;
+    flex-grow: 1;
+}
+
+#image-journey-one {
+    align-items: flex-end;
+
+}
+
+#image-journey-two img {
+    height: 100%;
+}
+
+.journey-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.journey-description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
 
 .bg-green{
     stroke: #C5C884;
     stroke-width: 5%;
+}
+
+.journey-title-description{
+    
 }

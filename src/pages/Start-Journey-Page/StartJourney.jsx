@@ -11,6 +11,7 @@ function StartJourney() {
   return (
     <>
       <div className="journey-page">
+        <div className="journey-title-description">
         <div className="journey-title">
           <Title
             data={journeyData.find((data) => data.id === id)}
@@ -21,6 +22,7 @@ function StartJourney() {
             data={journeyData.find((data) => data.id === id)}
           />
         </div>
+        </div>
         <div className="journey-button">
           <Link to="/start-journey-1">
             <NextButton
@@ -28,7 +30,7 @@ function StartJourney() {
             />
           </Link>
         </div>
-        <div className="journey-image">
+        <div className="journey-image" id="image-journey-one">
           <JourneyImage
             data={journeyData.find((data) => data.id === id)}
           />
