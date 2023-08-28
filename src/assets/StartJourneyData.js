@@ -5,23 +5,26 @@ import journeyImageFour from "./images/yogagirltwo.png";
 export const journeyData = [
     {
         id:1, 
-        title:'Have the best \n Yoga experience',
+        title:'Have the best ',
+        titlebold:'Yoga experience',
         description:"transform your body and mind with our comprehensive yoga app. discover expert-led classes, personalized routines",
-        buttonContent:"start journey",
+        buttonContent:"Start Journey",
         image:journeyImageOne, 
         buttonId: "orange-button"
     },
     {
         id:2, 
-        title:"Enjoy your yoga anytime",
-        description:"Access your personalized yoga courses anytime anywhere",
+        title:"Enjoy your",
+        titlebold:'Yoga anytime', 
+        description:'Access your personalized yoga courses anytime \n anywhere',
         buttonContent:"Get Started",
         image:journeyImageTwo, 
         buttonId: "orange-button"
     },
     {
         id:3, 
-        title:"Perfect Healthy Meals For You",
+        title:"Perfect Healthy",
+        titlebold:'Meals For You',
         description:"Enjoy your meal plans and delicious recipes",
         buttonContent:"Get Started",
         image:journeyImageThree, 
@@ -29,7 +32,8 @@ export const journeyData = [
     },
     {
         id:4, 
-        title:"Stay Healthy",
+        title:"Stay",
+        titlebold:'Healthy',
         description:"register to start access to your yoga classes and meal plans",
         buttonContent:"Login",
         image:journeyImageFour, 

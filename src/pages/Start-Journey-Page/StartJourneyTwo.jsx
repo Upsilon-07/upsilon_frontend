@@ -4,7 +4,7 @@ import NextButton from "../../components/next-page-button/NextButton";
 import JourneyImage from "../../components/Image";
 import JourneyTitle from "../../components/Title";
 import JourneyDescription from "../../components/Desciption";
-import './starjourneystyles.css'
+import "./starjourneystyles.css";
 function StartJourneyTwo() {
   const id = 2;
 
@@ -12,26 +12,21 @@ function StartJourneyTwo() {
     <>
       <div className="journey-page">
         <div className="journey-image" id="image-journey-two">
-          <JourneyImage
-            data={journeyData.find((data) => data.id === id)}
-          />
+          <JourneyImage data={journeyData.find((data) => data.id === id)} />
         </div>
-
-        <div className="journey-title">
-          <JourneyTitle
-            data={journeyData.find((data) => data.id === id)}
-          />
-        </div>
-        <div className="journey-description">
-          <JourneyDescription
-            data={journeyData.find((data) => data.id === id)}
-          />
+        <div className="journey-title-description" id="journey-page-two">
+          <div className="journey-title">
+            <JourneyTitle data={journeyData.find((data) => data.id === id)} />
+          </div>
+          <div className="journey-description">
+            <JourneyDescription
+              data={journeyData.find((data) => data.id === id)}
+            />
+          </div>
         </div>
         <div className="journey-button">
           <Link to="/start-journey-2">
-            <NextButton
-              data={journeyData.find((data) => data.id === id)}
-            />
+            <NextButton data={journeyData.find((data) => data.id === id)} />
           </Link>
         </div>
       </div>

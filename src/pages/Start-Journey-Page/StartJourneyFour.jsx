@@ -3,7 +3,7 @@ import NextButton from "../../components/next-page-button/NextButton";
 import JourneyImage from "../../components/Image";
 import Title from "../../components/Title";
 import JourneyDescription from "../../components/Desciption";
-import './starjourneystyles.css'
+import "./starjourneystyles.css";
 function StartJourneyFour() {
   const id = 4;
 
@@ -11,34 +11,25 @@ function StartJourneyFour() {
     <>
       <div className="journey-page">
         <div className="journey-image" id="image-journey-four">
-          <JourneyImage
-            data={journeyData.find((data) => data.id === id)}
-          />
+          <JourneyImage data={journeyData.find((data) => data.id === id)} />
         </div>
-<div className="bottom-container-journey"> 
-
-        <div className="journey-title">
-          <Title
-            data={journeyData.find((data) => data.id === id)}
-          />
+        <div className="journey-title-description" id="journey-page-four">
+          <div className="journey-title">
+            <Title data={journeyData.find((data) => data.id === id)} />
+          </div>
+          <div className="journey-description">
+            <JourneyDescription
+              data={journeyData.find((data) => data.id === id)}
+            />
+          </div>
         </div>
-        <div className="journey-description">
-          <JourneyDescription
-            data={journeyData.find((data) => data.id === id)}
-          />
-        </div>
-        <div className="journey-button">
-          <NextButton
-            data={journeyData.find((data) => data.id === id)}
-          />
+        <div className="journey-button" id="journey-login">
+          <NextButton data={journeyData.find((data) => data.id === id)} />
         </div>
         <div className="journey-button" id="button-reverse">
-          <NextButton
-            data={journeyData.find((data) => data.id === id + 1 )}
-          />
+          <NextButton data={journeyData.find((data) => data.id === id + 1)} />
         </div>
       </div>
-</div>
     </>
   );
 }
