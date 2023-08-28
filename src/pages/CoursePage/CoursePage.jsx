@@ -4,6 +4,7 @@ import CoursesCard from '../../components/CoursesCard/CoursesCard'
 import "./CoursePage.css"
 import StarButton from '../../components/StarButton/StarButton'
 import { Link } from "react-router-dom"
+import Navbar from "../../components/navbar/Navbar"
 
 
 const CoursePage = () => {
@@ -15,6 +16,7 @@ const CoursePage = () => {
         </div>
         <h1 className='title-courses'>Courses</h1>
         <Link className="card-link" to="/courses/lessons"><CoursesCard/></Link>
+        <Navbar/>
     </div>
   )
 }
