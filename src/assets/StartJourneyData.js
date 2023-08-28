@@ -6,7 +6,7 @@ export const journeyData = [
     {
         id:1, 
         title:'Have the best ',
-        titlebold:'Yoga experience',
+        weight: "light-title",
         description:"transform your body and mind with our comprehensive yoga app. discover expert-led classes, personalized routines",
         buttonContent:"Start Journey",
         image:journeyImageOne, 
@@ -15,7 +15,7 @@ export const journeyData = [
     {
         id:2, 
         title:"Enjoy your",
-        titlebold:'Yoga anytime', 
+        weight: "light-title", 
         description:'Access your personalized yoga courses anytime \n anywhere',
         buttonContent:"Get Started",
         image:journeyImageTwo, 
@@ -24,7 +24,7 @@ export const journeyData = [
     {
         id:3, 
         title:"Perfect Healthy",
-        titlebold:'Meals For You',
+        weight: "light-title",
         description:"Enjoy your meal plans and delicious recipes",
         buttonContent:"Get Started",
         image:journeyImageThree, 
@@ -33,7 +33,7 @@ export const journeyData = [
     {
         id:4, 
         title:"Stay",
-        titlebold:'Healthy',
+        weight: "light-title",
         description:"register to start access to your yoga classes and meal plans",
         buttonContent:"Login",
         image:journeyImageFour, 
