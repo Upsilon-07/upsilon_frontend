@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 function TextInputBox({ data }) {
   return (
     <div className="text-input">
-      <label>{data.label}</label>
       <input
         type={data.type}
         placeholder={data.placeholder}
@@ -15,11 +14,10 @@ function TextInputBox({ data }) {
 
 TextInputBox.propTypes = {
   data: PropTypes.shape({
-    label: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
   }).isRequired,
 };
 
