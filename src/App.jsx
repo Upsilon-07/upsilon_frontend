@@ -8,6 +8,7 @@ import StartJourney from './pages/Start-Journey-Page/StartJourney'
 import StartJourneyTwo from './pages/Start-Journey-Page/StartJourneyTwo';
 import StartJourneyThree from './pages/Start-Journey-Page/StartJourneyThree';
 import StartJourneyFour from './pages/Start-Journey-Page/StartJourneyFour';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 
 
@@ -18,6 +19,9 @@ function App() {
      
       <Routes>
         <Route path='/' element={<HomePage/>} />
+        <Route path='/user-profile' element={<ProfilePage/>} />
+        {/* <Route path='/user-profile/edit-profile' element={<EditProfilePage/>} />
+        <Route path='/user-profile/change-password' element={<ChangePasswordPage/>} /> */}
         <Route path="/courses" element={<CoursePage/>} />
         <Route path="/courses/favourite" element={<CourseFavouritePage/>} />
         <Route path="/courses/lessons" element={<CourseLessonPage/>} />
