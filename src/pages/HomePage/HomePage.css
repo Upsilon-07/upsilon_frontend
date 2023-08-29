@@ -9,19 +9,12 @@ body {
 }
 
 .user-profile-icon {
-    width: 106.26px;
-    height: 65.96px;
-    left: 20px;
-    top: 19px;
-}
-
-.user-profile-pic {
-    position: absolute;
-    width: 33px;
-    height: 30px;
-    border-radius: 10px;
-    left: 26px;
-    top: 27px;
+    position: relative;
+    width: 6.641rem;
+    height: 4.12281rem;
+    flex-shrink: 0;
+    padding-left: 5.128205128205128%;
+    padding-top: 2.2559241706161135%;
 }
 
 .homepage-img {
@@ -126,13 +119,27 @@ body {
     line-height: normal;
 }
 
+.homepage-recommended-courses {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding-top: 10.066350710900473%;
+    padding-bottom: 1.8388625592417063%;
+    left: 5.128205128205128%;
+    justify-content: flex-start;
+}
+
 .homepage-recommended-courses-box-info {
-    color: #AAA;
-    font-feature-settings: 'clig' off, 'liga' off;
-    /* Typography / Regular / Text XS 10 */
-    font-family: DM Sans;
-    font-size: 0.625rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: inherit;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .homepage-recommended-courses-box-info {
+        padding-bottom: 130px;
+    }
 }
