@@ -7,15 +7,64 @@
     padding-right: 0px;
     align-items: center;
     flex-shrink: 0;
-    color: #4A4A4A;
-    font-family: Lora;
+    padding-left: 5.907692307692307%;
+    padding-top: 12.43601895734597%;
+    padding-bottom: 12.43601895734597%;
+}
+
+#light-title {
     font-size: 2.25rem;
     font-style: normal;
     font-weight: 400;
+    color: #4A4A4A;
     line-height: 140%; /* 3.15rem */
     letter-spacing: 0.045rem;
-    text-transform: capitalize;
-    padding-left: 5.907692307692307%;
+}
+
+.profile-input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+}
+
+.text-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-input-box1 {
+    width: 21.4375rem;
+    display: flex;
+    height: 3.25rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    padding-top: 1.3080568720379147%;
+    padding-bottom: 1.3080568720379147%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-input-box2 {
+    width: 21.4375rem;
+    display: flex;
+    height: 3.25rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    padding-top: 1.3080568720379147%;
+    padding-bottom: 1.3080568720379147%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-button {
@@ -26,6 +75,15 @@
     height: 3.25rem;
     flex-shrink: 0;
     width: 100%;
+    top: 50%;
     padding-top: 1.8957345971563981%;
     padding-bottom: 1.8957345971563981%;
+}
+
+
+@media screen and (min-width: 767px) {
+    .profile-input-box {
+        flex-direction: column;
+    }
+
 }
