@@ -1,35 +1,48 @@
-import "./HomePage.css"
+import "./HomePage.css";
 import { Link } from "react-router-dom";
 import UserName from "../../components/UserName/UserName";
-import Navbar from '../../components/navbar/Navbar';
-import ProfilePicture from '../../components/ProfilePicture/ProfilePicture';
-import CoursesCard from '../../components/CoursesCard/CoursesCard';
-import { journeyData } from "../../assets/StartJourneyData";
-import JourneyImage from "../../components/Image";
-import "/src/components/CoursesCard/CoursesCard.css"
+import Navbar from "../../components/navbar/Navbar";
+import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
+import CoursesCard from "../../components/CoursesCard/CoursesCard";
+import "/src/components/CoursesCard/CoursesCard.css";
+import { homePageData } from "../../assets/HomePage/HomePageData";
+import Title from "../../components/Title";
+import HomePageImage from "../../components/Image";
+import Description from "../../components/Desciption";
+import { homePageBold } from "../../assets/HomePage/HomePageBold";
 
 const HomePage = () => {
-  const id = 4;
+  const id = 1;
   return (
     <div className="homepage">
       <div className="user-profile-icon">
-      < ProfilePicture/>
+        <ProfilePicture />
       </div>
       <div>
         <UserName />
       </div>
       <div className="homepage-img">
-      <JourneyImage
-            data={journeyData.find((data) => data.id === id)}
-          />
+        <HomePageImage data={homePageData.find((data) => data.id === id)} />
       </div>
-      <h2 className="homepage-subtitle1">{"Let's start basics"}</h2>
-      <h2 className="homepage-subtitle2">yoga and meditation</h2>
-      <div >
-        <h4 className="homepage-recommended-courses">Recommended Courses</h4></div>
-        <div className="homepage-recommended-courses-box-info"><Link className="card-link" to="/courses/lessons"><CoursesCard/></Link></div>
-      
-      <Navbar/>
+      <div className="homepage-subtitle1">
+        <Title data={homePageData.find((data) => data.id === id)} />
+      </div>
+
+      <div className="homepage-subtitle2">
+        <Title data={homePageBold.find((data) => data.id === id)} />
+      </div>
+      <div>
+        <div className="homepage-recommended-courses">
+          <Description data={homePageData.find((data) => data.id === id)} />
+        </div>
+      </div>
+      <div className="homepage-recommended-courses-box-info">
+        <Link className="card-link" to="/courses">
+          <CoursesCard />
+        </Link>
+      </div>
+
+      <Navbar />
     </div>
   );
 };
