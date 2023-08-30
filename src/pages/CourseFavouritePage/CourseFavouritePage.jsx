@@ -9,8 +9,7 @@ import { useState } from "react"
 
 const CourseFavouritePage = () => {
 
-  const [favCourses,setFavCourses] = useState([]);
-
+ 
   return (
     <div className='favourite-page'>
     <div className='favourite-top'>
