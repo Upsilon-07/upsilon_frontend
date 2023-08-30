@@ -1,0 +1,33 @@
+.lessons-page{
+    background-color: #EAF2F2;
+    padding: 1.5rem;
+}
+
+.lessons-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lessons-title{
+    margin-top: 1rem;
+    font-size: 20px;
+
+}
+
+.title-and-star{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+.clock-and-time{
+    display: flex;
+ 
+}
+
+.time-min{
+    font-size: 12px;
+}
+
+
