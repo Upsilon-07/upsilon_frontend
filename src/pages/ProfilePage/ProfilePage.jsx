@@ -6,6 +6,7 @@ import NextButton from "../../components/next-page-button/NextButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import TextInputBox from "../../components/TextInputBox";
+import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 
 const ProfilePage = () => {
   const id = 2;
@@ -39,6 +40,7 @@ const ProfilePage = () => {
         </div>
       <div className="profile-title">
         <Title data={homePageData.find((data) => data.id === id)} />
+        <ProfilePicture/>
       </div>
 
         <div className="profile-input-box">
