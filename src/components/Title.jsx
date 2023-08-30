@@ -5,7 +5,6 @@ function Title({ data }) {
     <>
     <h1 id={`${data.weight}`}>{`${data.title}`}</h1>
     </>
-
   );
 }
 
