@@ -1,50 +1,68 @@
-import ProfilePicture from "../../components/ProfilePicture/ProfilePicture"
-import ArrowButton from "../../components/ArrowButton/ArrowButton"
-import { Link } from "react-router-dom"
-import "./CourseLesson.css"
-import Navbar from "../../components/navbar/Navbar"
+import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
+import ArrowButton from "../../components/ArrowButton/ArrowButton";
+import { Link, useParams } from "react-router-dom";
+import api from "../../api/api";
+import "./CourseLesson.css";
+import Navbar from "../../components/navbar/Navbar";
+import { useEffect, useState } from "react";
+import Card from "../../components/Card/Card";
+import TitleCard from "../../components/TitleCard/TitleCard";
+import favouriteStar from "../../assets/images/blank-star.svg";
 
 const CourseLessonPage = () => {
+  const { id } = useParams();
+
+  const [lessons, setLessons] = useState();
+  const [courseTitle, setCourseTitle] = useState();
+
+  const getAllLessonsByCourseId = () => {
+    api
+      .get(`/courses/${id}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setLessons(response.data.lessons);
+          setCourseTitle(response.data.courseTitle[0].courseName);
+        } else {
+          console.log("Error getting all lessons");
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getAllLessonsByCourseId();
+  }, []);
+
+  console.log(courseTitle);
   return (
     <div className="lessons-page">
-      <div className='lessons-top'>
-        <ProfilePicture/>
-        <Link to="/courses"><ArrowButton/></Link>
+      <div className="lessons-top">
+        <ProfilePicture />
+        <Link to="/courses">
+          <ArrowButton />
+        </Link>
       </div>
 
-      <div className="title-and-star">
-        <h1 className="lessons-title">Yoga pilates</h1>
-        <img src="/src/assets/images/blank-star.svg" alt="" />
-      </div>
+      {id && courseTitle ? (
+        <TitleCard id={id} title={courseTitle} source={favouriteStar} />
+      ) : null}
 
-      <div className='left-and-right'>
-        <div className="left">
-          <img className="yoga-pose" src="/src/assets/images/Yogapilates.svg" alt="" />
-        </div>
-        <div className="right-part">
-          <div className="title">
-              <h2 className='course-name'>Intro pilates flow</h2>
-              <div className="clock-and-time">
-              <img className="img-clock" src="/src/assets/images/time.svg" alt="" />
-              <h3 className='time-min'>15mins</h3>
-              </div>
+      {lessons && lessons.length > 0 ? (
+        lessons.map((lesson) => (
+          <div
+            key={lesson.id}
+            className="card-link"
+            to={`/courses/${lesson.id}`}
+          >
+            <Card data={lesson} />
           </div>
-        
-          <div className="bottom">
-            <p>By Sarah Williams</p>
-            <img className="dot-image" src="/src/assets/images/dot-image.svg" alt="dot" />
-            <p>Beginner</p>
-          </div>
-        </div>
-      </div>
-      <Navbar/>
-
-
+        ))
+      ) : (
+        <h1>Loading...</h1>
+      )}
+      <Navbar />
     </div>
+  );
+};
 
-
-   
-  )
-}
-
-export default CourseLessonPage
+export default CourseLessonPage;

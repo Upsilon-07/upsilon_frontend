@@ -5,6 +5,7 @@ import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import Card from "../../components/Card/Card";
 import StarButton from "../../components/StarButton/StarButton";
 import Navbar from "../../components/navbar/Navbar";
+import TitleCard from "../../components/TitleCard/TitleCard";
 import "./CoursePage.css";
 
 const CoursePage = () => {
@@ -16,7 +17,7 @@ const CoursePage = () => {
       .get("/courses")
       .then((response) => {
         if (response.status === 200) {
-          console.log(response)
+          console.log(response);
           setCourses(response.data.courses);
           setNumberLessons(response.data.numberLessons);
         } else {
@@ -38,7 +39,8 @@ const CoursePage = () => {
           <StarButton />
         </Link>
       </div>
-      <h1 className="title-courses">Courses</h1>
+      <TitleCard title="Courses" />
+      {/* <h1 className="title-courses">Courses</h1> */}
       {courses && courses.length > 0 ? (
         courses.map((course) => (
           <Link
