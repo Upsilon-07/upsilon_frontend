@@ -1,62 +1,56 @@
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/TextInputBox";
 import Title from "../../components/Title";
-import './registerPageStyles.css'
-import { useState } from "react";
+import "./registerPageStyles.css";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import api from "../../api/api.js";
 function RegisterPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  const navigate = useNavigate();
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-
-  const Data = {
-    title: "Resgister",
-    buttonContent: "Next",
-    buttonId: "orange-button",
-    type: "email",
-    placeholder: "enter your email",
-    value: email,
-    onChange: handleEmailChange,
-  };
-  const DataTwo = {
-
-    type: "password",
-    placeholder: "enter your password",
-    value: password,
-    onChange: handlePasswordChange,
-  };
-  const DataThree = {
-    type: "username",
-    placeholder: "enter your username",
-    value: username,
-    onChange: handleUsernameChange,
+  const createUser = (data) => {
+    console.log(data);
+    api
+      .post("/auth/sign-up", data)
+      .then((response) => {
+        if (response.status === 201) {
+          navigate("/login");
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          console.error(error);
+          alert(error.response.data);
+        }
+      });
   };
   return (
     <>
-      <div className="register-page">
-        <div className="register-title">
-        <Title data={Data} />
-        </div>
-        <div>
-        <TextInputBox data={DataThree} />
-        <TextInputBox data={Data} />
-        <TextInputBox data={DataTwo} />
-        </div>
-        <div>
-        <NextButton data={Data} />
-        </div>
-
+      <div>
+        <Title Title="Register" />
+        <form onSubmit={handleSubmit(createUser)}>
+          <TextInputBox
+            label="Email"
+            type="email"
+            name="email"
+            register={register}
+            errors={errors}
+          />
+          <TextInputBox
+            label="Password"
+            type="password"
+            name="password"
+            register={register}
+            errors={errors}
+          />
+          <button type="submit">Register</button>
+        </form>
       </div>
     </>
   );
