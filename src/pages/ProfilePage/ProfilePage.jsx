@@ -32,7 +32,7 @@ const ProfilePage = () => {
     value: email,
     onChange: handleEmailChange,
   };
-  
+
   return (
     <div className="profile-page">
         <div>
@@ -43,10 +43,10 @@ const ProfilePage = () => {
         <ProfilePicture/>
       </div>
 
-        <div className="profile-input-box">
+        <form className="profile-input-box">
         <div className="profile-input-box1"><TextInputBox data={DataOne} /></div>
         <div className="profile-input-box2"><TextInputBox data={DataTwo} /></div>
-        </div>
+        </form>
 
       <div className="profile-button" id="profile-edit">
         <Link to="/user-profile/edit-profile">
