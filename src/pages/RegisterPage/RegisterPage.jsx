@@ -17,7 +17,7 @@ function RegisterPage() {
   const createUser = (data) => {
     console.log(data);
     api
-      .post("/auth/sign-up", data)
+      .post("/auth/register", data)
       .then((response) => {
         if (response.status === 201) {
           navigate("/login");
@@ -49,7 +49,7 @@ function RegisterPage() {
             register={register}
             errors={errors}
           />
-          <button type="submit">Register</button>
+          <NextButton/>
         </form>
       </div>
     </>
