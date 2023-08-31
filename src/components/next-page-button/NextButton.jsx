@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import './nextbuttonstyles.css'
 function Button({data}){
     return(
-        <div className="button-card">
+        <div className="button-container">
             <button className="button" id={`${data.buttonId}`}>{`${data.buttonContent}`}</button>
         </div>
     )
