@@ -8,6 +8,7 @@ import Title from "../../components/Title";
 import HomePageImage from "../../components/Image";
 import Description from "../../components/Desciption";
 import { homePageBold } from "../../assets/HomePage/HomePageBold";
+import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 //import Card from "/src/components/Card/Card.jsx"
 
 const HomePage = () => {
@@ -42,6 +43,7 @@ const HomePage = () => {
       </div>
 
       <Navbar />
+      <NavbarDesktop/>
     </div>
   );
 };
