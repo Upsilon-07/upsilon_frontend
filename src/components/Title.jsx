@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-function Title({ title }) {
+function Title({ title,weight }) {
   return (
     <>
-    <h1>{`${title}`}</h1>
+    <h1 id={`${weight}`}>{`${title}`}</h1>
     </>
 
   );
@@ -11,6 +11,7 @@ function Title({ title }) {
 
 Title.propTypes = {
     title: PropTypes.string.isRequired,
+    weight: PropTypes.string.isRequired,
   };
 
 export default Title;

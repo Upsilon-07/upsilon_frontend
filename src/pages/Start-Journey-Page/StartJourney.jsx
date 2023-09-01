@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { journeyData } from "../../assets/StartJourneyData";
-import { journeyBold } from "../../assets/StartJouneyBold";
 import NextButton from "../../components/next-page-button/NextButton";
 import JourneyImage from "../../components/Image";
 import Title from "../../components/Title";
+import { journeyData } from "../../assets/StartJourneyData";
 import JourneyDescription from "../../components/Desciption";
 import "./starjourneystyles.css";
 function StartJourney() {
@@ -14,8 +13,8 @@ function StartJourney() {
       <div className="journey-page">
         <div className="journey-title-description" id="journey-page-one">
           <div className="journey-title">
-            <Title data={journeyData.find((data) => data.id === id)} />
-            <Title data={journeyBold.find((data) => data.id === id)} />
+            <Title title={"Have the best"} weight={"light-title"} />
+            <Title title={"Yoga Experience"} weight={"bold-title"} />
           </div>
           <div className="journey-description">
             <JourneyDescription
@@ -25,7 +24,11 @@ function StartJourney() {
         </div>
         <div className="journey-button">
           <Link to="/start-journey-1">
-            <NextButton data={journeyData.find((data) => data.id === id)} />
+            <NextButton
+              buttonId="orange-button"
+              buttonContent="Start Journey"
+              buttonClass="button-round"
+            />
           </Link>
         </div>
         <div className="journey-image" id="image-journey-one">
