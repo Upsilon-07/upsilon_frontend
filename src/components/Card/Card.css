@@ -36,7 +36,7 @@
 }
 
 .course-name {
-    margin-top: 0.7rem;
+    margin-top: 0.3rem;
     font-size: 14px;
 }
 
@@ -64,6 +64,13 @@
 .dot-image {
     width: 5px;
     height: 5px;
+}
+
+.clock-and-time{
+    display: flex;
+    font-size: 12px;
+    margin-top: 0.5rem;
+    gap: 2px;
 }
 
 @media screen and (min-width:768px) {

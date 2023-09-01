@@ -2,3 +2,9 @@
     width: 106px;
     height: 66px;
 }
+
+@media screen and (min-width: 767px) {
+    .container-image {
+        display: none;
+    }
+}
