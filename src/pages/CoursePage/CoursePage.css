@@ -8,12 +8,25 @@
     background-color: #EAF2F2;
     padding: 1.5rem;
     padding-bottom:6rem;
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title-courses{
    margin-top: 1rem;
    font-size: 1.5rem;
+}
+
+.courses-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-container{
+    display: flex;
+    justify-content: flex-start;
 }
 
 
@@ -24,12 +37,15 @@ a {
     }
 
 
-    @media screen and (min-width:1440px) {
+    @media screen and (min-width:765px) {
     
         .navbar-container{
             display: none;
         }
     
+        .title-container{
+            margin: 0 auto;
+        }
     
       }
 
