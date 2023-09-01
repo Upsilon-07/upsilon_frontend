@@ -32,9 +32,20 @@ function RegisterPage() {
   };
   return (
     <>
-      <div>
-        <Title Title="Register" />
+      <div className="register-title">
+        <Title title="Register" />
+      </div>
+      <div className="register-page">
         <form onSubmit={handleSubmit(createUser)}>
+          <label>username:</label>
+          <TextInputBox
+            label="Username"
+            type="username"
+            name="username"
+            register={register}
+            errors={errors}
+          />
+          <label>email:</label>
           <TextInputBox
             label="Email"
             type="email"
@@ -42,6 +53,7 @@ function RegisterPage() {
             register={register}
             errors={errors}
           />
+          <label>password:</label>
           <TextInputBox
             label="Password"
             type="password"
@@ -49,7 +61,11 @@ function RegisterPage() {
             register={register}
             errors={errors}
           />
-          <NextButton/>
+          <NextButton
+            buttonId="orange-button"
+            buttonContent="Next"
+            buttonClass="button-square"
+          />
         </form>
       </div>
     </>
