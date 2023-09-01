@@ -1,46 +1,49 @@
-import "./HomePage.css"
-import homepageImgs from "/src/assets/images/homepage_img.png"
-import userProfileIcon from "/src/assets/images/user_profile_icon.png";
-import userProfilePic from "/src/assets/images/user_profile_picture.png";
-import yogaPoseCardPic from "/src/assets/images/yoga-pose-for-card.png";
+import "./HomePage.css";
+import { Link } from "react-router-dom";
 import UserName from "../../components/UserName/UserName";
+import Navbar from "../../components/navbar/Navbar";
+import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
+import { homePageData } from "../../assets/HomePage/HomePageData";
+import Title from "../../components/Title";
+import HomePageImage from "../../components/Image";
+import Description from "../../components/Desciption";
+import { homePageBold } from "../../assets/HomePage/HomePageBold";
+import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+//import Card from "/src/components/Card/Card.jsx"
 
 const HomePage = () => {
+  const id = 1;
   return (
     <div className="homepage">
-      <div>
-        <img src={userProfileIcon} alt="" className="user-profile-icon" />
-        <div>
-          <img src={userProfilePic} alt="" className="user-profile-pic" />
-        </div>
+      <div className="user-profile-icon">
+        <ProfilePicture />
       </div>
       <div>
         <UserName />
       </div>
       <div className="homepage-img">
-        <img src={homepageImgs} alt="" />
+        <HomePageImage data={homePageData.find((data) => data.id === id)} />
       </div>
-      <h2 className="homepage-subtitle1">{"Let's start basics"}</h2>
-      <h2 className="homepage-subtitle2">yoga and meditation</h2>
-      <div className="homepage-recommended-courses">
-        <h4>Recommended Courses</h4>
+      <div className="homepage-subtitle1">
+        <Title data={homePageData.find((data) => data.id === id)} />
       </div>
-      <div className="homepage-recommended-courses-box">
-        <img src={yogaPoseCardPic} alt="" className="yoga-pose-card-pic" />
-        <div>
-          <h5 className="homepage-recommended-courses-box-title">
-            Yoga Pilates
-          </h5>
-          <h6 className="homepage-recommended-courses-box-subtitle">
-            5 lessons
-          </h6>
-          <div className="homepage-recommended-courses-box-info">
-            <p>By Sarah William</p>
-            <p>All Level</p>
-            <p>4.5</p>
-          </div>
+
+      <div className="homepage-subtitle2">
+        <Title data={homePageBold.find((data) => data.id === id)} />
+      </div>
+      <div>
+        <div className="homepage-recommended-courses">
+          <Description data={homePageData.find((data) => data.id === id)} />
         </div>
       </div>
+      <div className="homepage-recommended-courses-box-info">
+        <Link className="card-link" to="/courses">
+          
+        </Link>
+      </div>
+
+      <Navbar />
+      <NavbarDesktop/>
     </div>
   );
 };
