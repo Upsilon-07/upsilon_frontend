@@ -83,9 +83,9 @@ body {
     width: 100%;
 }
 
-.card-link{
+/* .card-link{
     min-width: 300px;
-}
+} */
 
 @media screen and (min-width: 767px) {
     .user-profile-icon {
@@ -97,20 +97,20 @@ body {
     .homepage-recommended-courses-box-info {
         padding-bottom: 130px;
     }
-    .course-container{
+    /* .course-container{
         margin: 0 auto;
         width: 90%;
 
-    }
+    } */
   }
   
     
   @media screen and (min-width:1440px) {
-    .course-container{
+    /* .course-container{
         margin: 0 auto;
         width: 90%;
 
-    }
+    } */
 
 
   }
