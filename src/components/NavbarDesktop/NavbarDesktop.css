@@ -13,7 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    width: 65%;
+    width: 98%;
     height: 3.9375rem;
     border-radius: 3.5rem;
     background: #FEFEFE;
@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .navbar-container-desktop {
         display: none;
     }
