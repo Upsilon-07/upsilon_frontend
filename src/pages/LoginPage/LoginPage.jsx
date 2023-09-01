@@ -67,7 +67,7 @@ const LoginPage = () => {
   return (
     <>
     <div className="login-title">
-      <Title title="Log In" />
+      <Title title="Log In" weight="title-bold"/>
     </div>
     <div>
       <form onSubmit={handleSubmit(loginUser)}>
