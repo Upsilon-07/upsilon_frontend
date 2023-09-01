@@ -7,6 +7,7 @@ import StarButton from "../../components/StarButton/StarButton";
 import Navbar from "../../components/navbar/Navbar";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import "./CoursePage.css";
+import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 
 const CoursePage = () => {
   const [courses, setCourses] = useState([]);
@@ -33,27 +34,33 @@ const CoursePage = () => {
 
   return (
     <div className="course-page">
+      <NavbarDesktop />
       <div className="top">
         <ProfilePicture />
         <Link to="/courses/favourite">
           <StarButton />
         </Link>
       </div>
-      <TitleCard title="Courses" />
-      {/* <h1 className="title-courses">Courses</h1> */}
-      {courses && courses.length > 0 ? (
-        courses.map((course) => (
-          <Link
-            key={course.id}
-            className="card-link"
-            to={`/courses/${course.id}`}
-          >
-            <Card data={course} numberLessons={numberLessons} />
-          </Link>
-        ))
-      ) : (
-        <h1>Loading...</h1>
-      )}
+      <div className="courses-container">
+        <div className="title-container">
+          <TitleCard title="Courses" />
+        </div>
+        {/* <h1 className="title-courses">Courses</h1> */}
+        {courses && courses.length > 0 ? (
+          courses.map((course) => (
+            // <Link key={course.id} to={`/courses/${course.id}`}>
+            <Card
+              key={course.id}
+              data={course}
+              linkTo="courses"
+              numberLessons={numberLessons}
+            />
+            // </Link>
+          ))
+        ) : (
+          <h1>Loading...</h1>
+        )}
+      </div>
       <Navbar />
     </div>
   );

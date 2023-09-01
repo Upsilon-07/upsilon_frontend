@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import favouriteStar from "../../assets/images/blank-star.svg";
+import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 
 const CourseLessonPage = () => {
   const { id } = useParams();
@@ -36,26 +37,24 @@ const CourseLessonPage = () => {
   console.log(courseTitle);
   return (
     <div className="lessons-page">
+      <NavbarDesktop />
       <div className="lessons-top">
         <ProfilePicture />
+
         <Link to="/courses">
           <ArrowButton />
         </Link>
       </div>
 
       {id && courseTitle ? (
-        <TitleCard id={id} title={courseTitle} source={favouriteStar} />
+        <div className="title-container-lessons">
+          <TitleCard id={id} title={courseTitle} source={favouriteStar} />
+        </div>
       ) : null}
 
       {lessons && lessons.length > 0 ? (
         lessons.map((lesson) => (
-          <div
-            key={lesson.id}
-            className="card-link"
-            to={`/courses/${lesson.id}`}
-          >
-            <Card data={lesson} />
-          </div>
+          <Card key={lesson.id} data={lesson} linkTo="exercises" />
         ))
       ) : (
         <h1>Loading...</h1>

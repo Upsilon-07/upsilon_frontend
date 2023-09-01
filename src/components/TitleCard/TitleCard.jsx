@@ -5,9 +5,15 @@ import "./TitleCard.css";
 const TitleCard = ({ id, title, source }) => {
   const favourite = () => {
     //! post in api to:
-    api.post(`/courses/${id}`);
-    // if not exists in DB add row with course_id and user_id
-    // if exists in DB delete
+    const data = {
+      //! change the user_id with the id from the userContext
+      user_id: 1,
+      course_id: Number(id),
+    };
+    api
+      .post("/favourites/courses", data)
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -28,6 +34,7 @@ TitleCard.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   source: PropTypes.string,
+  width: PropTypes.string,
 };
 
 export default TitleCard;

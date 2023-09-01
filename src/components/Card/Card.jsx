@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Card.css";
 import clock from "../../assets/images/time.svg";
 
 import PropTypes from "prop-types";
 
-const Card = ({ data, numberLessons }) => {
+const Card = ({ data, numberLessons, linkTo }) => {
   const [lessonCount, setLessonCount] = useState();
 
   console.log(data);
@@ -19,8 +20,8 @@ const Card = ({ data, numberLessons }) => {
   }, []);
 
   return (
-    <div>
-      <div className="course-container">
+    <div className="course-container">
+      <Link to={`/${linkTo}/${data.id}`}>
         <div className="left-and-right-container">
           {data.image ? (
             <div className="left-container">
@@ -82,7 +83,7 @@ const Card = ({ data, numberLessons }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

@@ -1,4 +1,15 @@
 .title-card{
     display: flex;
+    width: 100%;
     justify-content: space-between;
 }
+
+@media screen and (min-width:765px) {
+    
+    .title-card{
+        width: 100%;
+    }
+
+    
+
+  }
