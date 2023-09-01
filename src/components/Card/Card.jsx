@@ -1,10 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Card.css";
+import clock from "../../assets/images/time.svg";
 
 import PropTypes from "prop-types";
 
-const Card = ({ data, numberLessons }) => {
+const Card = ({ data, numberLessons, linkTo }) => {
   const [lessonCount, setLessonCount] = useState();
+
+  console.log(data);
 
   useEffect(() => {
     if (numberLessons !== null && numberLessons?.length > 0) {
@@ -15,8 +20,8 @@ const Card = ({ data, numberLessons }) => {
   }, []);
 
   return (
-    <div>
-      <div className="course-container">
+    <div className="course-container">
+      <Link to={`/${linkTo}/${data.id}`}>
         <div className="left-and-right-container">
           {data.image ? (
             <div className="left-container">
@@ -27,39 +32,50 @@ const Card = ({ data, numberLessons }) => {
             <div className="title">
               {data.courseName ? (
                 <h2 className="course-name">{data.courseName}</h2>
+              ) : data.lesson_name ? (
+                <h2 className="course-name">{data.lesson_name}</h2>
               ) : null}
               {numberLessons && lessonCount ? (
-                <h3 className="number-of-lessons">{lessonCount} Lessons</h3>
+                <h4 className="number-of-lessons">{lessonCount} Lessons</h4>
               ) : null}
               {data.duration ? (
-                <>
-                  <img /> <h3>{data.duration}</h3>
-                </>
+                <div className="clock-and-time">
+                  <img src={clock} alt="clock of duration" />{" "}
+                  <h4>{data.duration} mins</h4>
+                </div>
               ) : null}
             </div>
             <div className="bottom-container">
               {data.trainer ? (
                 <>
                   <p>{data.trainer}</p>{" "}
-                  <img
-                    className="dot-image"
-                    src="/src/assets/images/dot-image.svg"
-                    alt="dot"
-                  />
                 </>
               ) : null}
               {data.difficulty ? (
                 <>
-                  <p>{data.difficulty}</p>
                   <img
                     className="dot-image"
                     src="/src/assets/images/dot-image.svg"
                     alt="dot"
                   />
+                  {data.courseName ? (
+                    <>
+                      <p>{data.difficulty === 1 ? "Beginner" : null}</p>
+                      <p>{data.difficulty === 2 ? "Intermediate" : null}</p>
+                      <p>{data.difficulty === 3 ? "Advanced" : null}</p>
+                    </>
+                  ) : data.lesson_name ? (
+                    <p>{data.difficulty}</p>
+                  ) : null}
                 </>
               ) : null}
               {data.rating ? (
                 <>
+                  <img
+                    className="dot-image"
+                    src="/src/assets/images/dot-image.svg"
+                    alt="dot"
+                  />
                   <img src="/src/assets/images/small-star.svg" alt="" />
                   <p>{data.rating}</p>
                 </>
@@ -67,7 +83,7 @@ const Card = ({ data, numberLessons }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
@@ -75,13 +91,18 @@ const Card = ({ data, numberLessons }) => {
 Card.propTypes = {
   data: PropTypes.shape({
     courseName: PropTypes.string,
+    lesson_name: PropTypes.string,
     image: PropTypes.string,
     lessons: PropTypes.number,
     duration: PropTypes.string,
     rating: PropTypes.string,
     trainer: PropTypes.string,
     difficulty: PropTypes.string,
-  }).isRequired,
+  }),
+  numberLessons: PropTypes.shape({
+    courseName: PropTypes.string,
+    lessonCount: PropTypes.number,
+  }),
 };
 
 export default Card;

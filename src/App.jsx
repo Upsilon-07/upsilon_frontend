@@ -11,6 +11,8 @@ import StartJourneyFour from "./pages/Start-Journey-Page/StartJourneyFour";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { UserContextProvider } from "./contexts/UserContext";
+import ExercisesPage from "./pages/ExercisesPage/ExercisesPage";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/courses/favourite" element={<CourseFavouritePage />} />
           <Route path="/courses/lessons" element={<CourseLessonPage />} />
+           <Route path="/exercises/:id" element={<ExercisesPage />} />
           <Route path="/start-journey" element={<StartJourney />} />
           <Route path="/start-journey-1" element={<StartJourneyTwo />} />
           <Route path="/start-journey-2" element={<StartJourneyThree />} />
@@ -29,6 +32,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </UserContextProvider>
+
     </>
   );
 }

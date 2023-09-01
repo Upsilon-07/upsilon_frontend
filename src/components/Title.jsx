@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function Title({ title,weight }) {
   return (
     <>
     <h1 id={`${weight}`}>{`${title}`}</h1>
+
     </>
 
   );
