@@ -8,12 +8,40 @@ import Title from "../../components/Title";
 import HomePageImage from "../../components/Image";
 import Description from "../../components/Desciption";
 import { homePageBold } from "../../assets/HomePage/HomePageBold";
+import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+import Card from "../../components/Card/Card";
+import { useEffect, useState } from "react";
+import api from "../../api/api";
 //import Card from "/src/components/Card/Card.jsx"
 
 const HomePage = () => {
   const id = 1;
+
+  const [courses, setCourses] = useState([]);
+  const [numberLessons, setNumberLessons] = useState([]);
+
+  const getAllCourses = () => {
+    api
+      .get("/courses")
+      .then((response) => {
+        if (response.status === 200) {
+          console.log(response);
+          setCourses(response.data.courses);
+          setNumberLessons(response.data.numberLessons);
+        } else {
+          console.log("Error getting courses suggestions");
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getAllCourses();
+  }, []);
+
   return (
     <div className="homepage">
+      <NavbarDesktop />
       <div className="user-profile-icon">
         <ProfilePicture />
       </div>
@@ -35,13 +63,23 @@ const HomePage = () => {
           <Description data={homePageData.find((data) => data.id === id)} />
         </div>
       </div>
-      <div className="homepage-recommended-courses-box-info">
-        <Link className="card-link" to="/courses">
-          
-        </Link>
+      <div className="homepage-courses-card">
+        {courses && courses.length > 0 ? (
+          courses.map((course) => (
+            <Link
+              key={course.id}
+              className="card-link"
+              to={`/courses/${course.id}`}
+            >
+              <Card data={course} numberLessons={numberLessons} />
+            </Link>
+          ))
+        ) : (
+          <h1>Loading...</h1>
+        )}
       </div>
-
       <Navbar />
+      
     </div>
   );
 };
