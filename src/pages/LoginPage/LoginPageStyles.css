@@ -1,0 +1,20 @@
+.login-page{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+}
+.login-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 16px;
+    margin-top: 110px;
+    margin-left: 15px;
+}
+.text-input-class{
+    width: 340px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}

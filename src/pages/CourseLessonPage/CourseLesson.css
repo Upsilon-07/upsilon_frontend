@@ -30,4 +30,26 @@
     font-size: 12px;
 }
 
+.title-card{
+    display: flex;
+}
 
+.title-container-lessons{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+
+
+@media screen and (min-width:765px) {
+    
+ 
+
+    .title-container-lessons{
+        margin: 0 auto;
+        width: 50%;
+        margin-top: 18px;
+    }
+
+  }
