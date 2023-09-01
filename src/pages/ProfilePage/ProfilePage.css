@@ -21,6 +21,8 @@
     letter-spacing: 0.045rem;
 }
 
+
+
 .profile-input-box {
     display: flex;
     align-items: center;
@@ -40,7 +42,7 @@
 .profile-input-box1 {
     width: 21.4375rem;
     display: flex;
-    height: 3.25rem;
+    height: 1.5rem;
     flex-shrink: 0;
     border-radius: 0.625rem;
     padding-top: 1.3080568720379147%;
@@ -50,12 +52,13 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    min-width: 90%;
 }
 
 .profile-input-box2 {
     width: 21.4375rem;
     display: flex;
-    height: 3.25rem;
+    height: 1.5rem;
     flex-shrink: 0;
     border-radius: 0.625rem;
     padding-top: 1.3080568720379147%;
@@ -65,6 +68,7 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    min-width: 90%;
 }
 
 .profile-button {
@@ -80,6 +84,9 @@
     padding-bottom: 1.8957345971563981%;
 }
 
+#profile-edit-button {
+    padding-bottom: 5%;
+}
 
 @media screen and (min-width: 767px) {
     .profile-input-box {
