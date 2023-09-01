@@ -41,6 +41,7 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
+      <NavbarDesktop />
       <div className="user-profile-icon">
         <ProfilePicture />
       </div>
@@ -78,7 +79,7 @@ const HomePage = () => {
         )}
       </div>
       <Navbar />
-      <NavbarDesktop />
+      
     </div>
   );
 };

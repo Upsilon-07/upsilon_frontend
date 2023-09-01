@@ -87,6 +87,11 @@ body {
     min-width: 300px;
 }
 
+@media screen and (min-width: 767px) {
+    .user-profile-icon {
+        padding-top: 110px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .homepage-recommended-courses-box-info {
