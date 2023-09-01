@@ -4,15 +4,13 @@ import UserName from "../../components/UserName/UserName";
 import Navbar from "../../components/navbar/Navbar";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { homePageData } from "../../assets/HomePage/HomePageData";
-import Title from "../../components/Title";
 import HomePageImage from "../../components/Image";
 import Description from "../../components/Desciption";
-import { homePageBold } from "../../assets/HomePage/HomePageBold";
+import Title from "../../components/Title";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import Card from "../../components/Card/Card";
 import { useEffect, useState } from "react";
 import api from "../../api/api";
-//import Card from "/src/components/Card/Card.jsx"
 
 const HomePage = () => {
   const id = 1;
@@ -52,11 +50,11 @@ const HomePage = () => {
         <HomePageImage data={homePageData.find((data) => data.id === id)} />
       </div>
       <div className="homepage-subtitle1">
-        <Title data={homePageData.find((data) => data.id === id)} />
+      <Title title="Let's start basic" />
       </div>
 
       <div className="homepage-subtitle2">
-        <Title data={homePageBold.find((data) => data.id === id)} />
+      <Title title="yoga and meditation" />
       </div>
       <div>
         <div className="homepage-recommended-courses">
