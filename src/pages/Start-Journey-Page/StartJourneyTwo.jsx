@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { journeyData } from "../../assets/StartJourneyData";
-import { journeyBold } from "../../assets/StartJouneyBold";
 import NextButton from "../../components/next-page-button/NextButton";
 import JourneyImage from "../../components/Image";
 import Title from "../../components/Title";
@@ -16,9 +15,9 @@ function StartJourneyTwo() {
           <JourneyImage data={journeyData.find((data) => data.id === id)} />
         </div>
         <div className="journey-title-description" id="journey-page-two">
-        <div className="journey-title">
-            <Title data={journeyData.find((data) => data.id === id)} />
-            <Title data={journeyBold.find((data) => data.id === id)} />
+          <div className="journey-title">
+          <Title title={"Enjoy Your"} weight={"light-title"} />
+        <Title title={"Yoga Anytime"} weight={"bold-title"} />
           </div>
           <div className="journey-description">
             <JourneyDescription
@@ -28,7 +27,11 @@ function StartJourneyTwo() {
         </div>
         <div className="journey-button">
           <Link to="/start-journey-2">
-            <NextButton data={journeyData.find((data) => data.id === id)} />
+            <NextButton
+              buttonId="orange-button"
+              buttonContent="Get Started"
+              buttonClass="button-round"
+            />
           </Link>
         </div>
       </div>
