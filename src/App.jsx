@@ -26,7 +26,7 @@ function App() {
         <Route path='/user-profile/change-password' element={<ChangePasswordPage/>} /> */}
         <Route path="/courses" element={<CoursePage/>} />
         <Route path="/courses/favourite" element={<CourseFavouritePage/>} />
-        <Route path="/courses/lessons" element={<CourseLessonPage/>} />
+        <Route path="/courses/:id" element={<CourseLessonPage/>} />
         <Route path="/exercises/:id" element={<ExercisesPage />} />
         <Route path='/start-journey' element={<StartJourney/>}/>
       <Route path='/start-journey-1' element={<StartJourneyTwo/>}/>
