@@ -5,8 +5,15 @@ import NextButton from "../../components/next-page-button/NextButton";
 import { Link } from "react-router-dom";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
+import DisabledTextInputBox from "../../components/DisabledTextInputBox";
 
 const ProfilePage = () => {
+
+  const { user } = useContext(UserContext);
+
+
   return (
     <div className="profile-page">
       <NavbarDesktop />
@@ -16,11 +23,19 @@ const ProfilePage = () => {
       </div>
 
       <form className="profile-input-box">
-        <label>User name:</label>
-        <input type="text" className="profile-input-box1" name="user_name" />
+        <label>Username:</label>
+        <DisabledTextInputBox
+            type="username"
+            value={user.username}
+            readOnly
+          />
 
         <label>E-mail:</label>
-        <input type="email" className="profile-input-box2" name="email" />
+        <DisabledTextInputBox
+            type="email"
+            value={user.email}
+            readOnly
+          />
       </form>
 
       <div className="profile-button" id="profile-edit-button">
