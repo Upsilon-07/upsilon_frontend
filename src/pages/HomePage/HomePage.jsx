@@ -8,11 +8,14 @@ import Description from "../../components/Desciption";
 import Title from "../../components/Title";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import Card from "../../components/Card/Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "../../api/api";
+import UserContext from "../../contexts/UserContext";
 
 const HomePage = () => {
   const id = 1;
+
+  const { user } = useContext(UserContext);
 
   const [courses, setCourses] = useState([]);
   const [numberLessons, setNumberLessons] = useState([]);
@@ -40,7 +43,7 @@ const HomePage = () => {
     <div className="homepage">
       <NavbarDesktop />
       <div className="user-profile-icon">
-        <ProfilePicture />
+        <ProfilePicture value={user.username}/>
       </div>
       <div>
         <UserName />
