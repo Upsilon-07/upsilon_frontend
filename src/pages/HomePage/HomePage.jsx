@@ -50,11 +50,11 @@ const HomePage = () => {
         <HomePageImage data={homePageData.find((data) => data.id === id)} />
       </div>
       <div className="homepage-subtitle1">
-      <Title title="Let's start basic" />
+      <Title title="Let's start basic" weight={"light-title"} />
       </div>
 
       <div className="homepage-subtitle2">
-      <Title title="yoga and meditation" />
+      <Title title="yoga and meditation" weight={"bold-title"} />
       </div>
       <div>
         <div className="homepage-recommended-courses">
@@ -63,7 +63,7 @@ const HomePage = () => {
       </div>
       <div className="homepage-courses-card">
         {courses && courses.length > 0 ? (
-          courses.map((course) => (
+          courses.slice(0,3).map((course) => (
             <Link
               key={course.id}
               className="card-link"
