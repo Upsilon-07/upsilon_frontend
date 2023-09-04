@@ -1,5 +1,4 @@
 import "./HomePage.css";
-import { Link } from "react-router-dom";
 import UserName from "../../components/UserName/UserName";
 import Navbar from "../../components/navbar/Navbar";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
@@ -62,15 +61,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="homepage-courses-card">
+        
         {courses && courses.length > 0 ? (
-          courses.slice(0,3).map((course) => (
-            <Link
+          courses.slice(0,2).map((course) => (
+              <Card
               key={course.id}
-              className="card-link"
-              to={`/courses/${course.id}`}
-            >
-              <Card data={course} numberLessons={numberLessons} />
-            </Link>
+              data={course}
+              linkTo="courses"
+              numberLessons={numberLessons} />
           ))
         ) : (
           <h1>Loading...</h1>
