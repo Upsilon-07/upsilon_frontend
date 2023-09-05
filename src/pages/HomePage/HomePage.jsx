@@ -43,10 +43,10 @@ const HomePage = () => {
     <div className="homepage">
       <NavbarDesktop />
       <div className="user-profile-icon">
-        <ProfilePicture value={user.username}/>
+        <ProfilePicture/>
       </div>
       <div>
-        <UserName />
+        <UserName value={user.username}/>
       </div>
       <div className="homepage-img">
         <HomePageImage data={homePageData.find((data) => data.id === id)} />
