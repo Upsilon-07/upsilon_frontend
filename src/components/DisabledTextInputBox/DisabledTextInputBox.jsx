@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./DisabledTextInputBox.css"
 
 const DisabledTextInputBox = ({ type, value }) => {
   return (

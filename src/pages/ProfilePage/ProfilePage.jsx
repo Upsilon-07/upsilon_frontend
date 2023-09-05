@@ -23,14 +23,14 @@ const ProfilePage = () => {
       </div>
 
       <form className="profile-input-box">
-        <label>Username:</label>
+        
         <DisabledTextInputBox
             type="username"
             value={user.username}
             readOnly
           />
 
-        <label>E-mail:</label>
+        
         <DisabledTextInputBox
             type="email"
             value={user.email}
