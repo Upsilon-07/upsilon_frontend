@@ -37,9 +37,11 @@ const LoginPage = () => {
           };
 
           // Fetch user data using the token
+          
           api
             .get("/user", config)
             .then((response) => {
+              console.log(response);
               if (response.status === 200) {
                 // Update the user context with user data
                 setUser(response.data);
@@ -66,38 +68,38 @@ const LoginPage = () => {
 
   return (
     <>
-    <div className="login-title">
-      <Title title="Log In" />
-    </div>
-    <div>
-      <form onSubmit={handleSubmit(loginUser)}>
-        <div>
-          <label>Email:</label>
-          <TextInputBox
-            label="Email"
-            type="email"
-            name="email"
-            register={register}
-            errors={errors}
+      <div className="login-title">
+        <Title title="Log In" weight="title-bold" />
+      </div>
+      <div>
+        <form onSubmit={handleSubmit(loginUser)}>
+          <div>
+            <label>Email:</label>
+            <TextInputBox
+              label="Email"
+              type="email"
+              name="email"
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <TextInputBox
+              label="Password"
+              type="password"
+              name="password"
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <NextButton
+            buttonId="orange-button"
+            buttonContent="LOG IN"
+            buttonClass="button-square"
           />
-        </div>
-        <div>
-          <label>Password:</label>
-          <TextInputBox
-            label="Password"
-            type="password"
-            name="password"
-            register={register}
-            errors={errors}
-          />
-        </div>
-        <NextButton
-          buttonId="orange-button"
-          buttonContent="LOG IN"
-          buttonClass="button-square"
-        />
-      </form>
-    </div>
+        </form>
+      </div>
     </>
   );
 };

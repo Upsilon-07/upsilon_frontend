@@ -33,7 +33,7 @@ function RegisterPage() {
   return (
     <>
       <div className="register-title">
-        <Title title="Register" />
+        <Title title="Register" weight="title-bold" />
       </div>
       <div className="register-page">
         <form onSubmit={handleSubmit(createUser)}>

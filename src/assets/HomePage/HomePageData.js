@@ -8,5 +8,16 @@ export const homePageData = [
         image: homePageImage,
         description:"Recommended Courses",
     },
-    
+    {
+        id:2, 
+        title:"Profile",
+        weight: "light-title",
+        buttonContent:"EDIT PROFILE",
+        buttonId: "orange-button"
+    },
+    {
+        id:3, 
+        buttonContent:"CHANGE PASSWORD",
+        buttonId: "white-button"
+    },
 ];
