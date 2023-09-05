@@ -8,34 +8,27 @@ import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import DisabledTextInputBox from "../../components/DisabledTextInputBox/DisabledTextInputBox";
+import ArrowButton from "../../components/ArrowButton/ArrowButton";
 
 const ProfilePage = () => {
-
   const { user } = useContext(UserContext);
-
 
   return (
     <div className="profile-page">
       <NavbarDesktop />
+      <div className="profile-page-return-button">
+      <Link to="/" >
+        <ArrowButton  />
+      </Link></div>
       <div className="profile-title">
-        <Title title="Profile" weight={"light-title"} />
-        <ProfilePicture />
+        <div><Title title="Profile" weight={"light-title"} /></div>
+        <div className="profile-page-user-picture"><ProfilePicture /></div>
       </div>
 
       <form className="profile-input-box">
-        
-        <DisabledTextInputBox
-            type="username"
-            value={user.username}
-            readOnly
-          />
+        <DisabledTextInputBox type="username" value={user.username} readOnly />
 
-        
-        <DisabledTextInputBox
-            type="email"
-            value={user.email}
-            readOnly
-          />
+        <DisabledTextInputBox type="email" value={user.email} readOnly />
       </form>
 
       <div className="profile-button" id="profile-edit-button">
