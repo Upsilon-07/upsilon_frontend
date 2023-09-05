@@ -1,28 +1,35 @@
-import { useState } from "react";
 import "./ProfilePicture.css";
+import avatar from "/src/assets/images/profilePicture/woman-avatar.svg";
+import { PropTypes } from 'prop-types';
+import { Link } from "react-router-dom";
 
-const ProfilePicture = () => {
-  const [profileImage, setProfileImage] = useState(
-    "/src/assets/images/profile-picture.svg"
-  );
+const ProfilePicture = ({ image }) => {
+ 
 
-  const handleClick = () => {
-    setProfileImage("/src/assets/images/profile-picture.svg");
-  };
+  
   return (
     <div className="container-image">
-      {profileImage ? (
+      <Link to={'/user-profile'}>
+      {image ? (
         <img
           className="profile-image"
-          onClick={handleClick}
-          src={profileImage}
-          alt="avatar"
+          src={image}
+          alt="user-picture"
         />
       ) : (
-        <p>loading..</p>
+        <img
+          className="profile-image"
+          src={avatar}
+          alt="user-avatar"
+        />
       )}
+      </Link>
     </div>
   );
+};
+
+ProfilePicture.propTypes = {
+  image: PropTypes.string,
 };
 
 export default ProfilePicture;
