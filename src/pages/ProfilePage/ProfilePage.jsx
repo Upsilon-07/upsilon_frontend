@@ -7,7 +7,7 @@ import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
-import DisabledTextInputBox from "../../components/DisabledTextInputBox";
+import DisabledTextInputBox from "../../components/DisabledTextInputBox/DisabledTextInputBox";
 
 const ProfilePage = () => {
 
