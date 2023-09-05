@@ -1,10 +1,38 @@
-.profile-image {
-    width: 106px;
-    height: 66px;
+.container-image {
+    background-image: url(src/assets/images/profilePicture/profile-picture-background.svg);
+    width: 106.256px;
+    height: 65.965px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position: relative;
+    top: 10px;
 }
+
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    stroke-width: 2px;
+    stroke: #FFF;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    left: -19px;
+}
+
 
 @media screen and (min-width: 767px) {
     .container-image {
-        display: none;
+        padding-top: 90px;
+        position: relative;
+        display: flex;
     }
 }

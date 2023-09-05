@@ -1,5 +1,4 @@
 import "./HomePage.css";
-import { Link } from "react-router-dom";
 import UserName from "../../components/UserName/UserName";
 import Navbar from "../../components/navbar/Navbar";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
@@ -9,11 +8,14 @@ import Description from "../../components/Desciption";
 import Title from "../../components/Title";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import Card from "../../components/Card/Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "../../api/api";
+import UserContext from "../../contexts/UserContext";
 
 const HomePage = () => {
   const id = 1;
+
+  const { user } = useContext(UserContext);
 
   const [courses, setCourses] = useState([]);
   const [numberLessons, setNumberLessons] = useState([]);
@@ -41,20 +43,20 @@ const HomePage = () => {
     <div className="homepage">
       <NavbarDesktop />
       <div className="user-profile-icon">
-        <ProfilePicture />
+        <ProfilePicture image={user.picture}/>
       </div>
       <div>
-        <UserName />
+        <UserName value={user.username}/>
       </div>
       <div className="homepage-img">
         <HomePageImage data={homePageData.find((data) => data.id === id)} />
       </div>
       <div className="homepage-subtitle1">
-      <Title title="Let's start basic" />
+      <Title title="Let's start basic" weight={"light-title"} />
       </div>
 
       <div className="homepage-subtitle2">
-      <Title title="yoga and meditation" />
+      <Title title="yoga and meditation" weight={"bold-title"} />
       </div>
       <div>
         <div className="homepage-recommended-courses">
@@ -62,15 +64,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="homepage-courses-card">
+        
         {courses && courses.length > 0 ? (
-          courses.map((course) => (
-            <Link
+          courses.slice(0,2).map((course) => (
+              <Card
               key={course.id}
-              className="card-link"
-              to={`/courses/${course.id}`}
-            >
-              <Card data={course} numberLessons={numberLessons} />
-            </Link>
+              data={course}
+              linkTo="courses"
+              numberLessons={numberLessons} />
           ))
         ) : (
           <h1>Loading...</h1>
