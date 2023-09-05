@@ -11,15 +11,24 @@ import StartJourneyFour from './pages/Start-Journey-Page/StartJourneyFour';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from "./pages/LoginPage/LoginPage";
-import { UserContextProvider } from "./contexts/UserContext";
 import ExercisesPage from "./pages/ExercisesPage/ExercisesPage";
-
+import AuthContext from "./contexts/AuthContext";
+import UserContext from "./contexts/UserContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import { useContext } from "react";
 
 function App() {
+  const { user } = useContext(UserContext);
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <>
-     <UserContextProvider>
+
       <Routes>
+        <Route
+           element={
+             <ProtectedRoute redirectPath="/login" isAllowed={isAuthenticated && user} />
+           }
+           >
         <Route path='/' element={<HomePage/>} />
         <Route path='/user-profile' element={<ProfilePage/>} />
         {/* <Route path='/user-profile/edit-profile' element={<EditProfilePage/>} />
@@ -29,13 +38,16 @@ function App() {
         <Route path="/courses/:id" element={<CourseLessonPage/>} />
         <Route path="/exercises/:id" element={<ExercisesPage />} />
         <Route path='/start-journey' element={<StartJourney/>}/>
+         </Route>
+
+
       <Route path='/start-journey-1' element={<StartJourneyTwo/>}/>
       <Route path='/start-journey-2' element={<StartJourneyThree/>}/>
       <Route path='/start-journey-3' element={<StartJourneyFour/>}/>
       <Route path='/register' element={<RegisterPage/>}/>
-      <Route path="/login" element={<LoginPage />} />
+      <Route path='/login' element={<LoginPage/>}/>
       </Routes>
-      </UserContextProvider>
+   
     </>
   );
 }
