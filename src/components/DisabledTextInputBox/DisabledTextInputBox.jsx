@@ -5,6 +5,7 @@ const DisabledTextInputBox = ({ type, value }) => {
   return (
     <div className='disabled-text-input-box'>
         <input
+        className="text-disabled-text-input-box"
         type={type}
         value={value}
         readOnly={true}

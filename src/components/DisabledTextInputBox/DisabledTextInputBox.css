@@ -12,3 +12,7 @@
     align-content: stretch;
     justify-content: center;
 }
+
+.text-disabled-text-input-box {
+    padding-left: 1%;
+}
