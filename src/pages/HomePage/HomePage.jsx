@@ -43,7 +43,7 @@ const HomePage = () => {
     <div className="homepage">
       <NavbarDesktop />
       <div className="user-profile-icon">
-        <ProfilePicture/>
+        <ProfilePicture image={user.picture}/>
       </div>
       <div>
         <UserName value={user.username}/>

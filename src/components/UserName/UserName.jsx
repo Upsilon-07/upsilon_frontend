@@ -16,7 +16,7 @@ const UserName = ({ value }) => {
   );
 };
 
-UserName.PropTypes = {
+UserName.propTypes = {
   value: PropTypes.string,
 };
 
