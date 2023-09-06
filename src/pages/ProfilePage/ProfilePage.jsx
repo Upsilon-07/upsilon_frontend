@@ -5,13 +5,13 @@ import NextButton from "../../components/next-page-button/NextButton";
 import { Link } from "react-router-dom";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import DisabledTextInputBox from "../../components/DisabledTextInputBox/DisabledTextInputBox";
 
 const ProfilePage = () => {
 
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
 
   return (
