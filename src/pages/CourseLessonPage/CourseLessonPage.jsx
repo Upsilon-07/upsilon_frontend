@@ -39,7 +39,9 @@ const CourseLessonPage = () => {
     <div className="lessons-page">
       <NavbarDesktop />
       <div className="lessons-top">
-        <ProfilePicture />
+        <Link to="/user-profile">
+          <ProfilePicture />
+        </Link>
 
         <Link to="/courses">
           <ArrowButton />
@@ -54,7 +56,7 @@ const CourseLessonPage = () => {
 
       {lessons && lessons.length > 0 ? (
         lessons.map((lesson) => (
-          <Card key={lesson.id} data={lesson} linkTo="exercises" />
+          <Card key={lesson.id} data={lesson} linkTo="lesson" />
         ))
       ) : (
         <h1>Loading...</h1>

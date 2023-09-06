@@ -4,6 +4,26 @@
     justify-content: space-between;
 }
 
+.isFavorite {
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg');
+    background-color: rgb(255, 255, 255);
+    background-size: 100%;
+    align-self: flex-start;
+  }
+
+  .notFavorite {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg');
+    background-size: 100%;
+    align-self: flex-start;
+  }
+
 @media screen and (min-width:765px) {
     
     .title-card{
