@@ -11,6 +11,7 @@ import Card from "../../components/Card/Card";
 import { useContext, useEffect, useState } from "react";
 import api from "../../api/api";
 import UserContext from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const id = 1;
@@ -43,7 +44,9 @@ const HomePage = () => {
     <div className="homepage">
       <NavbarDesktop />
       <div className="user-profile-icon">
+      <Link to={'/user-profile'}>
         <ProfilePicture image={user.picture}/>
+        </Link>
       </div>
       <div>
         <UserName value={user.username}/>
