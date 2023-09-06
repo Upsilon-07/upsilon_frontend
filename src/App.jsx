@@ -16,7 +16,7 @@ import AuthContext from "./contexts/AuthContext";
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
-import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
+import EditProfile from "./pages/EditProfilePage/EditProfilePage"
 
 function App() {
   const { user } = useContext(UserContext);
@@ -41,6 +41,7 @@ function App() {
         >
           <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/courses/favourite" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />

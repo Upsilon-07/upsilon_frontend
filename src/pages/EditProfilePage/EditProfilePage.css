@@ -1,0 +1,29 @@
+
+.edit-profile-page-return-button {
+    display: flex;
+    position: relative;
+    left: 5.128205128205128%;
+    padding-top: 5.128205128205128%;
+
+}
+
+.edit-profile-title {
+    display: flex;
+    width: 9.25rem;
+    height: 2.5rem;
+    padding-right: 0px;
+    align-items: center;
+    flex-shrink: 0;
+    padding-left: 5.907692307692307%;
+    padding-top: 12.43601895734597%;
+    padding-bottom: 12.43601895734597%;
+}
+
+#light-title {
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #4A4A4A;
+    line-height: 140%; /* 3.15rem */
+    letter-spacing: 0.045rem;
+}
