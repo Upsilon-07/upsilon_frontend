@@ -50,6 +50,7 @@ const EditProfilePage = () => {
               name="email"
               register={register}
               errors={errors}
+              placeholder={user.email ? user.email : null}
             />
           </div>
           <div>
@@ -59,6 +60,7 @@ const EditProfilePage = () => {
               name="image"
               register={register}
               errors={errors}
+              placeholder="Upload a Profile Image"
             />
           </div>
           </form>

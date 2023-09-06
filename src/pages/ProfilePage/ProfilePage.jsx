@@ -29,9 +29,9 @@ const ProfilePage = () => {
       </div>
 
       <form className="profile-input-box">
-        <DisabledTextInputBox type="username" value={user.username ? user.username : null} readOnly />
+        {edit ? <Navigate to="/edit-profile" /> : <DisabledTextInputBox type="username" value={user.username ? user.username : null} readOnly />}
 
-        <DisabledTextInputBox type="email" value={user.email ? user.email : null} readOnly />
+        {edit ? <Navigate to="/edit-profile" /> : <DisabledTextInputBox type="email" value={user.email ? user.email : null} readOnly />}
       </form>
 
       <div className="profile-button" id="profile-edit-button">
