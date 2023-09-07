@@ -7,6 +7,7 @@ const ProfilePicture = ({ image }) => {
 
   
   return (
+    <div className="user-profile-icon">
     <div className="profile-picture-container-image">
       {image ? (
         <img
@@ -21,6 +22,7 @@ const ProfilePicture = ({ image }) => {
           alt="user-avatar"
         />
       )}
+    </div>
     </div>
   );
 };

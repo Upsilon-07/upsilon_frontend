@@ -16,13 +16,17 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <NavbarDesktop />
-      <div className="profile-page-return-button">
-      <Link to="/" >
-        <ArrowButton  />
-      </Link></div>
+
+      <Link to="/">
+        <ArrowButton />
+      </Link>
       <div className="profile-title">
-        <div><Title title="Profile" weight={"light-title"} /></div>
-        <div className="profile-page-user-picture"><ProfilePicture /></div>
+        <div>
+          <Title title="Profile" weight={"light-title"} />
+        </div>
+        <div className="profile-page-user-picture">
+          <ProfilePicture />
+        </div>
       </div>
 
       <form className="profile-input-box">
