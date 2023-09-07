@@ -1,5 +1,5 @@
-import "./EditProfilePage.css"
-import { useContext, useState } from "react";
+import "./EditProfilePage.css";
+import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import Navbar from "../../components/navbar/Navbar";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
@@ -7,35 +7,59 @@ import { Link } from "react-router-dom";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import Title from "../../components/Title";
 import TextInputBox from "../../components/TextInputBox";
-import { useForm } from "react-hook-form";
 import NextButton from "../../components/next-page-button/NextButton";
+import { useForm } from "react-hook-form";
+
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import editProfileSchema from "../../schemas/profile-schema";
+
+// import { storage } from "../../services/firebase";
+// import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import { v4 as uuid } from "uuid";
 
 const EditProfilePage = () => {
+  const { user, setUser } = useContext(UserContext);
 
-    const { user, setUser } = useContext(UserContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  //   {
+  //   resolver: yupResolver(editProfileSchema),
+  // }
 
+  const editProfileInfo = (data) => {
+    console.log(data);
+    //   if(data.image[0]){
+    //     console.log("test");
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
+    // } else {
+    //     delete data.image;
+    //     // // console.log(data);
+    //     //! UPDATE THE DATABASE WITH API.POST
+    //     setUser((prevUser) => ({...prevUser, ...data}))
+    // }
+  };
 
   return (
     <div className="edit-profile-page">
-        <NavbarDesktop />
+      <NavbarDesktop />
       <div className="edit-profile-page-return-button">
-      <Link to="/user-profile" >
-        <ArrowButton  />
-      </Link></div>
+        <Link to="/user-profile">
+          <ArrowButton />
+        </Link>
+      </div>
       <div className="edit-profile-title">
-        <div><Title title="Edit Profile" weight={"light-title"} /></div>
+        <div>
+          <Title title="Edit Profile" weight={"light-title"} />
+        </div>
       </div>
       <div>
-        <form onSubmit={handleSubmit()}>
+        <form onSubmit={handleSubmit(editProfileInfo)}>
           <div>
             <TextInputBox
-              label="username"
+              label="Username"
               type="text"
               name="username"
               register={register}
@@ -54,36 +78,58 @@ const EditProfilePage = () => {
             />
           </div>
           <div>
+            <label>Upload a Profile Image</label>
             <TextInputBox
               label="Image"
-              type="text"
+              type="file"
               name="image"
               register={register}
               errors={errors}
-              placeholder="Upload a Profile Image"
             />
           </div>
-          </form>
           <div className="save-changes-button">
-          <NextButton
-            buttonId="orange-button"
-            buttonContent="SAVE CHANGES"
-            buttonClass="button-square"
-          />
-      </div>
-      <div className="cancel-changes-button">
-        <Link to="/user-profile">
-          <NextButton
-            buttonId="white-button"
-            buttonContent="CANCEL CHANGES"
-            buttonClass="button-square"
-          />
-        </Link>
-      </div>
+            <NextButton
+              buttonId="orange-button"
+              buttonContent="SAVE CHANGES"
+              buttonClass="button-square"
+            />
+          </div>
+        </form>
+        {/* <form onSubmit={handleSubmit(editProfileInfo)}>
+          <div>
+            <label>Profile Picture:</label>
+            <br />
+            <input type="file" {...register("image")} />
+            {errors.image && <p>{errors.image?.message}</p>}
+            <br />
+            <label>Email:</label>
+            <br />
+
+            <input
+              placeholder="email"
+              type="email"
+              {...register("email")}
+              aria-invalid={errors.email ? "true" : "false"}
+            />
+            {errors.email && <p>{errors.email?.message}</p>}
+            <br />
+            <button type="submit">Save Changes</button>
+          </div>
+        </form> */}
+
+        <div className="cancel-changes-button">
+          <Link to="/user-profile">
+            <NextButton
+              buttonId="white-button"
+              buttonContent="CANCEL CHANGES"
+              buttonClass="button-square"
+            />
+          </Link>
         </div>
+      </div>
       <Navbar />
     </div>
   );
 };
 
-export default EditProfilePage
+export default EditProfilePage;

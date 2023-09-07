@@ -26,7 +26,7 @@ const HomePage = () => {
       .get("/courses")
       .then((response) => {
         if (response.status === 200) {
-          console.log(response);
+          // console.log(response);
           setCourses(response.data.courses);
           setNumberLessons(response.data.numberLessons);
         } else {
