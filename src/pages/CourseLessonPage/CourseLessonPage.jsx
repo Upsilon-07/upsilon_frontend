@@ -34,7 +34,6 @@ const CourseLessonPage = () => {
     getAllLessonsByCourseId();
   }, []);
 
-  console.log(courseTitle);
   return (
     <div className="lessons-page">
       <NavbarDesktop />

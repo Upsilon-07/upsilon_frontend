@@ -1,19 +1,16 @@
 import PropTypes from "prop-types";
 import api from "../../api/api";
-import { useState } from "react";
-// import { useContext } from "react";
-// import UserContext from "../../contexts/UserContext";
-import "./TitleCard.css";
+import { useState, useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 import favouriteImg from "../../assets/images/star 1.svg";
+import "./TitleCard.css";
 
 const TitleCard = ({ id, title, source }) => {
-  // const { } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const [img, setImg] = useState(source);
 
   const favourite = () => {
-    //! post in api to:
-
     if (img === source) {
       setImg(favouriteImg);
     }
@@ -21,14 +18,15 @@ const TitleCard = ({ id, title, source }) => {
       setImg(source);
     }
 
+    //! post in api to:
     const data = {
       //! change the user_id with the id from the userContext
-      user_id: 1,
+      user_id: user.id,
       course_id: Number(id),
     };
     api
-      .post("/favourites/courses", data)
-      .then((response) => console.log(response))
+      .post("favourites/courses", data)
+      .then((response) => response)
       .catch((err) => console.error(err));
   };
 
