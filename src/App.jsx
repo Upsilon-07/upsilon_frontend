@@ -16,7 +16,7 @@ import AuthContext from "./contexts/AuthContext";
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
-import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
+
 
 function App() {
   const { user } = useContext(UserContext);

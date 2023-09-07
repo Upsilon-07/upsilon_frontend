@@ -7,7 +7,7 @@ const ProfilePicture = ({ image }) => {
 
   
   return (
-    <div className="container-image">
+    <div className="profile-picture-container-image">
       {image ? (
         <img
           className="profile-image"

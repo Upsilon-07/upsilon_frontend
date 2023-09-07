@@ -3,7 +3,7 @@ import "./ArrowButton.css"
 const ArrowButton = () => {
   return (
     <div>
-    <img className="img-arrow" src="/src/assets/images/arrow-button.svg"/>
+    <img className="img-arrow-button" src="/src/assets/images/arrow-button.svg"/>
     </div>
   )
 }
