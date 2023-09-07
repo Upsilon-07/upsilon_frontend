@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext.jsx";
 import NextButton from "../../components/next-page-button/NextButton";
-import TextInputBox from "../../components/TextInputBox";
+import TextInputBox from "../../components/Input/TextInputBox.jsx";
 import Title from "../../components/Title";
 import "./LoginPageStyles.css";
 import AuthContext from "../../contexts/AuthContext.jsx";
@@ -65,9 +65,8 @@ const LoginPage = () => {
           <div>
             <label>Email:</label>
             <TextInputBox
-              label="Email"
               type="email"
-              name="email"
+              placeholder="email"
               register={register}
               errors={errors}
             />
@@ -75,9 +74,8 @@ const LoginPage = () => {
           <div>
             <label>Password:</label>
             <TextInputBox
-              label="Password"
               type="password"
-              name="password"
+              placeholder="password"
               register={register}
               errors={errors}
             />
@@ -89,6 +87,7 @@ const LoginPage = () => {
             buttonId="orange-button"
             buttonContent="LOG IN"
             buttonClass="button-square"
+            type="submit"
           />
         </form>
       </div>
