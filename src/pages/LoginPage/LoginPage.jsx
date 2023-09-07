@@ -9,7 +9,8 @@ import TextInputBox from "../../components/TextInputBox";
 import Title from "../../components/Title";
 import "./LoginPageStyles.css";
 import AuthContext from "../../contexts/AuthContext.jsx";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import userSchema from "../../schemas/user-schema";
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
   const { setIsAuthenticated } = useContext(AuthContext);
@@ -18,7 +19,9 @@ const LoginPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
 
   const navigate = useNavigate();
 
@@ -30,7 +33,7 @@ const LoginPage = () => {
           //! save token in cookies
           Cookies.set("user_token", response.data.token);
           // //! save token in local storage
-          // localStorage.setItem("user_token", response.data.token)
+          localStorage.setItem("user_token", response.data.token);
           let config = {
             headers: {
               Authorization: "Bearer " + response.data.token,
@@ -79,7 +82,7 @@ const LoginPage = () => {
               errors={errors}
             />
           </div>
-          <Link to="/">
+          <Link to="/forgot-password">
             <p id="forgot-password-left">forgot password</p>
           </Link>
           <NextButton

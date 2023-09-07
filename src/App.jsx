@@ -17,7 +17,7 @@ import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
 import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
-
+import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
 function App() {
   const { user } = useContext(UserContext);
   const { isAuthenticated } = useContext(AuthContext);
@@ -30,11 +30,10 @@ function App() {
         <Route path="/start-journey-3" element={<StartJourneyFour />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route
           element={
             <ProtectedRoute
-              redirectPath="/start-journey"
               isAllowed={isAuthenticated && user}
             />
           }
