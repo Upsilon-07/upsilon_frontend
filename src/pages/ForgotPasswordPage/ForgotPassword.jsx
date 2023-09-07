@@ -1,6 +1,6 @@
 import Title from "../../components/Title";
 import Button from "../../components/next-page-button/NextButton";
-import TextInputBox from "../../components/TextInputBox";
+import TextInputBox from "../../components/Input/TextInputBox";
 import { useForm } from "react-hook-form";
 import api from "../../api/api.js";
 const  ForgotPassword = () => {
@@ -30,9 +30,8 @@ const  ForgotPassword = () => {
         </p>
         <form onSubmit={handleSubmit(forgotPassword)}>
           <TextInputBox
-            label="Email"
             type="email"
-            name="email"
+            placeholder="email"
             register={register}
             errors={errors}
           />

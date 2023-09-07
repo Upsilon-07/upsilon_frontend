@@ -34,6 +34,7 @@ function App() {
         <Route
           element={
             <ProtectedRoute
+              redirectPath="/login"
               isAllowed={isAuthenticated && user}
             />
           }
