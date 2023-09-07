@@ -1,4 +1,4 @@
-.container-image {
+.profile-picture-container-image {
     background-image: url(src/assets/images/profilePicture/profile-picture-background.svg);
     width: 106.256px;
     height: 65.965px;
@@ -30,7 +30,7 @@
 
 
 @media screen and (min-width: 767px) {
-    .container-image {
+    .profile-picture-container-image {
         padding-top: 90px;
         position: relative;
         display: flex;
