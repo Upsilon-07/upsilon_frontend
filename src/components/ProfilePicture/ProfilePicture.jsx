@@ -1,7 +1,6 @@
 import "./ProfilePicture.css";
-import avatar from "/src/assets/images/profilePicture/woman-avatar.svg";
+import Avatar from "/src/assets/images/profilePicture/woman-avatar.svg";
 import { PropTypes } from 'prop-types';
-import { Link } from "react-router-dom";
 
 const ProfilePicture = ({ image }) => {
  
@@ -9,7 +8,6 @@ const ProfilePicture = ({ image }) => {
   
   return (
     <div className="container-image">
-      <Link to={'/user-profile'}>
       {image ? (
         <img
           className="profile-image"
@@ -19,11 +17,10 @@ const ProfilePicture = ({ image }) => {
       ) : (
         <img
           className="profile-image"
-          src={avatar}
+          src={Avatar}
           alt="user-avatar"
         />
       )}
-      </Link>
     </div>
   );
 };
