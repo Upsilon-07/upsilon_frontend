@@ -44,10 +44,14 @@ const CourseFavouritePage = () => {
       <TitleCard title="Favourite Courses" />
       {favouriteCourses && favouriteCourses.length > 0 ? (
         favouriteCourses.map((favouriteCourse) => (
-          <Card key={favouriteCourse.id} data={favouriteCourse} />
+          <Card
+            key={favouriteCourse.id}
+            data={favouriteCourse}
+            linkTo="courses"
+          />
         ))
       ) : (
-        <h1>Loading...</h1>
+        <h1 className="loading">Add favourite courses...</h1>
       )}
 
       <Navbar />

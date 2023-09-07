@@ -13,16 +13,16 @@
     justify-content: center;
 }
 
-.title-courses{
+/* .title-courses{
    margin-top: 1rem;
    font-size: 1.5rem;
-}
+} */
 
-/* .courses-container{
+.courses-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-} */
+}
 
 .title-container{
     display: flex;

@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
 const Card = ({ data, numberLessons, linkTo }) => {
   const [lessonCount, setLessonCount] = useState();
 
-  // console.log(data);
-
   useEffect(() => {
     if (numberLessons !== null && numberLessons?.length > 0) {
       numberLessons
