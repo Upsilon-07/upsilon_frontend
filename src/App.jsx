@@ -42,7 +42,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
           <Route path="/courses" element={<CoursePage />} />
-          <Route path="/courses/favourite" element={<CourseFavouritePage />} />
+          <Route path="/favourites/courses" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />
           <Route path="/exercises/:id" element={<ExercisesPage />} />
         </Route>

@@ -13,9 +13,10 @@
 
 .course-container {
  width: 100%;
+
   }
 
-  .left-and-right-container{
+.left-and-right-container{
     display: flex;
     border-radius: 21px;
     padding: 12px;
@@ -23,6 +24,9 @@
     background-color: white;
     gap: 10.5px;
     margin-top: 1rem;
+    margin-right: 1.1rem;
+    margin-left: 1.1rem;
+
    
   }
 
