@@ -52,4 +52,14 @@
         margin-top: 18px;
     }
 
+    .navbar-desktop{
+        margin-bottom: 70px;
+    }
+
+    
+
+    .container-image,.img-arrow{
+        display: none;
+    }
+
   }

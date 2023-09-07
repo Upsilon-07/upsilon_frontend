@@ -36,7 +36,9 @@ const CoursePage = () => {
     <div className="course-page">
       <NavbarDesktop />
       <div className="top">
-        <ProfilePicture />
+        <Link to="/user-profile">
+          <ProfilePicture />
+        </Link>
         <Link to="/courses/favourite">
           <StarButton />
         </Link>
