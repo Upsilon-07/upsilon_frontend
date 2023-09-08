@@ -4,23 +4,30 @@ import { Link, useParams } from "react-router-dom";
 import api from "../../api/api";
 import "./CourseLesson.css";
 import Navbar from "../../components/navbar/Navbar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Card from "../../components/Card/Card";
 import TitleCard from "../../components/TitleCard/TitleCard";
-import favouriteStar from "../../assets/images/blank-star.svg";
+// import favouriteStar from "../../assets/images/blank-star.svg";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+import UserContext from "../../contexts/UserContext";
 
 const CourseLessonPage = () => {
   const { id } = useParams();
+  const { user } = useContext(UserContext);
 
   const [lessons, setLessons] = useState();
   const [courseTitle, setCourseTitle] = useState();
+  const [isFavourite, setIsFavourite] = useState(false);
 
   const getAllLessonsByCourseId = () => {
+    let data = {
+      userId: user.id,
+    };
     api
-      .get(`/courses/${id}`)
+      .post(`/courses/${id}`, data)
       .then((response) => {
         if (response.status === 200) {
+          setIsFavourite(response.data.isFavourite);
           setLessons(response.data.lessons);
           setCourseTitle(response.data.courseTitle[0].courseName);
         } else {
@@ -34,7 +41,6 @@ const CourseLessonPage = () => {
     getAllLessonsByCourseId();
   }, []);
 
-  console.log(courseTitle);
   return (
     <div className="lessons-page">
       <NavbarDesktop />
@@ -50,7 +56,13 @@ const CourseLessonPage = () => {
 
       {id && courseTitle ? (
         <div className="title-container-lessons">
-          <TitleCard id={id} title={courseTitle} source={favouriteStar} />
+          <TitleCard
+            id={id}
+            title={courseTitle}
+            isFavourite={isFavourite}
+            setIsFavourite={setIsFavourite}
+            // source={favouriteStar}
+          />
         </div>
       ) : null}
 

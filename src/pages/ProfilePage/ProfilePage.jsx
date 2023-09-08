@@ -8,6 +8,7 @@ import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import DisabledTextInputBox from "../../components/DisabledTextInputBox/DisabledTextInputBox";
+import ArrowButton from "../../components/ArrowButton/ArrowButton";
 
 const ProfilePage = () => {
 
@@ -17,29 +18,23 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <NavbarDesktop />
+
+      <Link to="/">
+        <ArrowButton />
+      </Link>
       <div className="profile-title">
-        <Title title="Profile" weight={"light-title"} />
-        <ProfilePicture />
+        <div><Title title="Profile" weight={"light-title"} /></div>
       </div>
+        <div className="profile-page-user-picture"><ProfilePicture image={user.picture}/></div>
 
       <form className="profile-input-box">
-        
-        <DisabledTextInputBox
-            type="username"
-            value={user.username}
-            readOnly
-          />
+        <DisabledTextInputBox type="username" value={user.username ? user.username : null} readOnly />
 
-        
-        <DisabledTextInputBox
-            type="email"
-            value={user.email}
-            readOnly
-          />
+        <DisabledTextInputBox type="email" value={user.email ? user.email : null} readOnly />
       </form>
 
       <div className="profile-button" id="profile-edit-button">
-        <Link to="/user-profile/edit-profile">
+      <Link to="/edit-profile">
           <NextButton
             buttonId="orange-button"
             buttonContent="EDIT PROFILE"
