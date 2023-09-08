@@ -36,7 +36,7 @@ function App() {
         <Route
           element={
             <ProtectedRoute
-              redirectPath="/login"
+              redirectPath="/start-journey"
               isAllowed={isAuthenticated && user}
             />
           }

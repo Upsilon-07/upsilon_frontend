@@ -4,6 +4,7 @@ import api from "../../api/api";
 import Cookies from "js-cookie";
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
+import ArrowButton from "../../components/ArrowButton/ArrowButton";
 const ChangePassword = () => {
   const {
     register,
@@ -39,6 +40,7 @@ const ChangePassword = () => {
 
   return (
     <div>
+        <ArrowButton/>
       <h1>Change Password</h1>
       <form onSubmit={handleSubmit(changePassword)}>
       <div>
@@ -71,7 +73,7 @@ const ChangePassword = () => {
           {error !== "" ? <p>{error}</p> : null}
         <NextButton
             buttonClass="button-square"
-            buttonContent="SEND ME NOW"
+            buttonContent="SAVE NEW PASSWORD"
             buttonId="orange-button"
           />
       </form>
