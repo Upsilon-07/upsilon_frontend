@@ -25,7 +25,7 @@ const ProfilePage = () => {
       <div className="profile-title">
         <div><Title title="Profile" weight={"light-title"} /></div>
       </div>
-        <div className="profile-page-user-picture"><ProfilePicture /></div>
+        <div className="profile-page-user-picture"><ProfilePicture image={user.picture}/></div>
 
       <form className="profile-input-box">
         <DisabledTextInputBox type="username" value={user.username ? user.username : null} readOnly />

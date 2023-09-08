@@ -59,13 +59,19 @@ const EditProfilePage = () => {
       
     }
 
-    console.log(data);
+    // console.log(data);
+    // console.log(url);
+
+    const new_data = { ...data, picture: [url] }
+
+    // console.log(new_data);
+   
 
 
 
 
     api
-      .put(`/user/${user.id}`, data)
+      .put(`/user/${user.id}`, new_data)
       .then((response) => {
         if (response.status === 200) {
           alert("User updated");
