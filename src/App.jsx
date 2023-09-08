@@ -18,6 +18,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
 import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
 import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
+import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
 function App() {
   const { user } = useContext(UserContext);
   const { isAuthenticated } = useContext(AuthContext);
@@ -41,6 +42,7 @@ function App() {
         >
           <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
+          <Route path="/user-profile/change-password" element={<ChangePassword />} />
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/courses/favourite" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />

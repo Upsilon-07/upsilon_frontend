@@ -3,6 +3,7 @@ import Button from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import { useForm } from "react-hook-form";
 import api from "../../api/api.js";
+import './forgotPasswordStyles.css'
 const  ForgotPassword = () => {
     const {
       register,
@@ -23,9 +24,11 @@ const  ForgotPassword = () => {
 
   return (
     <>
-      <div className="forgot-password-page">
+        <div className="forgot-title">
         <Title title="Reset Password" weight="light-title" />
-        <p>
+        </div>
+      <div className="forgot-password-page">
+        <p id="forgot-description">
           Enter your email to receive the instructions to reset your password
         </p>
         <form onSubmit={handleSubmit(forgotPassword)}>
@@ -35,11 +38,13 @@ const  ForgotPassword = () => {
             register={register}
             errors={errors}
           />
+          <div className="forgot-button">
           <Button
             buttonClass="button-square"
             buttonContent="SEND ME NOW"
             buttonId="orange-button"
           />
+          </div>
         </form>
       </div>
     </>
