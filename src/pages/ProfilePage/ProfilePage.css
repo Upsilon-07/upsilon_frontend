@@ -1,12 +1,4 @@
 
-.profile-page-return-button {
-    display: flex;
-    position: relative;
-    left: 5.128205128205128%;
-    padding-top: 5.128205128205128%;
-
-}
-
 
 .profile-title {
     display: flex;
@@ -74,17 +66,14 @@
         padding-bottom: 1%;
         padding-top: 1%;
     }
-    .profile-page-return-button {
-        padding-top: 8%;
-    }
     .profile-page-user-picture {
         transform: scale(3);
+        padding-top: 2.5rem;
     }
     .profile-title {
         display: flex;
         width: 9.25rem;
         height: 2.5rem;
-        padding-right: 0px;
         align-items: center;
         flex-shrink: 0;
         padding-left: 20%;
@@ -93,5 +82,11 @@
     .profile-button {
         padding-top: 0;
         padding-bottom: 5%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .profile-page-user-picture {
+        padding-top: 5rem;
     }
 }
