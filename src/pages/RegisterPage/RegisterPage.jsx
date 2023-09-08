@@ -1,16 +1,21 @@
 import NextButton from "../../components/next-page-button/NextButton";
-import TextInputBox from "../../components/TextInputBox";
+import TextInputBox from "../../components/Input/TextInputBox";
 import Title from "../../components/Title";
 import "./registerPageStyles.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api.js";
+import { yupResolver } from "@hookform/resolvers/yup";
+import userSchema from "../../schemas/user-schema";
+
 function RegisterPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
 
   const navigate = useNavigate();
 
@@ -39,28 +44,25 @@ function RegisterPage() {
         <form onSubmit={handleSubmit(createUser)}>
           <label>username:</label>
           <TextInputBox
-            label="Username"
             type="username"
-            name="username"
+            placeholder="username"
             register={register}
             errors={errors}
           />
-          <label>email:</label>
-          <TextInputBox
-            label="Email"
-            type="email"
-            name="email"
-            register={register}
-            errors={errors}
-          />
-          <label>password:</label>
-          <TextInputBox
-            label="Password"
-            type="password"
-            name="password"
-            register={register}
-            errors={errors}
-          />
+            <label>Email:</label>
+            <TextInputBox
+              type="email"
+              placeholder="email"
+              register={register}
+              errors={errors}
+            />
+            <label>Password:</label>
+            <TextInputBox
+              type="password"
+              placeholder="password"
+              register={register}
+              errors={errors}
+            />
           <NextButton
             buttonId="orange-button"
             buttonContent="Next"
