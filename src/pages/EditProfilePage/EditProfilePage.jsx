@@ -1,5 +1,5 @@
 import "./EditProfilePage.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../../contexts/UserContext";
 import Navbar from "../../components/navbar/Navbar";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
@@ -9,16 +9,19 @@ import Title from "../../components/Title";
 import TextInputBox from "../../components/TextInputBox";
 import NextButton from "../../components/next-page-button/NextButton";
 import { useForm } from "react-hook-form";
+import api from "../../api/api";
 
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import editProfileSchema from "../../schemas/profile-schema";
 
-// import { storage } from "../../services/firebase";
-// import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-// import { v4 as uuid } from "uuid";
+import { storage } from "../../services/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 as uuid } from "uuid";
 
 const EditProfilePage = () => {
   const { user, setUser } = useContext(UserContext);
+
+  const [url, setUrl] = useState(null);
 
   const {
     register,
@@ -30,16 +33,37 @@ const EditProfilePage = () => {
   // }
 
   const editProfileInfo = (data) => {
-    console.log(data);
-    //   if(data.image[0]){
-    //     console.log("test");
+    if (data.image[0]) {
+      const profileImage = data.image[0];
 
-    // } else {
-    //     delete data.image;
-    //     // // console.log(data);
-    //     //! UPDATE THE DATABASE WITH API.POST
-    //     setUser((prevUser) => ({...prevUser, ...data}))
-    // }
+      const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
+
+      // console.log(profileImage);
+      // console.log(imageRef);
+
+      uploadBytes(imageRef, profileImage)
+        .then(() => {
+          getDownloadURL(imageRef)
+            .then((downloadImageURL) => {
+              setUrl(downloadImageURL);
+            })
+            .catch((error) => console.error(error));
+        })
+        .catch((error) => console.error(error));
+    } else {
+      delete data.image;
+      // // console.log(data);
+
+    }
+    api
+      .put(`/user/${user.id}`, data)
+      .then((response) => {
+        if (response.status === 200) {
+          alert("User updated");
+        }
+      })
+      .catch((error) => console.error(error));
+    setUser((prevUser) => ({ ...prevUser, ...data }));
   };
 
   return (
@@ -82,7 +106,7 @@ const EditProfilePage = () => {
             <TextInputBox
               label="Image"
               type="file"
-              name="image"
+              name="picture"
               register={register}
               errors={errors}
             />
