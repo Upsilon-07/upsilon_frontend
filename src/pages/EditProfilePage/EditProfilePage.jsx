@@ -33,28 +33,37 @@ const EditProfilePage = () => {
   // }
 
   const editProfileInfo = (data) => {
-    if (data.image[0]) {
-      const profileImage = data.image[0];
+    delete data.image;
+    if (data.picture[0]) {
+      const profileImage = data.picture[0];
 
       const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
-
+      
       // console.log(profileImage);
       // console.log(imageRef);
-
+      
       uploadBytes(imageRef, profileImage)
-        .then(() => {
-          getDownloadURL(imageRef)
-            .then((downloadImageURL) => {
-              setUrl(downloadImageURL);
-            })
-            .catch((error) => console.error(error));
+      .then(() => {
+        getDownloadURL(imageRef)
+        .then((downloadImageURL) => {
+          setUrl(downloadImageURL);
+          // console.log(downloadImageURL);
         })
         .catch((error) => console.error(error));
+      })
+      .catch((error) => console.error(error));
     } else {
-      delete data.image;
+      delete data.picture;
+      
       // // console.log(data);
-
+      
     }
+
+    console.log(data);
+
+
+
+
     api
       .put(`/user/${user.id}`, data)
       .then((response) => {
@@ -104,7 +113,7 @@ const EditProfilePage = () => {
           <div>
             <label>Upload a Profile Image</label>
             <TextInputBox
-              label="Image"
+              label="Picture"
               type="file"
               name="picture"
               register={register}
