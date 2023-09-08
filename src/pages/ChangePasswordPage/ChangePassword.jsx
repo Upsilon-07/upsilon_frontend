@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import api from "../../api/api";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
@@ -40,7 +41,9 @@ const ChangePassword = () => {
 
   return (
     <div>
+        <Link to="/user-profile">
         <ArrowButton/>
+        </Link>
       <h1>Change Password</h1>
       <form onSubmit={handleSubmit(changePassword)}>
       <div>
