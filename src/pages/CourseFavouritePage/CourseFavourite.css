@@ -7,11 +7,16 @@
 .loading{
     margin-left:1rem;
     font-size: 1rem;
+
 }
 
 
 @media screen and (min-width: 768px){
 .title-courses {
     margin: 0 auto;
+}
+.loading{
+    display: none;
+    
 }
 }
