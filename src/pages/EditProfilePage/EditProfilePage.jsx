@@ -59,7 +59,7 @@ const EditProfilePage = () => {
     }
 
     // console.log(data);
-    // console.log(url);
+    console.log(url);
 
     const new_data = { ...data, picture: [url] };
 
@@ -73,7 +73,7 @@ const EditProfilePage = () => {
         }
       })
       .catch((error) => console.error(error));
-    setUser((prevUser) => ({ ...prevUser, ...data }));
+    setUser((prevUser) => ({ ...prevUser, ...new_data }));
   };
 
   return (
