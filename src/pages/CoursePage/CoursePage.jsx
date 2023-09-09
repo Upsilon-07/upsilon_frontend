@@ -8,6 +8,7 @@ import Navbar from "../../components/navbar/Navbar";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import "./CoursePage.css";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+// import starImage from "/src/assets/images/star-button.svg";
 
 const CoursePage = () => {
   const [courses, setCourses] = useState([]);
@@ -18,7 +19,6 @@ const CoursePage = () => {
       .get("/courses")
       .then((response) => {
         if (response.status === 200) {
-          console.log(response);
           setCourses(response.data.courses);
           setNumberLessons(response.data.numberLessons);
         } else {
@@ -35,11 +35,12 @@ const CoursePage = () => {
   return (
     <div className="course-page">
       <NavbarDesktop />
+      {/* <ProfilePicture btnToFavouritePage={starImage} /> */}
       <div className="top">
         <Link to="/user-profile">
           <ProfilePicture />
         </Link>
-        <Link to="/courses/favourite">
+        <Link to="/favourites/courses">
           <StarButton />
         </Link>
       </div>

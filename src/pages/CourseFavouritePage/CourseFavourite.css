@@ -2,110 +2,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    margin: 13px 19px 13px 13px
 }
 
-.favourite-page{
-    background-color: #EAF2F2;
-    padding: 1.5rem;
+.loading{
+    margin-left:1rem;
+    font-size: 1rem;
 }
 
-.favourite-container {
-    width: 100%;
-    display: flex;
-     }
-.favourite-title{
-    margin-top: 1rem;
-    font-size: 20px;
 
-}
-   
-     .left-and-right{
-       display: flex;
-       border-radius: 21px;
-       padding: 12px;
-       border: none;
-       background-color: white;
-       gap: 10.5px;
-       margin-top: 1rem;
-       padding-right: 15px;
-       width: 100%;
-      
-     }
-   
-   .left{
-     display: flex;
-     align-items: center;
-   }
-   
-   .img-container {
-       width: 120px;
-   }
-   
-   .course-name {
-       margin-top: 0.7rem;
-       font-size: 14px;
-   }
-   
-   .number-of-lessons{
-       margin-top: 0.5rem;
-       font-size: 12px;
-   }
-   
-   .bottom{
-       margin-top: 0.5rem;
-       font-weight: normal;
-       display: flex;
-       font-size: 10px;
-       gap: 5px;
-       align-items: center;
-       
-      
-   }
 
-   .img-star{
-    display: flex;
-    align-items: flex-start;
-    width: 35.189px;
-    height: 31.658px;
-    flex-shrink: 0;
-    margin-left: -16px;
-    margin-top: 4px;
-
-   }
-   
-   .right{
-       display: flex;
-       flex-direction: column;
-   }
-   
-   .dot-image {
-       width: 5px;
-       height: 5px;
-   }
-   
-   @media screen and (min-width:768px) {
-       .title-courses {
-           display: flex;
-           justify-content: center;
-       }
-       .favourite-container{
-           margin: 0 auto;
-           width: 90%;
-   
-       }
-     }
-     
-       
-     @media screen and (min-width:1440px) {
-       
-       .title-courses {
-           display: flex;
-           justify-content: center;
-       }
-       .favourite-container{
-           margin: 0 auto;
-           width: 50%;
-   
-       }
+@media screen and (min-width:765px) {
+    
+ 
+    .title-courses{
+        margin:0 auto;
     }
+
+    .loading{
+        display: flex;
+        justify-content: center; 
+    }
+    
+    .favourite-top{
+        padding:14px;
+        
+    }
+
+  }

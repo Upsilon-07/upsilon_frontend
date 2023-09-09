@@ -11,32 +11,46 @@ import StartJourneyFour from "./pages/Start-Journey-Page/StartJourneyFour";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import { UserContextProvider } from "./contexts/UserContext";
 import ExercisesPage from "./pages/ExercisesPage/ExercisesPage";
-import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
+import AuthContext from "./contexts/AuthContext";
+import UserContext from "./contexts/UserContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import { useContext } from "react";
+import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
+import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
+import EditProfile from "./pages/EditProfilePage/EditProfilePage"
 
 function App() {
+  const { user } = useContext(UserContext);
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <>
-      <UserContextProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+      <Routes>
+        <Route path="/start-journey" element={<StartJourney />} />
+        <Route path="/start-journey-1" element={<StartJourneyTwo />} />
+        <Route path="/start-journey-2" element={<StartJourneyThree />} />
+        <Route path="/start-journey-3" element={<StartJourneyFour />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route
+          element={
+            <ProtectedRoute
+              redirectPath="/start-journey"
+              isAllowed={isAuthenticated && user}
+            />
+          }
+        >
+          <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
-          {/* <Route path='/user-profile/edit-profile' element={<EditProfilePage/>} />
-        <Route path='/user-profile/change-password' element={<ChangePasswordPage/>} /> */}
+          <Route path="/user-profile/change-password" element={<ChangePassword />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/courses" element={<CoursePage />} />
-          <Route path="/courses/favourite" element={<CourseFavouritePage />} />
+          <Route path="/favourites/courses" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />
-          <Route path="/lesson/:id" element={<LessonDetailsPage />} />
           <Route path="/exercises/:id" element={<ExercisesPage />} />
-          <Route path="/start-journey" element={<StartJourney />} />
-          <Route path="/start-journey-1" element={<StartJourneyTwo />} />
-          <Route path="/start-journey-2" element={<StartJourneyThree />} />
-          <Route path="/start-journey-3" element={<StartJourneyFour />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </UserContextProvider>
+        </Route>
+      </Routes>
     </>
   );
 }
