@@ -14,5 +14,9 @@
 }
 
 .text-disabled-text-input-box {
-    padding-left: 1%;
+    padding-left: 2%;
+    width: 340px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
 }

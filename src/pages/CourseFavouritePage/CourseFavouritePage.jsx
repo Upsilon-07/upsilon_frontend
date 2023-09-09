@@ -36,7 +36,7 @@ const CourseFavouritePage = () => {
   return (
     <div className="favourite-page">
       <div className="favourite-top">
-        <ProfilePicture />
+        <ProfilePicture image={user.picture}/>
         <Link to="/courses">
           <ArrowButton />
         </Link>

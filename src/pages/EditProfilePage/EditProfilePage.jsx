@@ -38,37 +38,32 @@ const EditProfilePage = () => {
       const profileImage = data.picture[0];
 
       const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
-      
+
       // console.log(profileImage);
       // console.log(imageRef);
-      
+
       uploadBytes(imageRef, profileImage)
-      .then(() => {
-        getDownloadURL(imageRef)
-        .then((downloadImageURL) => {
-          setUrl(downloadImageURL);
-          // console.log(downloadImageURL);
+        .then(() => {
+          getDownloadURL(imageRef)
+            .then((downloadImageURL) => {
+              setUrl(downloadImageURL);
+              // console.log(downloadImageURL);
+            })
+            .catch((error) => console.error(error));
         })
         .catch((error) => console.error(error));
-      })
-      .catch((error) => console.error(error));
     } else {
       delete data.picture;
-      
+
       // // console.log(data);
-      
     }
 
     // console.log(data);
     // console.log(url);
 
-    const new_data = { ...data, picture: [url] }
+    const new_data = { ...data, picture: [url] };
 
-    // console.log(new_data);
-   
-
-
-
+    console.log(new_data);
 
     api
       .put(`/user/${user.id}`, new_data)
