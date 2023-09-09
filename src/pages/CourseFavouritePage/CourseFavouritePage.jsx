@@ -7,6 +7,8 @@ import { useState, useEffect, useContext } from "react";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import api from "../../api/api";
 import UserContext from "../../contexts/UserContext";
+import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+
 import "./CourseFavourite.css";
 
 const CourseFavouritePage = () => {
@@ -35,6 +37,7 @@ const CourseFavouritePage = () => {
 
   return (
     <div className="favourite-page">
+      <NavbarDesktop />
       <div className="favourite-top">
         <ProfilePicture image={user.picture}/>
         <Link to="/courses">
@@ -42,6 +45,7 @@ const CourseFavouritePage = () => {
         </Link>
       </div>
       <TitleCard title="Favourite Courses" />
+
       {favouriteCourses && favouriteCourses.length > 0 ? (
         favouriteCourses.map((favouriteCourse) => (
           <Card
@@ -51,7 +55,7 @@ const CourseFavouritePage = () => {
           />
         ))
       ) : (
-        <h1 className="loading">Add favourite courses...</h1>
+        <h1 className="loading">Add your favourite courses...</h1>
       )}
 
       <Navbar />

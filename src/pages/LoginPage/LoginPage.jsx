@@ -5,11 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext.jsx";
 import NextButton from "../../components/next-page-button/NextButton";
-import TextInputBox from "../../components/TextInputBox";
+import TextInputBox from "../../components/Input/TextInputBox.jsx";
 import Title from "../../components/Title";
 import "./LoginPageStyles.css";
 import AuthContext from "../../contexts/AuthContext.jsx";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import userSchema from "../../schemas/user-schema";
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
   const { setIsAuthenticated } = useContext(AuthContext);
@@ -18,7 +19,9 @@ const LoginPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
 
   const navigate = useNavigate();
 
@@ -30,7 +33,7 @@ const LoginPage = () => {
           //! save token in cookies
           Cookies.set("user_token", response.data.token);
           // //! save token in local storage
-          // localStorage.setItem("user_token", response.data.token)
+          localStorage.setItem("user_token", response.data.token);
           let config = {
             headers: {
               Authorization: "Bearer " + response.data.token,
@@ -62,9 +65,8 @@ const LoginPage = () => {
           <div>
             <label>Email:</label>
             <TextInputBox
-              label="Email"
               type="email"
-              name="email"
+              placeholder="email"
               register={register}
               errors={errors}
             />
@@ -72,20 +74,20 @@ const LoginPage = () => {
           <div>
             <label>Password:</label>
             <TextInputBox
-              label="Password"
               type="password"
-              name="password"
+              placeholder="password"
               register={register}
               errors={errors}
             />
           </div>
-          <Link to="/">
+          <Link to="/forgot-password">
             <p id="forgot-password-left">forgot password</p>
           </Link>
           <NextButton
             buttonId="orange-button"
             buttonContent="LOG IN"
             buttonClass="button-square"
+            type="submit"
           />
         </form>
       </div>

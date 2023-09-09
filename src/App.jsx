@@ -16,6 +16,8 @@ import AuthContext from "./contexts/AuthContext";
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
+import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
+import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
 import EditProfile from "./pages/EditProfilePage/EditProfilePage"
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
         <Route path="/start-journey-3" element={<StartJourneyFour />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route
           element={
             <ProtectedRoute
@@ -41,6 +43,7 @@ function App() {
         >
           <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
+          <Route path="/user-profile/change-password" element={<ChangePassword />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/favourites/courses" element={<CourseFavouritePage />} />

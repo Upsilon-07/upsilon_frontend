@@ -2,9 +2,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 13px 19px 13px 13px
 }
 
 .loading{
     margin-left:1rem;
     font-size: 1rem;
 }
+
+
+
+@media screen and (min-width:765px) {
+    
+ 
+    .title-courses{
+        margin:0 auto;
+    }
+
+    .loading{
+        display: flex;
+        justify-content: center; 
+    }
+    
+    .favourite-top{
+        padding:14px;
+        
+    }
+
+  }
