@@ -18,7 +18,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
 import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
 import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
-import EditProfile from "./pages/EditProfilePage/EditProfilePage"
+import EditProfile from "./pages/EditProfilePage/EditProfilePage";
+import MealsPage from "./pages/MealsPage/MealsPage";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -49,6 +50,7 @@ function App() {
           <Route path="/favourites/courses" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />
           <Route path="/exercises/:id" element={<ExercisesPage />} />
+          <Route path="/meals" element={<MealsPage />} />
         </Route>
       </Routes>
     </>

@@ -1,0 +1,23 @@
+
+.meals-page-img {
+    display: flex;
+    
+}
+
+.meals-page-title {
+    word-break: keep-all;
+    margin-top: 10%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .meals-page-title {
+        margin-top: 5%;
+        margin-left: 0;
+
+    }
+  }
