@@ -14,6 +14,11 @@
     align-items: center;
 }
 
+.meals-page-cards {
+    left: -10%;
+    position: relative;
+}
+
 @media screen and (min-width: 768px) {
     .meals-page-title {
         margin-top: 5%;

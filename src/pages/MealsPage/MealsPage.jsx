@@ -15,6 +15,7 @@ const MealsPage = () => {
   const { user } = useContext(UserContext);
   const [meals, setMeals] = useState([]);
   const [currentMealType, setCurrentMealType] = useState("");
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   const getAllMeals = () => {
     api
@@ -29,27 +30,23 @@ const MealsPage = () => {
       .catch((error) => console.log(error));
   };
 
-  useEffect(() => {
-    // Fetch meals by meal type when the component mounts
-    getAllMeals();
-
-    const currentHour = new Date().getHours();
-    let mealType;
-
+  const determineCurrentMealType = () => {
+    const currentHour = currentTime.getHours();
     if (currentHour >= 5 && currentHour <= 9) {
-      mealType = "Breakfast";
+      return "Breakfast";
     } else if (currentHour >= 12 && currentHour <= 15) {
-      mealType = "Lunch";
+      return "Lunch";
     } else if (currentHour >= 18 && currentHour <= 21) {
-      mealType = "Dinner";
+      return "Dinner";
     } else {
-      mealType = "Snack";
+      return "Snack";
     }
+  };
 
-    setCurrentMealType(mealType);
+  useEffect(() => {
+    getAllMeals();
+    setCurrentMealType(determineCurrentMealType());
   }, []);
-
-  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,93 +56,38 @@ const MealsPage = () => {
     return () => clearInterval(interval); // Clean up the interval when the component unmounts
   }, []);
 
-  const getCurrentHour = () => {
-    return currentTime.getHours();
-  };
-
-  const renderContent = () => {
-    const currentHour = getCurrentHour();
+  const mealsDisplay = () => {
     const filteredMeals = meals.filter(
       (meal) => meal.meal_type === currentMealType
     );
 
-    if (currentHour >= 5 && currentHour <= 9) {
-      return (
-        <>
-          {" "}
-          <div>
-            <Title title="Breakfast time!" weight={"bold-title"} />
-            <Title
-              title="Start your day with these healthy Breakfast recipes"
-              weight={"light-title"}
-            />
-          </div>
-          <div>
-            {filteredMeals.map((meal) => (
-              <MealCard key={meal.id} data={meal} />
-            ))}
-          </div>
-        </>
-      );
-    } else if (currentHour >= 12 && currentHour <= 15) {
-      return (
-        <>
-          {" "}
-          <div>
-            <Title title="Lunch time!" weight={"bold-title"} />
-            <Title
-              title="Fuel your day with these healthy Lunch recipes"
-              weight={"light-title"}
-            />
-          </div>
-          <div>
-            {filteredMeals.map((meal) => (
-              <MealCard key={meal.id} data={meal} />
-            ))}
-          </div>
-        </>
-      );
-    } else if (currentHour >= 18 && currentHour <= 21) {
-      return (
-        <>
-          {" "}
-          <div>
-            <Title title="Dinner time!" weight={"bold-title"} />
-            <Title
-              title="End your day with these healthy Dinner recipes"
-              weight={"light-title"}
-            />
-          </div>
-          <div>
-            {filteredMeals.map((meal) => (
-              <MealCard key={meal.id} data={meal} />
-            ))}
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          {" "}
-          <div>
-            <Title title="Snack time!" weight={"bold-title"} />
-            <Title
-              title="Fuel your day with these healthy Snack recipes"
-              weight={"light-title"}
-            />
-          </div>
-          <div>
-            {filteredMeals.map((meal) => (
-              <MealCard key={meal.id} data={meal} />
-            ))}
-          </div>
-        </>
-      );
-    }
-  };
+    const mealTypeTitles = {
+      Breakfast: "Breakfast time!",
+      Lunch: "Lunch time!",
+      Dinner: "Dinner time!",
+      Snack: "Snack time!",
+    };
 
+    return (
+      <>
+        <div>
+          <Title title={mealTypeTitles[currentMealType]} weight="bold-title" />
+          <Title
+            title={`Fuel your day with these healthy ${currentMealType} recipes`}
+            weight="light-title"
+          />
+        </div>
+        <div className="meals-page-cards">
+          {filteredMeals.map((meal) => (
+              <MealCard key={meal.id} data={meal} />
+          ))}
+        </div>
+      </>
+    );
+  };
+  
   return (
-    <div>
+      <div>
       <NavbarDesktop />
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
@@ -154,7 +96,7 @@ const MealsPage = () => {
       <div className="meals-page-img">
         <MealsPageIcon />
       </div>
-      <div className="meals-page-title">{renderContent()}</div>
+      <div className="meals-page-title">{mealsDisplay()}</div>
       <Navbar />
     </div>
   );
