@@ -39,7 +39,7 @@ const CourseFavouritePage = () => {
     <div className="favourite-page">
       <NavbarDesktop />
       <div className="favourite-top">
-        <ProfilePicture />
+        <ProfilePicture image={user.picture}/>
         <Link to="/courses">
           <ArrowButton />
         </Link>

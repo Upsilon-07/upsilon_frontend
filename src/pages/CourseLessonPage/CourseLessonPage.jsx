@@ -46,7 +46,7 @@ const CourseLessonPage = () => {
       <NavbarDesktop />
       <div className="lessons-top">
         <Link to="/user-profile">
-          <ProfilePicture />
+          <ProfilePicture image={user.picture}/>
         </Link>
 
         <Link to="/courses">

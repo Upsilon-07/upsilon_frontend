@@ -16,6 +16,7 @@ const CoursePage = () => {
 
   const [courses, setCourses] = useState([]);
   const [numberLessons, setNumberLessons] = useState([]);
+  const { user } = useContext(UserContext);
 
   const getAllCourses = () => {
     api
