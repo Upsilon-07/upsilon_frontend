@@ -39,7 +39,7 @@ const Card = ({ data, numberLessons, linkTo }) => {
               {numberLessons && lessonCount ? (
                 <h4 className="number-of-lessons">{lessonCount} Lessons</h4>
               ) : null}
-              {data.duration ? (
+              {data.duration && data.lesson_name ? (
                 <div className="clock-and-time">
                   <img src={clock} alt="clock of duration" />{" "}
                   <h4>{data.duration} mins</h4>
@@ -78,7 +78,7 @@ const Card = ({ data, numberLessons, linkTo }) => {
                     alt="dot"
                   />
                   <img src="/src/assets/images/small-star.svg" alt="" />
-                  <p>{data.rating}</p>
+                  <p className="paragraph-bottom">{data.rating}</p>
                 </>
               ) : null}
             </div>
