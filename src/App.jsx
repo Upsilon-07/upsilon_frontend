@@ -19,6 +19,7 @@ import { useContext } from "react";
 import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
 import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
 import EditProfile from "./pages/EditProfilePage/EditProfilePage";
+import MealsPage from "./pages/MealsPage/MealsPage";
 import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/courses/:id" element={<CourseLessonPage />} />
           <Route path="/lesson/:id" element={<LessonDetailsPage />} />
           <Route path="/exercises/:id" element={<ExercisesPage />} />
+          <Route path="/meals" element={<MealsPage />} />
         </Route>
       </Routes>
     </>

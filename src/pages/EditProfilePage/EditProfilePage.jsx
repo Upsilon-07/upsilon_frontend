@@ -50,6 +50,7 @@ const EditProfilePage = () => {
 
       // console.log(profileImage);
       // console.log(imageRef);
+
       console.log(data);
 
       uploadBytes(imageRef, profileImage)
@@ -69,6 +70,7 @@ const EditProfilePage = () => {
                   }
                 })
                 .catch((error) => console.error(error));
+
             })
             .catch((error) => console.error(error));
         })
