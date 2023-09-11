@@ -18,7 +18,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import { useContext } from "react";
 import ForgotPassword from "./pages/ForgotPasswordPage/ForgotPassword";
 import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
-import EditProfile from "./pages/EditProfilePage/EditProfilePage"
+import EditProfile from "./pages/EditProfilePage/EditProfilePage";
+import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -43,11 +44,15 @@ function App() {
         >
           <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
-          <Route path="/user-profile/change-password" element={<ChangePassword />} />
+          <Route
+            path="/user-profile/change-password"
+            element={<ChangePassword />}
+          />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/courses" element={<CoursePage />} />
           <Route path="/favourites/courses" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />
+          <Route path="/lesson/:id" element={<LessonDetailsPage />} />
           <Route path="/exercises/:id" element={<ExercisesPage />} />
         </Route>
       </Routes>

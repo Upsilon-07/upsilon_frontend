@@ -1,0 +1,42 @@
+.lesson-detail-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-lesson-detail{
+    background-color: white;
+    margin-left: 18px;
+    margin-right: 37px;
+    margin-top: 13px;
+}
+
+.image-lesson-detail{
+    width: 320px;
+    height: 130px;
+}
+
+.card-lesson-card{
+    display: flex;
+    background-color: #f7f7f7;
+}
+
+.card-lesson-title{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.card-lesson-image{
+    width: 50%;
+    height: 50%;
+}
+
+.vector{
+    width: 15px;
+height: 12px;
+}
+
