@@ -59,7 +59,7 @@ const EditProfilePage = () => {
     }
 
     // console.log(data);
-    console.log(url);
+    // console.log(data.url);
 
     const new_data = { ...data, picture: [url] };
 
@@ -85,12 +85,10 @@ const EditProfilePage = () => {
         </Link>
       </div>
       <div className="edit-profile-title">
-        <div>
-          <Title title="Edit Profile" weight={"light-title"} />
-        </div>
+          <Title title="Edit Profile" weight={"light-title"}/>
       </div>
       <div>
-        <form onSubmit={handleSubmit(editProfileInfo)}>
+        <form onSubmit={handleSubmit(editProfileInfo)} className="edit-profile-form">
           <div>
             <TextInputBox
               label="Username"

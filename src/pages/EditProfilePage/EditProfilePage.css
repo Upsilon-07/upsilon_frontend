@@ -8,9 +8,7 @@
 
 .edit-profile-title {
     display: flex;
-    width: 9.25rem;
     height: 2.5rem;
-    padding-right: 0px;
     align-items: center;
     flex-shrink: 0;
     padding-left: 5.907692307692307%;
@@ -26,3 +24,31 @@
     line-height: 140%; /* 3.15rem */
     letter-spacing: 0.045rem;
 }
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.cancel-changes-button {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .cancel-changes-button {
+        padding-bottom: 100px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .cancel-changes-button {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+  }
+
