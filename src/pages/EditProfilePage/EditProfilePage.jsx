@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import UserContext from "../../contexts/UserContext";
 import Navbar from "../../components/navbar/Navbar";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import Title from "../../components/Title";
 import TextInputBox from "../../components/TextInputBox";
@@ -23,6 +23,8 @@ const EditProfilePage = () => {
 
   const [url, setUrl] = useState(null);
 
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -33,7 +35,14 @@ const EditProfilePage = () => {
   // }
 
   const editProfileInfo = (data) => {
-    delete data.image;
+    if (data.username === "") {
+      data.username = user.username;
+    }
+
+    if (data.email === "") {
+      data.email = user.email;
+    }
+
     if (data.picture[0]) {
       const profileImage = data.picture[0];
 
@@ -41,39 +50,45 @@ const EditProfilePage = () => {
 
       // console.log(profileImage);
       // console.log(imageRef);
+      console.log(data);
 
       uploadBytes(imageRef, profileImage)
         .then(() => {
           getDownloadURL(imageRef)
             .then((downloadImageURL) => {
               setUrl(downloadImageURL);
-              // console.log(downloadImageURL);
+              data.picture = downloadImageURL;
+              // console.log(data);
+              api
+                .put(`/user/${user.id}`, data)
+                .then((response) => {
+                  if (response.status === 200) {
+                    // alert("User updated");
+                    setUser((prevUser) => ({ ...prevUser, ...data }));
+                    navigate("/user-profile");
+                  }
+                })
+                .catch((error) => console.error(error));
             })
             .catch((error) => console.error(error));
         })
         .catch((error) => console.error(error));
     } else {
-      delete data.picture;
+      data.picture = user.picture;
+
+      // console.log(data);
+      api
+        .put(`/user/${user.id}`, data)
+        .then((response) => {
+          if (response.status === 200) {
+            // alert("User updated");
+            setUser((prevUser) => ({ ...prevUser, ...data }));
+          }
+        })
+        .catch((error) => console.error(error));
 
       // // console.log(data);
     }
-
-    // console.log(data);
-    // console.log(data.url);
-
-    const new_data = { ...data, picture: [url] };
-
-    console.log(new_data);
-
-    api
-      .put(`/user/${user.id}`, new_data)
-      .then((response) => {
-        if (response.status === 200) {
-          alert("User updated");
-        }
-      })
-      .catch((error) => console.error(error));
-    setUser((prevUser) => ({ ...prevUser, ...new_data }));
   };
 
   return (
@@ -85,10 +100,13 @@ const EditProfilePage = () => {
         </Link>
       </div>
       <div className="edit-profile-title">
-          <Title title="Edit Profile" weight={"light-title"}/>
+        <Title title="Edit Profile" weight={"light-title"} />
       </div>
       <div>
-        <form onSubmit={handleSubmit(editProfileInfo)} className="edit-profile-form">
+        <form
+          onSubmit={handleSubmit(editProfileInfo)}
+          className="edit-profile-form"
+        >
           <div>
             <TextInputBox
               label="Username"

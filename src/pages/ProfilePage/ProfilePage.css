@@ -2,7 +2,6 @@
 .profile-page-return-button {
     display: flex;
     position: relative;
-    padding-top: 5.128205128205128%;
 
 }
 
@@ -67,11 +66,18 @@
     padding-bottom: 5%;
 }
 
+@media screen and (max-width: 767px) {
+    #change-password {
+        padding-bottom: 100px;
+    }
+}
+
+
 @media screen and (min-width: 767px) {
     .profile-input-box {
         flex-direction: column;
-        padding-bottom: 1%;
-        padding-top: 1%;
+        padding-bottom: 0;
+        padding-top: 0;
     }
     .profile-page-user-picture {
         transform: scale(3);
@@ -83,12 +89,14 @@
         height: 2.5rem;
         align-items: center;
         flex-shrink: 0;
-        padding-left: 20%;
         padding-top: 8%;
     }
     .profile-button {
         padding-top: 0;
-        padding-bottom: 5%;
+        padding-bottom: 2%;
+    }
+    #profile-edit-button {
+        padding-bottom: 3%;
     }
 }
 
