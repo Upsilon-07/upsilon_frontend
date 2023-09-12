@@ -49,9 +49,9 @@ const CourseLessonPage = () => {
           <ProfilePicture image={user.picture}/>
         </Link>
 
-        {/* <Link to="/courses"> */}
+        <Link to="/courses">
         <ArrowButton />
-        {/* </Link> */}
+        </Link>
       </div>
 
       {id && courseTitle ? (
