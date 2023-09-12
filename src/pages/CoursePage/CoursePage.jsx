@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import api from "../../api/api";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
@@ -8,11 +8,15 @@ import Navbar from "../../components/navbar/Navbar";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import "./CoursePage.css";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+import UserContext from "../../contexts/UserContext";
 // import starImage from "/src/assets/images/star-button.svg";
 
 const CoursePage = () => {
+  const { user } = useContext(UserContext);
+
   const [courses, setCourses] = useState([]);
   const [numberLessons, setNumberLessons] = useState([]);
+  const { user } = useContext(UserContext);
 
   const getAllCourses = () => {
     api
@@ -38,7 +42,7 @@ const CoursePage = () => {
       {/* <ProfilePicture btnToFavouritePage={starImage} /> */}
       <div className="top">
         <Link to="/user-profile">
-          <ProfilePicture />
+          <ProfilePicture image={user.picture} />
         </Link>
         <Link to="/favourites/courses">
           <StarButton />

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function TextInputBox({ label, type, name, register, errors, placeholder }) {
+function TextInputBox({ type, name, register, errors, placeholder }) {
   return (
     <div className="text-input">
       <input
