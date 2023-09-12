@@ -56,38 +56,8 @@ const MealsPage = () => {
     return () => clearInterval(interval); // Clean up the interval when the component unmounts
   }, []);
 
-  const mealsDisplay = () => {
-    const filteredMeals = meals.filter(
-      (meal) => meal.meal_type === currentMealType
-    );
-
-    const mealTypeTitles = {
-      Breakfast: "Breakfast time!",
-      Lunch: "Lunch time!",
-      Dinner: "Dinner time!",
-      Snack: "Snack time!",
-    };
-
-    return (
-      <>
-        <div className="meals-page-title-container">
-          <Title title={mealTypeTitles[currentMealType]} weight="bold-title" />
-          <Title
-            title={`Fuel your day with these healthy ${currentMealType} recipes`}
-            weight="light-title"
-          />
-        </div>
-        <div className="meals-page-cards">
-          {filteredMeals.map((meal) => (
-              <MealCard key={meal.id} data={meal} />
-          ))}
-        </div>
-      </>
-    );
-  };
-  
   return (
-      <div>
+    <div>
       <NavbarDesktop />
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
@@ -96,7 +66,30 @@ const MealsPage = () => {
       <div className="meals-page-img">
         <MealsPageIcon />
       </div>
-      <div className="meals-page-title">{mealsDisplay()}</div>
+      <div>
+        <Title
+          title={
+            {
+              Breakfast: "Breakfast time!",
+              Lunch: "Lunch time!",
+              Dinner: "Dinner time!",
+              Snack: "Snack time!",
+            }[currentMealType]
+          }
+          weight="bold-title"
+        />
+        <Title
+          title={`Fuel your day with these healthy ${currentMealType} recipes`}
+          weight="light-title"
+        />
+      </div>
+      <div className="meals-page-cards">
+        {meals
+          .filter((meal) => meal.meal_type === currentMealType)
+          .map((meal) => (
+            <MealCard key={meal.id} data={meal} />
+          ))}
+      </div>
       <Navbar />
     </div>
   );
