@@ -56,6 +56,7 @@
     font-size: 10px;
     gap: 5px;
     align-items: center;
+    color: #AAAAAA;
     
    
 }
@@ -75,6 +76,9 @@
     font-size: 12px;
     margin-top: 0.5rem;
     gap: 2px;
+}
+.paragraph-bottom{
+    color:rgba(43, 43, 43, 0.70);
 }
 
 @media screen and (min-width:768px) {

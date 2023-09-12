@@ -2,19 +2,16 @@ import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import Navbar from "../../components/navbar/Navbar";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
-// import Card from "../../components/Card/Card";
-// import TitleCard from "../../components/TitleCard/TitleCard";
+
 import { Link } from "react-router-dom";
 import api from "../../api/api";
 import Card from "../../components/Card/Card";
-import line from "../../assets/images/Line 14.png";
-import clock from "../../assets/images/time.svg";
-import vector from "../../assets/images/Vector.png";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import "./LessonDetails.css";
+import InfoCard from "../../components/InfoCard/InfoCard";
 
 const LessonDetailsPage = () => {
   const { id } = useParams();
@@ -48,31 +45,16 @@ const LessonDetailsPage = () => {
           <ProfilePicture />
         </Link>
 
-        <Link to={`/courses/${lessonInfo.course_id}`}>
-          <ArrowButton />
-        </Link>
+        {/* <Link to={`/courses/${lessonInfo.course_id}`}> */}
+        <ArrowButton />
+        {/* </Link> */}
       </div>
       <div className="card-lesson-detail">
-        <div className="card-lesson-card">
-          <p className="card-lesson-title">{lessonInfo.lesson_name}</p>
-          <img className="card-lesson-image" src={lessonInfo.image} alt="" />
-        </div>
-
-        <div className="card-clock-and-time">
-          <img src={clock} alt="clock of duration" />{" "}
-          <h4>Duration: {lessonInfo.duration} mins</h4>
-          <img src={vector} className="vector" />
-          <h4>Type: {lessonInfo.lesson_type}</h4>
-          <h4>{lessonInfo.description}</h4>
-        </div>
-
-        <img src={line} />
+        <InfoCard data={lessonInfo} />
 
         {exercises && exercises.length > 0 ? (
           exercises.map((exercise) => (
-            // <Link key={lesson.id} to={`/lesson/${lesson.id}`}>
             <Card key={exercise.id} data={exercise} linkTo="exercise" />
-            // </Link>
           ))
         ) : (
           <h1>Loading...</h1>
