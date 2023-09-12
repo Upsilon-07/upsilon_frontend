@@ -41,7 +41,7 @@ InfoCard.propTypes = {
   data: PropTypes.shape({
     lesson_name: PropTypes.string,
     image: PropTypes.string,
-    duration: PropTypes.string,
+    duration: PropTypes.number,
     lesson_type: PropTypes.string,
     description: PropTypes.string,
   }),

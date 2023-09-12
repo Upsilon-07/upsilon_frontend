@@ -11,7 +11,7 @@ import StartJourneyFour from "./pages/Start-Journey-Page/StartJourneyFour";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import ExercisesPage from "./pages/ExercisesPage/ExercisesPage";
+import ExercisePage from "./pages/ExercisePage/ExercisePage";
 import AuthContext from "./contexts/AuthContext";
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
@@ -54,7 +54,7 @@ function App() {
           <Route path="/favourites/courses" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />
           <Route path="/lesson/:id" element={<LessonDetailsPage />} />
-          <Route path="/exercises/:id" element={<ExercisesPage />} />
+          <Route path="/exercise/:id" element={<ExercisePage />} />
           <Route path="/meals" element={<MealsPage />} />
         </Route>
       </Routes>

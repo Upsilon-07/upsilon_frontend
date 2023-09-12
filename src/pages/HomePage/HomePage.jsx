@@ -18,8 +18,8 @@ const HomePage = () => {
 
   const { user } = useContext(UserContext);
 
-  const [courses, setCourses] = useState([]);
-  const [numberLessons, setNumberLessons] = useState([]);
+  const [courses, setCourses] = useState({});
+  const [numberLessons, setNumberLessons] = useState({});
 
   const getAllCourses = () => {
     api
@@ -44,8 +44,8 @@ const HomePage = () => {
     <div className="homepage">
       <NavbarDesktop />
       <Link to="/user-profile">
-        <ProfilePicture image={user.picture}/>
-        </Link>
+        <ProfilePicture image={user.picture} />
+      </Link>
       <div>
         <UserName value={user.username} />
       </div>
