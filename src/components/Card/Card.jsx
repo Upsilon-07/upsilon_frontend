@@ -93,7 +93,7 @@ Card.propTypes = {
     image: PropTypes.string,
     lessons: PropTypes.number,
     duration: PropTypes.string,
-    rating: PropTypes.string,
+    rating: PropTypes.number,
     trainer: PropTypes.string,
     difficulty: PropTypes.string,
   }),
