@@ -1,0 +1,57 @@
+
+.edit-profile-page-return-button {
+    display: flex;
+    position: relative;
+    padding-top: 5.128205128205128%;
+
+}
+
+.edit-profile-title {
+    display: flex;
+    height: 2.5rem;
+    align-items: center;
+    flex-shrink: 0;
+    padding-left: 5.907692307692307%;
+    padding-top: 12.43601895734597%;
+    padding-bottom: 12.43601895734597%;
+}
+
+#light-title {
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #4A4A4A;
+    line-height: 140%; /* 3.15rem */
+    letter-spacing: 0.045rem;
+}
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.cancel-changes-button {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .cancel-changes-button {
+        padding-bottom: 100px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .cancel-changes-button {
+        padding-bottom: 3%;
+    }
+    .edit-profile-title {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+  }
+

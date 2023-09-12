@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
-function TextInputBox({ label, type, name, register, errors  }) {
+function TextInputBox({ type, name, register, errors, placeholder }) {
   return (
     <div className="text-input">
-        <input
+      <input
         className="text-input-class"
         type={type}
-        {...register(name, { required: `${label} is required` })}
-        aria-invalid={errors.name ? 'true' : 'false'}
+        placeholder={placeholder}
+        {...register(name)}
+        aria-invalid={errors.name ? "true" : "false"}
       />
       {errors.name && <p>{errors.name?.message}</p>}
     </div>
@@ -14,13 +15,14 @@ function TextInputBox({ label, type, name, register, errors  }) {
 }
 
 TextInputBox.propTypes = {
-    type: PropTypes.string,
-    label: PropTypes.string,
+  type: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  register: PropTypes.func,
+  errors: PropTypes.shape({
     name: PropTypes.string,
-    register: PropTypes.func,
-    errors: PropTypes.shape({
-      name: PropTypes.string,
-    })
-  };
+  }),
+};
 
 export default TextInputBox;

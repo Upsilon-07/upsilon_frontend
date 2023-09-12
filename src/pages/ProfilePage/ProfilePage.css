@@ -1,4 +1,10 @@
 
+.profile-page-return-button {
+    display: flex;
+    position: relative;
+
+}
+
 
 .profile-title {
     display: flex;
@@ -21,6 +27,12 @@
     letter-spacing: 0.045rem;
 }
 
+.profile-page-user-picture {
+    transform: scale(2);
+    right: 18%;
+    top: 10%;
+    position: absolute;
+}
 
 
 .profile-input-box {
@@ -54,9 +66,42 @@
     padding-bottom: 5%;
 }
 
+@media screen and (max-width: 767px) {
+    #change-password {
+        padding-bottom: 100px;
+    }
+}
+
+
 @media screen and (min-width: 767px) {
     .profile-input-box {
         flex-direction: column;
+        padding-bottom: 0;
+        padding-top: 0;
     }
+    .profile-page-user-picture {
+        transform: scale(3);
+        padding-top: 2.5rem;
+    }
+    .profile-title {
+        display: flex;
+        width: 9.25rem;
+        height: 2.5rem;
+        align-items: center;
+        flex-shrink: 0;
+        padding-top: 8%;
+    }
+    .profile-button {
+        padding-top: 0;
+        padding-bottom: 2%;
+    }
+    #profile-edit-button {
+        padding-bottom: 3%;
+    }
+}
 
+@media screen and (min-width: 1440px) {
+    .profile-page-user-picture {
+        padding-top: 5rem;
+    }
 }

@@ -13,9 +13,10 @@
 
 .course-container {
  width: 100%;
+
   }
 
-  .left-and-right-container{
+.left-and-right-container{
     display: flex;
     border-radius: 21px;
     padding: 12px;
@@ -23,6 +24,9 @@
     background-color: white;
     gap: 10.5px;
     margin-top: 1rem;
+    margin-right: 1.1rem;
+    margin-left: 1.1rem;
+
    
   }
 
@@ -52,6 +56,7 @@
     font-size: 10px;
     gap: 5px;
     align-items: center;
+    color: #AAAAAA;
     
    
 }
@@ -71,6 +76,9 @@
     font-size: 12px;
     margin-top: 0.5rem;
     gap: 2px;
+}
+.paragraph-bottom{
+    color:rgba(43, 43, 43, 0.70);
 }
 
 @media screen and (min-width:768px) {

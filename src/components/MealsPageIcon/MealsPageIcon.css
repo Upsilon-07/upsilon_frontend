@@ -1,0 +1,32 @@
+
+.meal-page-icon {
+    background-image: url(src/assets/images/mealsPageIcon/backgound-img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 259.463px;
+    height: 267.91px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    left: 20%;
+}
+
+.meals-page-img {
+    border-radius: 50%;
+    width: 230px;
+    height: 230px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+
+@media screen and (min-width: 768px) {
+    .meal-page-icon {
+        left: 41%;
+    }
+  }

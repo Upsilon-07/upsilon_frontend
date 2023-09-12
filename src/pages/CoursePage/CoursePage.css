@@ -2,21 +2,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 1rem;
+    padding-top: 6px;
 }
 
 .course-page {
     background-color: #EAF2F2;
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
     padding-bottom:6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.title-courses{
+/* .title-courses{
    margin-top: 1rem;
    font-size: 1.5rem;
-}
+} */
 
 .courses-container{
     display: flex;

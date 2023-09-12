@@ -1,0 +1,46 @@
+.lesson-detail-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-top: 6px;
+}
+
+.card-lesson-detail{
+    background-color: white;
+    margin-left: 18px;
+    margin-right: 37px;
+    margin-top: 13px;
+    margin-bottom: 14rem;
+    border-radius: 10px;
+}
+
+.image-lesson-detail{
+    width: 320px;
+    height: 130px;
+}
+
+
+@media screen and (min-width:768px) {
+
+ 
+
+    .card-lesson-detail {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      
+      }
+    .card-lesson-image{
+        width: 31%;
+        height: 31%;
+    }
+  }
+
+
+
+
+

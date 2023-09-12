@@ -1,4 +1,4 @@
-.container-image {
+.profile-picture-container-image {
     background-image: url(src/assets/images/profilePicture/profile-picture-background.svg);
     width: 106.256px;
     height: 65.965px;
@@ -12,6 +12,14 @@
     top: 10px;
 }
 
+.user-profile-icon {
+    position: relative;
+    width: 6.641rem;
+    height: 4.12281rem;
+    flex-shrink: 0;
+    padding-left: 5.128205128205128%;
+    padding-top: 2.2559241706161135%;
+}
 
 .profile-image {
     width: 50px;
@@ -26,13 +34,26 @@
     position: relative;
     flex-direction: row;
     left: -19px;
+    border-radius: 50%
+}
+
+.container-top{
+    margin-left: 2.5rem;
+    margin-top: 2.2rem;
 }
 
 
 @media screen and (min-width: 767px) {
-    .container-image {
-        padding-top: 90px;
+    .profile-picture-container-image {
+        padding-top: 10px;
         position: relative;
         display: flex;
+    }
+    .user-profile-icon {
+        position: relative;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
 }
