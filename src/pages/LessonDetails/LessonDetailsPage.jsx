@@ -45,9 +45,9 @@ const LessonDetailsPage = () => {
           <ProfilePicture />
         </Link>
 
-        <Link to={`/courses/${lessonInfo.course_id}`}>
-          <ArrowButton />
-        </Link>
+        {/* <Link to={`/courses/${lessonInfo.course_id}`}> */}
+        <ArrowButton />
+        {/* </Link> */}
       </div>
       <div className="card-lesson-detail">
         <InfoCard data={lessonInfo} />

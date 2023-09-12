@@ -49,9 +49,9 @@ const CourseLessonPage = () => {
           <ProfilePicture />
         </Link>
 
-        <Link to="/courses">
-          <ArrowButton />
-        </Link>
+        {/* <Link to="/courses"> */}
+        <ArrowButton />
+        {/* </Link> */}
       </div>
 
       {id && courseTitle ? (
