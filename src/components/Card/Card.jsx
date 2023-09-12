@@ -33,13 +33,10 @@ const Card = ({ data, numberLessons, linkTo }) => {
               ) : data.lesson_name ? (
                 <h2 className="course-name">{data.lesson_name}</h2>
               ) : null}
-              {data.exercise_name ? (
-                <h2 className="course-name">{data.exercise_name}</h2>
-              ) : null}
               {numberLessons && lessonCount ? (
                 <h4 className="number-of-lessons">{lessonCount} Lessons</h4>
               ) : null}
-              {data.duration && data.lesson_name ? (
+              {data.duration ? (
                 <div className="clock-and-time">
                   <img src={clock} alt="clock of duration" />{" "}
                   <h4>{data.duration} mins</h4>
@@ -65,7 +62,7 @@ const Card = ({ data, numberLessons, linkTo }) => {
                       <p>{data.difficulty === 2 ? "Intermediate" : null}</p>
                       <p>{data.difficulty === 3 ? "Advanced" : null}</p>
                     </>
-                  ) : data.lesson_name || data.exercise_name ? (
+                  ) : data.lesson_name ? (
                     <p>{data.difficulty}</p>
                   ) : null}
                 </>
@@ -78,7 +75,7 @@ const Card = ({ data, numberLessons, linkTo }) => {
                     alt="dot"
                   />
                   <img src="/src/assets/images/small-star.svg" alt="" />
-                  <p className="paragraph-bottom">{data.rating}</p>
+                  <p>{data.rating}</p>
                 </>
               ) : null}
             </div>
@@ -96,7 +93,7 @@ Card.propTypes = {
     image: PropTypes.string,
     lessons: PropTypes.number,
     duration: PropTypes.string,
-    rating: PropTypes.number,
+    rating: PropTypes.string,
     trainer: PropTypes.string,
     difficulty: PropTypes.string,
   }),
