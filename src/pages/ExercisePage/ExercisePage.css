@@ -1,0 +1,76 @@
+.exercise-detail-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-top: 6px;
+    padding-right: 20px;
+}
+
+.exercise-card-content{
+    border-radius: 10px;
+    margin: 14px 23px 44px 27px;
+    margin-bottom: 100px;
+    padding-bottom: 60px;
+    background-color: white;
+}
+
+.image-exercise{
+width:100%;
+border-radius: 10px;
+}
+
+.exercise-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin:12px 0 18px 0;
+}
+
+.content-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+font-weight: 400;
+color: #AAA;
+gap: 0.5rem;
+margin-bottom: 30px;
+}
+
+.exercise-description{
+   
+    color: #AAA;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 36px 49px 52px;
+
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    /* padding-bottom: 67px; */
+}
+
+@media screen and (min-width:768px) {
+
+ 
+
+    .exercise-card-content {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      
+      }
+ 
+  }

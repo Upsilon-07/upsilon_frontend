@@ -19,7 +19,7 @@ const HomePage = () => {
   const { user } = useContext(UserContext);
 
   const [courses, setCourses] = useState({});
-  const [numberLessons, setNumberLessons] = useState({});
+  const [numberLessons, setNumberLessons] = useState([]);
 
   const getAllCourses = () => {
     api

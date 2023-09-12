@@ -40,19 +40,36 @@ const ExercisePage = () => {
       </div>
       {exerciseDetail ? (
         <div className="exercise-card-content">
-          <img src={exerciseDetail.image} className="" alt="" />
+          <img src={exerciseDetail.image} className="image-exercise" alt="" />
+          <h4 className="exercise-name">{exerciseDetail.exercise_name}</h4>
           <div className="content">
-            <h4>{exerciseDetail.exersie_name}</h4>
-            <p>
-              Duration: {exerciseDetail.duration} {exerciseDetail.duration_type}
-            </p>
-            <img
-              className="dot-image"
-              src="/src/assets/images/dot-image.svg"
-              alt="dot"
-            />
-            <p>Time: slow</p>
-            <p>{exerciseDetail.description}</p>
+            <div className="content-top">
+              <p>
+                Duration: {exerciseDetail.duration}{" "}
+                {exerciseDetail.duration_type}
+              </p>
+              <img
+                className="dot-image"
+                src="/src/assets/images/dot-image.svg"
+                alt="dot"
+              />
+              {exerciseDetail.duration_type ? (
+                <>
+                  {exerciseDetail.duration_type === "seconds" ? (
+                    <p>Time: fast</p>
+                  ) : null}
+
+                  {exerciseDetail.duration_type === "minutes" ? (
+                    <p>Time: moderate</p>
+                  ) : null}
+
+                  {exerciseDetail.duration_type === "repetitions" ? (
+                    <p>Time: slow</p>
+                  ) : null}
+                </>
+              ) : null}
+            </div>
+            <p className="exercise-description">{exerciseDetail.description}</p>
             <NextButton
               buttonId="orange-button"
               buttonContent="Start Journey"

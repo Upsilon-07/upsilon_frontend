@@ -13,7 +13,7 @@ import UserContext from "../../contexts/UserContext";
 
 const CoursePage = () => {
   const [courses, setCourses] = useState({});
-  const [numberLessons, setNumberLessons] = useState({});
+  const [numberLessons, setNumberLessons] = useState([]);
   const { user } = useContext(UserContext);
 
   const getAllCourses = () => {
