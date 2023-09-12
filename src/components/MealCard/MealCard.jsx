@@ -7,7 +7,7 @@ const MealCard = ({ data }) => {
   return (
     <div className="meal-card">
       <Link to={`/meals/${data.id}`}>
-        <div className="left-and-right-container">
+        <div className="left-and-right-container-meal">
       {data.image ? (
         <div className="left-container">
         <img className="meal-card-img" src={data.image} alt={data.meal_name} />

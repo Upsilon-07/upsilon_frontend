@@ -1,11 +1,17 @@
 
+.meal-card {
+    width: 100%;
+
+}
+
+
 .meal-card-img {
     width:75px;
     height:75px;
     border-radius: 10px;
 }
 
-.left-and-right-container {
+.left-and-right-container-meal {
     display: flex;
     border-radius: 21px;
     padding: 12px;
@@ -15,6 +21,7 @@
     margin-top: 1rem;
     margin-right: 1.1rem;
     margin-left: 1.1rem;
+    width: 100%;
 }
 
 .left-container {
@@ -37,4 +44,11 @@
     font-size: 12px;
     margin-top: 0.5rem;
     gap: 2px;
+}
+
+@media screen and (min-width: 768px) {
+    .meal-card {
+        margin: 0 auto;
+        width: 90%;
+    }
 }

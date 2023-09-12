@@ -70,7 +70,7 @@ const MealsPage = () => {
 
     return (
       <>
-        <div>
+        <div className="meals-page-title-container">
           <Title title={mealTypeTitles[currentMealType]} weight="bold-title" />
           <Title
             title={`Fuel your day with these healthy ${currentMealType} recipes`}
