@@ -32,8 +32,6 @@ const LoginPage = () => {
         if (response.status === 200) {
           //! save token in cookies
           Cookies.set("user_token", response.data.token);
-          // //! save token in local storage
-          localStorage.setItem("user_token", response.data.token);
           let config = {
             headers: {
               Authorization: "Bearer " + response.data.token,
