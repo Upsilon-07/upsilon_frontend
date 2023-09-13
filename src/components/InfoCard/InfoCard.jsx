@@ -8,9 +8,11 @@ import "./InfoCard.css";
 const InfoCard = ({ data }) => {
   return (
     <div className="infoCard">
-      {data.lesson_name || data.image ? (
+      {data.lesson_name || data.meal_name || data.image ? (
         <div className="card-lesson-card">
-          <p className="card-lesson-title">{data.lesson_name}</p>
+          <p className="card-lesson-title">
+            {data.lesson_name ? data.lesson_name : data.meal_name}
+          </p>
           <img className="card-lesson-image" src={data.image} alt="" />
         </div>
       ) : null}
@@ -22,17 +24,17 @@ const InfoCard = ({ data }) => {
             <h4>Duration: {data.duration} mins</h4>
           </div>
         ) : null}
-        {data.lesson_type ? (
+        {data.lesson_type || data.meal_type ? (
           <div className="vector-and-type">
-            <img src={vector} className="vector" />
-            <h4>Type: {data.lesson_type}</h4>
+            <img src={vector} className="vector" alt="vector" />
+            <h4>Type: {data.lesson_type ? data.lesson_type : data.meal_type}</h4>
           </div>
         ) : null}
       </div>
       {data.description ? (
         <p className="card-description">{data.description}</p>
       ) : null}
-      <img className="line" src={line} />
+      <img className="line" src={line} alt="line" />
     </div>
   );
 };
@@ -40,9 +42,11 @@ const InfoCard = ({ data }) => {
 InfoCard.propTypes = {
   data: PropTypes.shape({
     lesson_name: PropTypes.string,
+    meal_name: PropTypes.string,
     image: PropTypes.string,
     duration: PropTypes.string,
     lesson_type: PropTypes.string,
+    meal_type: PropTypes.string,
     description: PropTypes.string,
   }),
 };

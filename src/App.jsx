@@ -21,6 +21,7 @@ import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
 import EditProfile from "./pages/EditProfilePage/EditProfilePage";
 import MealsPage from "./pages/MealsPage/MealsPage";
 import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
+import RecipePage from "./pages/RecipePage/RecipePage"
 
 function App() {
   const { user } = useContext(UserContext);
@@ -56,6 +57,7 @@ function App() {
           <Route path="/lesson/:id" element={<LessonDetailsPage />} />
           <Route path="/exercises/:id" element={<ExercisesPage />} />
           <Route path="/meals" element={<MealsPage />} />
+          <Route path="/recipe/:id" element={<RecipePage />} />
         </Route>
       </Routes>
     </>
