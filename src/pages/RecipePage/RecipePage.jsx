@@ -10,6 +10,7 @@ import InfoCard from '../../components/InfoCard/InfoCard';
 import { useParams } from "react-router-dom";
 import "../../components/InfoCard/InfoCard";
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
+import IngredientsCard from '../../components/IngredientsCard/IngredientsCard';
 
 
 const RecipePage = () => {
@@ -45,6 +46,7 @@ const RecipePage = () => {
         <ArrowButton />
         <div className="card-lesson-detail">
           <InfoCard data={meal} />
+          <IngredientsCard data={meal}/>
         </div>
         <Navbar />
       </div>
