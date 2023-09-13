@@ -21,6 +21,7 @@ import ChangePassword from "./pages/ChangePasswordPage/ChangePassword";
 import EditProfile from "./pages/EditProfilePage/EditProfilePage";
 import MealsPage from "./pages/MealsPage/MealsPage";
 import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
+import RecipePage from "./pages/RecipePage/RecipePage"
 import ExerciseDetailPage from "./pages/ExerciseDetailPage/ExerciseDetailPage";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
             element={<ExerciseDetailPage />}
           />
           <Route path="/meals" element={<MealsPage />} />
+          <Route path="/recipe/:id" element={<RecipePage />} />
         </Route>
       </Routes>
     </>

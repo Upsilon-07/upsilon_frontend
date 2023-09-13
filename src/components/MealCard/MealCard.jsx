@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MealCard = ({ data }) => {
   return (
     <div className="meal-card">
-      <Link to={`/meals/${data.id}`}>
+      <Link to={`/recipe/${data.id}`}>
         <div className="left-and-right-container">
       {data.image ? (
         <div className="left-container">
