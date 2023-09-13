@@ -2,23 +2,20 @@ import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import Navbar from "../../components/navbar/Navbar";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
-
 import { Link } from "react-router-dom";
 import api from "../../api/api";
 import Card from "../../components/Card/Card";
-
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import "./LessonDetails.css";
 import InfoCard from "../../components/InfoCard/InfoCard";
 
 const LessonDetailsPage = () => {
   const { id } = useParams();
 
-  const [exercises, setExercises] = useState([]);
+  const [exercises, setExercises] = useState({});
 
-  const [lessonInfo, setLessonInfo] = useState([]);
+  const [lessonInfo, setLessonInfo] = useState({});
 
   const getAllLessonDetails = () => {
     api
@@ -45,9 +42,7 @@ const LessonDetailsPage = () => {
           <ProfilePicture />
         </Link>
 
-        {/* <Link to={`/courses/${lessonInfo.course_id}`}> */}
         <ArrowButton />
-        {/* </Link> */}
       </div>
       <div className="card-lesson-detail">
         <InfoCard data={lessonInfo} />

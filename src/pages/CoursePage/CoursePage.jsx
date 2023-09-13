@@ -12,8 +12,7 @@ import UserContext from "../../contexts/UserContext";
 // import starImage from "/src/assets/images/star-button.svg";
 
 const CoursePage = () => {
-
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState({});
   const [numberLessons, setNumberLessons] = useState([]);
   const { user } = useContext(UserContext);
 
