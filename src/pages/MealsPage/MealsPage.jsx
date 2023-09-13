@@ -8,7 +8,7 @@ import UserContext from "../../contexts/UserContext";
 import { useContext, useEffect, useState } from "react";
 import StarButton from "../../components/StarButton/StarButton";
 import Title from "../../components/Title";
-import MealCard from "../../components/MealCard/MealCard";
+import Card from "../../components/Card/Card";
 import api from "../../api/api";
 
 const MealsPage = () => {
@@ -66,7 +66,7 @@ const MealsPage = () => {
       <div className="meals-page-img">
         <MealsPageIcon />
       </div>
-      <div>
+      <div className="meals-page-title-container">
         <Title
           title={
             {
@@ -78,16 +78,21 @@ const MealsPage = () => {
           }
           weight="bold-title"
         />
-        <Title
+        <div className="meals-page-subtitle">
+        <Title 
           title={`Fuel your day with these healthy ${currentMealType} recipes`}
           weight="light-title"
-        />
+        /></div>
       </div>
       <div className="meals-page-cards">
         {meals
           .filter((meal) => meal.meal_type === currentMealType)
           .map((meal) => (
-            <MealCard key={meal.id} data={meal} />
+            <Card
+              key={meal.id}
+              data={meal}
+              linkTo="recipes"
+            />
           ))}
       </div>
       <Navbar />

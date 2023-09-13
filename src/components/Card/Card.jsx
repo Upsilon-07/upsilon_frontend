@@ -34,6 +34,8 @@ const Card = ({ data, numberLessons, linkTo }) => {
                 <h2 className="course-name">{data.courseName}</h2>
               ) : data.lesson_name ? (
                 <h2 className="course-name">{data.lesson_name}</h2>
+              ) : data.meal_name ? (
+                <h2 className="course-name">{data.meal_name}</h2>
               ) : null}
               {data.exercise_name ? (
                 <h2 className="course-name">{data.exercise_name}</h2>
@@ -42,6 +44,12 @@ const Card = ({ data, numberLessons, linkTo }) => {
                 <h4 className="number-of-lessons">{lessonCount} Lessons</h4>
               ) : null}
               {data.duration && data.lesson_name ? (
+                <div className="clock-and-time">
+                  <img src={clock} alt="clock of duration" />{" "}
+                  <h4>{data.duration} mins</h4>
+                </div>
+              ) : null}
+              {data.duration && data.meal_name ? (
                 <div className="clock-and-time">
                   <img src={clock} alt="clock of duration" />{" "}
                   <h4>{data.duration} mins</h4>
@@ -95,6 +103,7 @@ Card.propTypes = {
   data: PropTypes.shape({
     courseName: PropTypes.string,
     lesson_name: PropTypes.string,
+    meal_name: PropTypes.string,
     image: PropTypes.string,
     lessons: PropTypes.number,
     duration: PropTypes.number,
