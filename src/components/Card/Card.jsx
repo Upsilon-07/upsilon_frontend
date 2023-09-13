@@ -63,9 +63,9 @@ const Card = ({ data, numberLessons, linkTo }) => {
                   />
                   {data.courseName ? (
                     <>
-                      <p>{data.difficulty === 1 ? "Beginner" : null}</p>
-                      <p>{data.difficulty === 2 ? "Intermediate" : null}</p>
-                      <p>{data.difficulty === 3 ? "Advanced" : null}</p>
+                      <p>{data.difficulty == 1 ? "Beginner" : null}</p>
+                      <p>{data.difficulty == 2 ? "Intermediate" : null}</p>
+                      <p>{data.difficulty == 3 ? "Advanced" : null}</p>
                     </>
                   ) : data.lesson_name || data.exercise_name ? (
                     <p>{data.difficulty}</p>

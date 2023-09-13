@@ -70,11 +70,13 @@ const ExercisePage = () => {
               ) : null}
             </div>
             <p className="exercise-description">{exerciseDetail.description}</p>
-            <NextButton
-              buttonId="orange-button"
-              buttonContent="Start Journey"
-              buttonClass="button-round"
-            />
+            <Link to={`/exercise/${id}/details`}>
+              <NextButton
+                buttonId="orange-button"
+                buttonContent="Start Journey"
+                buttonClass="button-round"
+              />
+            </Link>
           </div>
         </div>
       ) : (
