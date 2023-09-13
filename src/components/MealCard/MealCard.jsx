@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const MealCard = ({ data }) => {
   return (
     <div className="meal-card">
-      <Link to={`/meals/${data.id}`}>
-        <div className="left-and-right-container-meal">
+      <Link to={`/recipe/${data.id}`}>
+        <div className="left-and-right-container">
       {data.image ? (
         <div className="left-container">
         <img className="meal-card-img" src={data.image} alt={data.meal_name} />
