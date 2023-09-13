@@ -9,6 +9,7 @@ import api from '../../api/api';
 import InfoCard from '../../components/InfoCard/InfoCard';
 import { useParams } from "react-router-dom";
 import "../../components/InfoCard/InfoCard";
+import ArrowButton from '../../components/ArrowButton/ArrowButton';
 
 
 const RecipePage = () => {
@@ -41,6 +42,7 @@ const RecipePage = () => {
         <Link to="/user-profile">
           <ProfilePicture image={user.picture} />
         </Link>
+        <ArrowButton />
         <div className="card-lesson-detail">
           <InfoCard data={meal} />
         </div>
