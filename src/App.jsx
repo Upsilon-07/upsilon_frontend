@@ -11,7 +11,7 @@ import StartJourneyFour from "./pages/Start-Journey-Page/StartJourneyFour";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import ExercisesPage from "./pages/ExercisesPage/ExercisesPage";
+import ExercisePage from "./pages/ExercisePage/ExercisePage";
 import AuthContext from "./contexts/AuthContext";
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
@@ -22,6 +22,7 @@ import EditProfile from "./pages/EditProfilePage/EditProfilePage";
 import MealsPage from "./pages/MealsPage/MealsPage";
 import LessonDetailsPage from "./pages/LessonDetails/LessonDetailsPage";
 import RecipePage from "./pages/RecipePage/RecipePage"
+import ExerciseDetailPage from "./pages/ExerciseDetailPage/ExerciseDetailPage";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -55,7 +56,11 @@ function App() {
           <Route path="/favourites/courses" element={<CourseFavouritePage />} />
           <Route path="/courses/:id" element={<CourseLessonPage />} />
           <Route path="/lesson/:id" element={<LessonDetailsPage />} />
-          <Route path="/exercises/:id" element={<ExercisesPage />} />
+          <Route path="/exercise/:id" element={<ExercisePage />} />
+          <Route
+            path="/exercise/:id/details"
+            element={<ExerciseDetailPage />}
+          />
           <Route path="/meals" element={<MealsPage />} />
           <Route path="/recipe/:id" element={<RecipePage />} />
         </Route>

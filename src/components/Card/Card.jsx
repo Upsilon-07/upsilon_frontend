@@ -9,6 +9,8 @@ import PropTypes from "prop-types";
 const Card = ({ data, numberLessons, linkTo }) => {
   const [lessonCount, setLessonCount] = useState();
 
+  //console.log(data);
+
   useEffect(() => {
     if (numberLessons !== null && numberLessons?.length > 0) {
       numberLessons
@@ -33,10 +35,13 @@ const Card = ({ data, numberLessons, linkTo }) => {
               ) : data.lesson_name ? (
                 <h2 className="course-name">{data.lesson_name}</h2>
               ) : null}
+              {data.exercise_name ? (
+                <h2 className="course-name">{data.exercise_name}</h2>
+              ) : null}
               {numberLessons && lessonCount ? (
                 <h4 className="number-of-lessons">{lessonCount} Lessons</h4>
               ) : null}
-              {data.duration ? (
+              {data.duration && data.lesson_name ? (
                 <div className="clock-and-time">
                   <img src={clock} alt="clock of duration" />{" "}
                   <h4>{data.duration} mins</h4>
@@ -58,11 +63,11 @@ const Card = ({ data, numberLessons, linkTo }) => {
                   />
                   {data.courseName ? (
                     <>
-                      <p>{data.difficulty === 1 ? "Beginner" : null}</p>
-                      <p>{data.difficulty === 2 ? "Intermediate" : null}</p>
-                      <p>{data.difficulty === 3 ? "Advanced" : null}</p>
+                      <p>{data.difficulty == 1 ? "Beginner" : null}</p>
+                      <p>{data.difficulty == 2 ? "Intermediate" : null}</p>
+                      <p>{data.difficulty == 3 ? "Advanced" : null}</p>
                     </>
-                  ) : data.lesson_name ? (
+                  ) : data.lesson_name || data.exercise_name ? (
                     <p>{data.difficulty}</p>
                   ) : null}
                 </>
@@ -75,7 +80,7 @@ const Card = ({ data, numberLessons, linkTo }) => {
                     alt="dot"
                   />
                   <img src="/src/assets/images/small-star.svg" alt="" />
-                  <p>{data.rating}</p>
+                  <p className="paragraph-bottom">{data.rating}</p>
                 </>
               ) : null}
             </div>
@@ -92,15 +97,17 @@ Card.propTypes = {
     lesson_name: PropTypes.string,
     image: PropTypes.string,
     lessons: PropTypes.number,
-    duration: PropTypes.string,
-    rating: PropTypes.string,
+    duration: PropTypes.number,
+    rating: PropTypes.number,
     trainer: PropTypes.string,
-    difficulty: PropTypes.string,
+    difficulty: PropTypes.number,
   }),
-  numberLessons: PropTypes.shape({
-    courseName: PropTypes.string,
-    lessonCount: PropTypes.number,
-  }),
+  numberLessons: PropTypes.arrayOf(
+    PropTypes.shape({
+      courseName: PropTypes.string,
+      lessonCount: PropTypes.number,
+    })
+  ),
 };
 
 export default Card;

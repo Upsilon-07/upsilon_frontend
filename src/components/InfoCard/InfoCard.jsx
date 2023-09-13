@@ -44,7 +44,7 @@ InfoCard.propTypes = {
     lesson_name: PropTypes.string,
     meal_name: PropTypes.string,
     image: PropTypes.string,
-    duration: PropTypes.string,
+    duration: PropTypes.number,
     lesson_type: PropTypes.string,
     meal_type: PropTypes.string,
     description: PropTypes.string,

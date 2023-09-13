@@ -15,8 +15,8 @@ const CourseLessonPage = () => {
   const { id } = useParams();
   const { user } = useContext(UserContext);
 
-  const [lessons, setLessons] = useState();
-  const [courseTitle, setCourseTitle] = useState();
+  const [lessons, setLessons] = useState({});
+  const [courseTitle, setCourseTitle] = useState("");
   const [isFavourite, setIsFavourite] = useState(false);
 
   const getAllLessonsByCourseId = () => {
@@ -46,7 +46,7 @@ const CourseLessonPage = () => {
       <NavbarDesktop />
       <div className="lessons-top">
         <Link to="/user-profile">
-          <ProfilePicture image={user.picture}/>
+          <ProfilePicture image={user.picture} />
         </Link>
 
         <Link to="/courses">

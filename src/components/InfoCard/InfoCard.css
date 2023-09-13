@@ -24,15 +24,17 @@
 .card-lesson-image{
     width: 50%;
     height: 50%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .card-header-top{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 23px;
+    gap: 14px;
     font-size: 12px;
     padding-left:24px; 
-    padding-right: 63px;
+    padding-right: 24px;
     margin-bottom: 19px;
     font-weight: 500;
     color: rgba(170, 170, 170, 0.70);
