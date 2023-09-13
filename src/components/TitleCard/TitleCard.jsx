@@ -44,7 +44,7 @@ const TitleCard = ({ id, title, isFavourite, setIsFavourite }) => {
 };
 
 TitleCard.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   width: PropTypes.string,
   isFavourite: PropTypes.bool,
