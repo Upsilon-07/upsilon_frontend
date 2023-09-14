@@ -4,24 +4,20 @@ import "./IngredientsCard.css";
 
 function NumberedParagraphs({ text, useBulletPoints }) {
   if (useBulletPoints) {
-    const ingredients = text
-      .split(",")
-      .map((ingredient, index) => <li key={index}>{ingredient.trim()}</li>);
+    const ingredients = text.split(',').map((ingredient, index) => (
+      <li key={index}>{ingredient.trim()}</li>
+    ));
     return <ul>{ingredients}</ul>;
   }
 
-  // Split the text into an array of paragraphs
-  const paragraphs = text.split(/\d+\./).filter(Boolean);
-
-  return (
-    <div>
-      {paragraphs.map((paragraph, index) => (
-        <p key={index} data-number={`${index + 1}`}>{`${
-          index + 1
-        }. ${paragraph.trim()}`}</p>
-      ))}
+  // Split the text into paragraphs based on periods (".")
+  const paragraphs = text.split('.').filter(Boolean).map((paragraph, index) => (
+    <div key={index}>
+      <p data-number={`${index + 1}`}>{paragraph.trim()}</p>
     </div>
-  );
+  ));
+
+  return <div>{paragraphs}</div>;
 }
 
 const IngredientsCard = ({ data }) => {

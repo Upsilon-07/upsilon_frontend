@@ -12,6 +12,7 @@ import "../../components/InfoCard/InfoCard";
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 import IngredientsCard from '../../components/IngredientsCard/IngredientsCard';
 import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
+import NextButton from "../../components/next-page-button/NextButton";
 
 
 const RecipePage = () => {
@@ -69,13 +70,20 @@ const RecipePage = () => {
           <ProfilePicture image={user.picture} />
         </Link>
         <ArrowButton />
-        <div className="card-lesson-detail">
+        <div className="card-lesson-detail" id='recipe-page-card'>
           <InfoCard data={meal} />
           <div className='nutrition-container'>
             <NutritionInfo data={nutrition}/>
-          <IngredientsCard data={meal}/>
-          </div>
+          <IngredientsCard data={meal} />
         </div>
+          </div>
+          <div className='recipe-page-button'>
+          <NextButton
+            buttonId="orange-button"
+            buttonContent="Add To My Meals"
+            buttonClass="button-square"
+          />
+          </div>
         <Navbar />
       </div>
     );
