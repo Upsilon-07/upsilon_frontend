@@ -126,11 +126,11 @@ const ExerciseDetailPage = () => {
           src={exerciseDetail.image}
           alt=""
         />
-        <p>Set {number}/ 3</p>
-        <div>
+        <p className="sets">Set {number}/ 3</p>
+        <div className="timer">
           {timeInMinutes}: {timeInSecond}
         </div>
-        <div>
+        <div className="start-stop-next-previous">
           <img onClick={handleClickPrevious} src={previous} alt="" />
 
           <img onClick={handleClick} src={currentImage} alt="" />
