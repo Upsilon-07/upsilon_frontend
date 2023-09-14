@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import "../../components/InfoCard/InfoCard";
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 import IngredientsCard from '../../components/IngredientsCard/IngredientsCard';
+import DoughnutChart from '../../components/DoughnutChart/DoughnutChart';
 
 
 const RecipePage = () => {
@@ -36,6 +37,30 @@ const RecipePage = () => {
     useEffect(() => {
       getMealDetails();
     }, [getMealDetails]);
+    
+    const [nutrition, setNutrition] = useState([]);
+  
+    const getNutritionDetails = useCallback(() => {
+        api
+          .get(`/nutrition/${id}`)
+          .then((response) => {
+            if (response.status === 200) {
+              setNutrition(response.data);
+            //   console.log(nutrition);
+              
+            } else {
+              console.log("Error getting meal");
+            }
+          })
+          .catch((error) => console.log(error));
+      }, [id]);
+      
+  
+    useEffect(() => {
+        getNutritionDetails();
+    }, [getNutritionDetails]);
+
+
   
     return (
       <div>
@@ -46,6 +71,9 @@ const RecipePage = () => {
         <ArrowButton />
         <div className="card-lesson-detail">
           <InfoCard data={meal} />
+          <div className='doughnut-chart'>
+          <DoughnutChart data={nutrition} />
+          </div>
           <IngredientsCard data={meal}/>
         </div>
         <Navbar />
