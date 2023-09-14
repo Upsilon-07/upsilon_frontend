@@ -71,11 +71,10 @@ const RecipePage = () => {
         <ArrowButton />
         <div className="card-lesson-detail">
           <InfoCard data={meal} />
-          <div>
+          <div className='nutrition-container'>
             <NutritionInfo data={nutrition}/>
-
-          </div>
           <IngredientsCard data={meal}/>
+          </div>
         </div>
         <Navbar />
       </div>

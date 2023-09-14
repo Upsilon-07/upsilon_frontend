@@ -1,0 +1,8 @@
+
+.nutrition-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
