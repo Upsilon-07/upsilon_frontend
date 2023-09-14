@@ -8,7 +8,7 @@ import UserContext from "../../contexts/UserContext";
 import { useContext, useEffect, useState } from "react";
 import StarButton from "../../components/StarButton/StarButton";
 import Title from "../../components/Title";
-import MealCard from "../../components/MealCard/MealCard";
+import Card from "../../components/Card/Card";
 import api from "../../api/api";
 
 const MealsPage = () => {
@@ -56,38 +56,8 @@ const MealsPage = () => {
     return () => clearInterval(interval); // Clean up the interval when the component unmounts
   }, []);
 
-  const mealsDisplay = () => {
-    const filteredMeals = meals.filter(
-      (meal) => meal.meal_type === currentMealType
-    );
-
-    const mealTypeTitles = {
-      Breakfast: "Breakfast time!",
-      Lunch: "Lunch time!",
-      Dinner: "Dinner time!",
-      Snack: "Snack time!",
-    };
-
-    return (
-      <>
-        <div>
-          <Title title={mealTypeTitles[currentMealType]} weight="bold-title" />
-          <Title
-            title={`Fuel your day with these healthy ${currentMealType} recipes`}
-            weight="light-title"
-          />
-        </div>
-        <div className="meals-page-cards">
-          {filteredMeals.map((meal) => (
-              <MealCard key={meal.id} data={meal} />
-          ))}
-        </div>
-      </>
-    );
-  };
-  
   return (
-      <div>
+    <div>
       <NavbarDesktop />
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
@@ -96,7 +66,35 @@ const MealsPage = () => {
       <div className="meals-page-img">
         <MealsPageIcon />
       </div>
-      <div className="meals-page-title">{mealsDisplay()}</div>
+      <div className="meals-page-title-container">
+        <Title
+          title={
+            {
+              Breakfast: "Breakfast time!",
+              Lunch: "Lunch time!",
+              Dinner: "Dinner time!",
+              Snack: "Snack time!",
+            }[currentMealType]
+          }
+          weight="bold-title"
+        />
+        <div className="meals-page-subtitle">
+        <Title 
+          title={`Fuel your day with these healthy ${currentMealType} recipes`}
+          weight="light-title"
+        /></div>
+      </div>
+      <div className="meals-page-cards">
+        {meals
+          .filter((meal) => meal.meal_type === currentMealType)
+          .map((meal) => (
+            <Card
+              key={meal.id}
+              data={meal}
+              linkTo="recipes"
+            />
+          ))}
+      </div>
       <Navbar />
     </div>
   );
