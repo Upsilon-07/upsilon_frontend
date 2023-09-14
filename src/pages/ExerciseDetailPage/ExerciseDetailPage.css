@@ -10,8 +10,41 @@
 }
 .exercise-detail-title{
     margin-top: 31px;
+    font-size: 22px;
+    font-weight: 700;
 }
 .image-exercise-detail{
     width: 100%;
     margin-top:28px;
 }
+.sets{
+    font-weight:400;
+    font-size: 16px;
+    margin-bottom: 35px;
+    color: #AAAAAA;
+}
+
+.timer{
+   font-weight:700;
+ font-size:40px;
+}
+
+.start-stop-next-previous{
+    margin-top: 35px;
+
+}
+
+@media screen and (min-width:768px) {
+
+ 
+
+    .exercise-detail-page {
+        width: 80%;
+        display: flex;
+        margin: 0 auto;
+        margin-bottom: 7rem;
+      
+      }
+
+  }
+
