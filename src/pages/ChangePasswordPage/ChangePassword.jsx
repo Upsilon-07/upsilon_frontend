@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
+import "./ChangePasswordStyles.css";
 const ChangePassword = () => {
   const {
     register,
@@ -40,13 +41,16 @@ const ChangePassword = () => {
   };
 
   return (
-    <div>
-        <Link to="/user-profile">
-        <ArrowButton/>
-        </Link>
-      <h1>Change Password</h1>
-      <form onSubmit={handleSubmit(changePassword)}>
+    <>
       <div>
+        <Link to="/user-profile">
+          <ArrowButton />
+        </Link>
+        <h1 id="change-pass-title">Change Password</h1>
+      </div>
+      <div className="change-password-page">
+        <form onSubmit={handleSubmit(changePassword)}>
+          <div>
             <label>Current Password:</label>
             <TextInputBox
               type="password"
@@ -74,13 +78,24 @@ const ChangePassword = () => {
             />
           </div>
           {error !== "" ? <p>{error}</p> : null}
-        <NextButton
+          <div>
+
+          </div>
+          <NextButton
             buttonClass="button-square"
-            buttonContent="SAVE NEW PASSWORD"
+            buttonContent="Save New Password"
             buttonId="orange-button"
           />
-      </form>
-    </div>
+        </form>
+        <Link to="/user-profile">
+          <NextButton
+            buttonClass="button-square"
+            buttonContent="Cancel Changes"
+            buttonId="white-button"
+          />
+        </Link>
+      </div>
+    </>
   );
 };
 
