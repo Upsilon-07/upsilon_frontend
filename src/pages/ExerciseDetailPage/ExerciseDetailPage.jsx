@@ -55,6 +55,7 @@ const ExerciseDetailPage = () => {
 
     if (number > 1) {
       setNumber(number - 1);
+      setTimeInSecond(0);
       getExerciseDetails();
     }
   };
@@ -67,6 +68,7 @@ const ExerciseDetailPage = () => {
 
     if (number < 3) {
       setNumber(number + 1);
+      setTimeInSecond(0);
       getExerciseDetails();
     }
   };
