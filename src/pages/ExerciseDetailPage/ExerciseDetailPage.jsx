@@ -20,8 +20,10 @@ const ExerciseDetailPage = () => {
 
   const [currentImage, setCurrentImage] = useState(start);
 
-  const [timeInSecond, setInTimeInSecond] = useState(0);
+  const [timeInSecond, setTimeInSecond] = useState(0);
   const [timeInMinutes, setTimeInMinutes] = useState(0);
+
+  const [timerRunning, setTimerRunning] = useState(false);
 
   const getExerciseDetails = () => {
     api
@@ -32,7 +34,7 @@ const ExerciseDetailPage = () => {
           if (response.data[0].duration_type == "minutes") {
             setTimeInMinutes(response.data[0].duration);
           } else {
-            setInTimeInSecond(response.data[0].duration);
+            setTimeInSecond(response.data[0].duration);
           }
         } else {
           console.log("Error getting exercise details");
@@ -46,12 +48,16 @@ const ExerciseDetailPage = () => {
   }, []);
 
   const handleClickPrevious = () => {
+    setCurrentImage(stop);
+    setTimerRunning(true);
     if (number > 1) {
       setNumber(number - 1);
     }
   };
 
   const handleClickNext = () => {
+    // setCurrentImage(stop);
+    // setTimerRunning(true);
     if (number < 3) {
       setNumber(number + 1);
     }
@@ -60,11 +66,34 @@ const ExerciseDetailPage = () => {
   const handleClick = () => {
     if (currentImage === start) {
       setCurrentImage(stop);
-    }
-    if (currentImage === stop) {
+      setTimerRunning(true);
+    } else {
       setCurrentImage(start);
+      setTimerRunning(false);
     }
   };
+  useEffect(() => {
+    let timerInterval;
+
+    if (timerRunning) {
+      timerInterval = setInterval(() => {
+        if (timeInSecond > 0) {
+          setTimeInSecond(timeInSecond - 1);
+        } else if (timeInMinutes > 0) {
+          setTimeInMinutes(timeInMinutes - 1);
+          setTimeInSecond(59);
+        } else {
+          clearInterval(timerInterval);
+          setCurrentImage(start);
+          setTimerRunning(false);
+        }
+      }, 1000);
+    } else {
+      clearInterval(timerInterval);
+    }
+
+    return () => clearInterval(timerInterval);
+  }, [timeInSecond, timeInMinutes, timerRunning]);
 
   return (
     <div className="exercise-details">
