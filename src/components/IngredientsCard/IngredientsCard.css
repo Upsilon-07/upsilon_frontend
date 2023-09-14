@@ -1,0 +1,33 @@
+
+
+.ingredients-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: stretch;
+    font-weight: 500;
+    color: rgba(170, 170, 170, 0.70);
+    padding-bottom: 5%;
+}
+
+
+.ingredients-card-ingredients {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10%;
+}
+
+.ingredients-card-directions {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10%;
+    padding-right: 7%;
+}

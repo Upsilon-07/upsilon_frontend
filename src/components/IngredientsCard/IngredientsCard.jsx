@@ -26,25 +26,29 @@ function NumberedParagraphs({ text, useBulletPoints }) {
 const IngredientsCard = ({ data }) => {
   return (
     <div>
-      <div className="ingredientsCard">
-        {/* <img className="line" src={line} alt="line" /> */}
-        <Title title={`Ingredients`} weight="light-title" />
+      <div className="ingredients-card">
+        <img className="line" src={line} alt="line" />
+        <div className="ingredients-card-ingredients">
+        <Title title={`Ingredients`} weight="light-title" className="ingredients-card-ingredients-title"/>
         {data.ingredients ? (
           <NumberedParagraphs text={data.ingredients} useBulletPoints={true} />
         ) : null}
+        </div>
         <img className="line" src={line} alt="line" />
-        <Title title={`Directions`} weight="light-title" />
+        <div className="ingredients-card-directions">
+        <Title title={`Directions`} weight="light-title" className="ingredients-card-directions-title"/>
         {data.directions ? (
           <NumberedParagraphs text={data.directions} />
         ) : null}
+        </div>
       </div>
     </div>
   );
 };
 
 NumberedParagraphs.propTypes = {
-  text: PropTypes.string.isRequired,
-  useBulletPoints: PropTypes.bool.isRequired,
+  text: PropTypes.string,
+  useBulletPoints: PropTypes.bool,
 };
 
 IngredientsCard.propTypes = {
