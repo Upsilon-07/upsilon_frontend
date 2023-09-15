@@ -18,28 +18,6 @@ const HomePage = () => {
   const { user } = useContext(UserContext);
   const { courses, numberLessons } = useContext(CoursesContext);
 
-  // const [courses, setCourses] = useState({});
-  // const [numberLessons, setNumberLessons] = useState([]);
-
-  // const getAllCourses = () => {
-  //   api
-  //     .get("/courses")
-  //     .then((response) => {
-  //       if (response.status === 200) {
-  //         // console.log(response);
-  //         setCourses(response.data.courses);
-  //         setNumberLessons(response.data.numberLessons);
-  //       } else {
-  //         console.log("Error getting courses suggestions");
-  //       }
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // useEffect(() => {
-  //   getAllCourses();
-  // }, []);
-
   return (
     <div className="homepage">
       <Link to="/user-profile">
@@ -64,7 +42,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="homepage-courses-card">
-        {courses ? (
+        {courses && courses.length > 0 ? (
           courses
             .slice(0, 2)
             .map((course) => (

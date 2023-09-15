@@ -29,10 +29,11 @@ const CourseLessonPage = () => {
           setLessons(response.data.lessons);
           setCourseTitle(response.data.courseTitle[0].courseName);
         } else {
+          //! What is this?
           console.log("Error getting all lessons");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {

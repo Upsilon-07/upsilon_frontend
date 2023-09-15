@@ -54,23 +54,15 @@ const EditProfilePage = () => {
 
       const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
 
-      // console.log(profileImage);
-      // console.log(imageRef);
-
-      // console.log(data);
-
       uploadBytes(imageRef, profileImage)
         .then(() => {
           getDownloadURL(imageRef)
             .then((downloadImageURL) => {
-   
               data.picture = downloadImageURL;
-              // console.log(data);
               api
                 .put(`/user/${user.id}`, data, config)
                 .then((response) => {
                   if (response.status === 200) {
-                    // alert("User updated");
                     setUser((prevUser) => ({ ...prevUser, ...data }));
                     navigate("/user-profile");
                   }
@@ -88,24 +80,18 @@ const EditProfilePage = () => {
         data.picture = ""
       }
 
-      // console.log(data);
       api
         .put(`/user/${user.id}`, data, config)
         .then((response) => {
           if (response.status === 200) {
-            // alert("User updated");
             setUser((prevUser) => ({ ...prevUser, ...data }));
             navigate("/user-profile");
 
           }
         })
         .catch((error) => console.error(error));
-
-      // // console.log(data);
     }
-  } else {
-    console.error("NO TOKEN FOUND");
-  }
+  } 
   };
 
   return (

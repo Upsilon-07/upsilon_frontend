@@ -40,7 +40,7 @@ const NavbarDesktop = () => {
             alt="button to go to courses page"
           />
         </Link>
-        <Link to="/relaxing-music">
+        <Link>
           <img
             src={
               location.pathname.includes("/relaxing-music")

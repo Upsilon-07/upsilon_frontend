@@ -22,10 +22,11 @@ const MealsPage = () => {
         if (response.status === 200) {
           setMeals(response.data);
         } else {
+          //! What is this??
           console.log("Error getting all meals");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   const determineCurrentMealType = () => {

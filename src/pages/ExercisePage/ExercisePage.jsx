@@ -20,10 +20,11 @@ const ExercisePage = () => {
         if (response.status === 200) {
           setExerciseDetail(response.data[0]);
         } else {
+          //! What is this?
           console.log("Error getting exercise details");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -73,7 +74,7 @@ const ExercisePage = () => {
             <Link to={`/exercise/${id}/details`}>
               <NextButton
                 buttonId="orange-button"
-                buttonContent="Start Journey"
+                buttonContent="Get Started"
                 buttonClass="button-round"
               />
             </Link>

@@ -26,10 +26,11 @@ const LessonDetailsPage = () => {
           setExercises(response.data.exercises);
           setLessonInfo(response.data.lessonInfo[0]);
         } else {
+          //! What is this?
           console.log("Error getting lesson details");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {

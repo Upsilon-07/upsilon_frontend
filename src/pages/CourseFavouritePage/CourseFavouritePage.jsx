@@ -13,8 +13,6 @@ const CourseFavouritePage = () => {
   const { user } = useContext(UserContext);
   const [favouriteCourses, setFavouriteCourses] = useState();
 
-  //console.log(user);
-
   const getAllFavouriteCourseByUser = () => {
     api
       .get(`favourites/courses?userId=${user.id}`)
@@ -22,10 +20,11 @@ const CourseFavouritePage = () => {
         if (response.status === 200) {
           setFavouriteCourses(response.data);
         } else {
+          //! what is this?
           console.log("Error getting all favourites");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {

@@ -22,3 +22,18 @@
     margin: 12px;
   
 }
+
+@media screen and (min-width: 1024px) {
+    .login-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 320px;
+    }
+    .login-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  

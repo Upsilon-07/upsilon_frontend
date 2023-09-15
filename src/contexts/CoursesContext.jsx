@@ -7,7 +7,7 @@ import api from "../api/api";
 const CoursesContext = createContext();
 
 const CoursesContextProvider = ({ children }) => {
-  const [courses, setCourses] = useState({});
+  const [courses, setCourses] = useState([]);
   const [numberLessons, setNumberLessons] = useState([]);
 
   useEffect(() => {
@@ -18,19 +18,17 @@ const CoursesContextProvider = ({ children }) => {
           Authorization: "Bearer " + token,
         },
       };
-
       api
       .get("/courses",config)
       .then((response) => {
         if (response.status === 200) {
-          // console.log(response);
           setCourses(response.data.courses);
           setNumberLessons(response.data.numberLessons);
         } else {
           console.error("Error getting courses suggestions");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
     }
   }, []);
 

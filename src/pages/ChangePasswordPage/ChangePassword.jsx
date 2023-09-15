@@ -7,6 +7,7 @@ import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import "./ChangePasswordStyles.css";
+
 const ChangePassword = () => {
   const {
     register,
@@ -15,10 +16,17 @@ const ChangePassword = () => {
   } = useForm();
 
   const [error, setError] = useState("");
+  const [isWrongCurrentPassword, setIsWrongCurrentPassword] = useState(false);
+  const [isNewPasswordMismatch, setIsNewPasswordMismatch] = useState(false);
+  const [isSameAsCurrent, setIsSameAsCurrent] = useState(false); // New state for same as current password
+  const [isPasswordSaved, setIsPasswordSaved] = useState(false);
 
   const changePassword = (data) => {
     if (data.newPassword === data.repeatPassword) {
-      setError("");
+      //! api to change password
+      setIsWrongCurrentPassword(false);
+      setIsNewPasswordMismatch(false);
+      setIsSameAsCurrent(false); // Reset the same as current flag
       delete data.repeatPassword;
 
       let config = {
@@ -30,11 +38,28 @@ const ChangePassword = () => {
         .post("/password/change-password", data, config)
         .then((response) => {
           if (response.status === 200) {
-            alert("Password changed");
+            setIsPasswordSaved(true);
           }
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          if (error.response) {
+            if (error.response.status === 401) {
+              setIsWrongCurrentPassword(true);
+            } else if (error.response.status === 400) {
+              const responseMessage = error.response.data.message;
+              if (responseMessage === "New password same as current password") {
+                setIsSameAsCurrent(true);
+              } else {
+                setIsNewPasswordMismatch(true);
+                setError(
+                  "The new password is different from the repeat password"
+                );
+              }
+            }
+          }
+        });
     } else {
+      setIsNewPasswordMismatch(true);
       setError("The new password is different from the repeat password");
     }
   };
@@ -45,6 +70,8 @@ const ChangePassword = () => {
         <Link to="/user-profile">
           <ArrowButton />
         </Link>
+      </div>
+      <div className="change-password-title">
         <h1 id="change-pass-title">Change Password</h1>
       </div>
       <div className="change-password-page">
@@ -76,23 +103,36 @@ const ChangePassword = () => {
               errors={errors}
             />
           </div>
-          {error !== "" ? <p>{error}</p> : null}
-          <div>
-
+          {isWrongCurrentPassword && (
+            <p className="error-message">Wrong password, please try again.</p>
+          )}
+          {isNewPasswordMismatch && <p className="error-message">{error}</p>}
+          {isSameAsCurrent && (
+            <p className="error-message">
+              New password cannot be the same as the current password.
+            </p>
+          )}
+          <div className="button-container">
+            <NextButton
+              buttonClass={`button-square ${
+                isPasswordSaved ? "green-button" : "orange-button"
+              }`}
+              buttonContent={
+                isPasswordSaved ? "Password Saved" : "Save New Password"
+              }
+              buttonId={isPasswordSaved ? "green-button" : "orange-button"}
+            />
           </div>
-          <NextButton
-            buttonClass="button-square"
-            buttonContent="Save New Password"
-            buttonId="orange-button"
-          />
         </form>
-        <Link to="/user-profile">
-          <NextButton
-            buttonClass="button-square"
-            buttonContent="Cancel Changes"
-            buttonId="white-button"
-          />
-        </Link>
+        {!isPasswordSaved && (
+          <Link to="/user-profile">
+            <NextButton
+              buttonClass="button-square"
+              buttonContent="Cancel Changes"
+              buttonId="white-button"
+            />
+          </Link>
+        )}
       </div>
     </>
   );
