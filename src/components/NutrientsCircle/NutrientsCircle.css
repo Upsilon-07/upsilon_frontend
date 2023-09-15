@@ -1,0 +1,152 @@
+
+.nutrient-card-title {
+    color: #EB784E;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    position: relative;
+}
+
+.stance-circle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-left: 90px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+.stance-circle .stance-bottom .stance-description {
+    padding-top: 30px;
+}
+.stance-circle svg {
+    width: 120px;
+    height: 130px;
+    margin-left: -70px;
+
+}
+.stance-circle .bg {
+    fill: none;
+    stroke-width: 4px;
+}
+.stance-circle .meter-1 {
+    fill: none;
+    width: 100%;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 570;
+    stroke-dashoffset: 0;
+    stroke: #C5C884;
+    animation: progress-1 5000ms ease-out;
+}
+
+@keyframes progress-1 {
+    from {
+        stroke-dashoffset: 550;
+   }
+    to {
+        stroke-dashoffset: 0;
+   }
+}
+.stance-description {
+    padding-top: 10px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.stance-performance {
+    display: flex;
+    left: -50px;
+    top: 8px;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-end;
+}
+
+.nutrient-circles {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+    .stance-circle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 70px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+    }
+
+    .nutrient-circles {
+        display: flex;
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    .stance-performance {
+        display: flex;
+        left: -46px;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    .nutrient-card-title {
+        padding-left: 16%;
+        padding-bottom: 0;
+    }
+  }
+
+@media screen and (min-width: 1024px) {
+    .stance-circle {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row;
+        gap: 35px;
+        padding-bottom: 0.5%;
+        align-content: center;
+        flex-wrap: wrap;
+        margin-left: 110px;
+    }
+    
+    .nutrient-circles {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-left: 6px;
+    }
+
+    .stance-performance {
+        display: flex;
+        left: -46px;
+        flex-wrap: wrap;
+        position: relative;
+        top: 10px;
+  }
+  .nutrient-card-title {
+        padding-left: 10%;
+}
+}
+
+
+  /* color: #C5C884;
+color: #EB784E;
+color: #FEFEFE;
+color: #171717;
+color: #EAF2F2 */
