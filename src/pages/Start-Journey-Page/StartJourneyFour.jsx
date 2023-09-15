@@ -33,8 +33,6 @@ function StartJourneyFour() {
             buttonClass="button-round"
           />
            </Link>
-        </div>
-        <div className="journey-button" id="button-reverse">
         <Link to="/register">
           <NextButton
             buttonId="white-button"

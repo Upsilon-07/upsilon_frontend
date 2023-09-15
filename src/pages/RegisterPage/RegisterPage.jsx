@@ -37,6 +37,8 @@ function RegisterPage() {
   };
   return (
     <>
+    <div className="register-content">
+
       <div className="register-title">
         <Title title="Register" weight="title-bold" />
       </div>
@@ -70,6 +72,7 @@ function RegisterPage() {
           />
         </form>
       </div>
+    </div>
     </>
   );
 }
