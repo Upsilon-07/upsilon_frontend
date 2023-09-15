@@ -1,7 +1,6 @@
-import Title from "../../components/Title";
-import line from "../../assets/images/Line 14.png";
+import line from "../../assets/images/Line.svg";
 import PropTypes from "prop-types";
-import "./IngredientsCard.css"
+import "./IngredientsCard.css";
 
 function NumberedParagraphs({ text, useBulletPoints }) {
   if (useBulletPoints) {
@@ -11,40 +10,45 @@ function NumberedParagraphs({ text, useBulletPoints }) {
     return <ul>{ingredients}</ul>;
   }
 
-  // Split the text into an array of paragraphs
-  const paragraphs = text.split(/\d+\./).filter(Boolean);
-
-  return (
-    <div>
-      {paragraphs.map((paragraph, index) => (
-        <p key={index}>{`${index + 1}. ${paragraph.trim()}`}</p>
-      ))}
+  // Split the text into paragraphs based on periods (".")
+  const paragraphs = text.split('.').filter(Boolean).map((paragraph, index) => (
+    <div key={index}>
+      <p data-number={`${index + 1}`}>{paragraph.trim()}</p>
     </div>
-  );
+  ));
+
+  return <div>{paragraphs}</div>;
 }
 
 const IngredientsCard = ({ data }) => {
   return (
     <div>
-      <div className="ingredientsCard">
-        {/* <img className="line" src={line} alt="line" /> */}
-        <Title title={`Ingredients`} weight="light-title" />
-        {data.ingredients ? (
-          <NumberedParagraphs text={data.ingredients} useBulletPoints={true} />
-        ) : null}
+      <div className="ingredients-card">
         <img className="line" src={line} alt="line" />
-        <Title title={`Directions`} weight="light-title" />
-        {data.directions ? (
-          <NumberedParagraphs text={data.directions} />
-        ) : null}
+        <div className="ingredients-card-ingredients">
+          <h2 className="ingredients-card-title">{`Ingredients`}</h2>
+          {data.ingredients ? (
+            <NumberedParagraphs
+              text={data.ingredients}
+              useBulletPoints={true}
+            />
+          ) : null}
+        </div>
+        <img className="line" src={line} alt="line" />
+        <div className="ingredients-card-directions">
+          <h2 className="ingredients-card-title">{`Directions`}</h2>
+          {data.directions ? (
+            <NumberedParagraphs text={data.directions} />
+          ) : null}
+        </div>
       </div>
     </div>
   );
 };
 
 NumberedParagraphs.propTypes = {
-  text: PropTypes.string.isRequired,
-  useBulletPoints: PropTypes.bool.isRequired,
+  text: PropTypes.string,
+  useBulletPoints: PropTypes.bool,
 };
 
 IngredientsCard.propTypes = {
@@ -54,4 +58,4 @@ IngredientsCard.propTypes = {
   }),
 };
 
-export default IngredientsCard
+export default IngredientsCard;
