@@ -1,5 +1,4 @@
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
-import Navbar from "../../components/navbar/Navbar";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
@@ -7,7 +6,6 @@ import { useState, useEffect, useContext } from "react";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import api from "../../api/api";
 import UserContext from "../../contexts/UserContext";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 
 import "./CourseFavourite.css";
 
@@ -21,7 +19,6 @@ const CourseFavouritePage = () => {
     api
       .get(`favourites/courses?userId=${user.id}`)
       .then((response) => {
-        //console.log(response.data);
         if (response.status === 200) {
           setFavouriteCourses(response.data);
         } else {
@@ -37,7 +34,6 @@ const CourseFavouritePage = () => {
 
   return (
     <div className="favourite-page">
-      <NavbarDesktop />
       <div className="favourite-top">
         <ProfilePicture image={user.picture}/>
         <Link to="/courses">
@@ -58,7 +54,6 @@ const CourseFavouritePage = () => {
         <h1 className="loading">Add your favourite courses...</h1>
       )}
 
-      <Navbar />
     </div>
   );
 };

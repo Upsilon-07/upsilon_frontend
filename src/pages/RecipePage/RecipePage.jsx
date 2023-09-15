@@ -1,6 +1,5 @@
 import './RecipePage.css'
-import Navbar from "../../components/navbar/Navbar";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
@@ -64,7 +63,6 @@ const RecipePage = () => {
   
     return (
       <div>
-        <NavbarDesktop />
         <Link to="/user-profile">
           <ProfilePicture image={user.picture} />
         </Link>
@@ -76,7 +74,6 @@ const RecipePage = () => {
           </div>
           <IngredientsCard data={meal}/>
         </div>
-        <Navbar />
       </div>
     );
   };

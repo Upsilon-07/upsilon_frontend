@@ -3,12 +3,10 @@ import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import { Link, useParams } from "react-router-dom";
 import api from "../../api/api";
 import "./CourseLesson.css";
-import Navbar from "../../components/navbar/Navbar";
 import { useEffect, useState, useContext } from "react";
 import Card from "../../components/Card/Card";
 import TitleCard from "../../components/TitleCard/TitleCard";
 // import favouriteStar from "../../assets/images/blank-star.svg";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import UserContext from "../../contexts/UserContext";
 
 const CourseLessonPage = () => {
@@ -43,7 +41,6 @@ const CourseLessonPage = () => {
 
   return (
     <div className="lessons-page">
-      <NavbarDesktop />
       <div className="lessons-top">
         <Link to="/user-profile">
           <ProfilePicture image={user.picture} />
@@ -73,7 +70,6 @@ const CourseLessonPage = () => {
       ) : (
         <h1>Loading...</h1>
       )}
-      <Navbar />
     </div>
   );
 };

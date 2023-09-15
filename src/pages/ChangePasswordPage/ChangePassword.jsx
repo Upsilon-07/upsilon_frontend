@@ -18,7 +18,6 @@ const ChangePassword = () => {
 
   const changePassword = (data) => {
     if (data.newPassword === data.repeatPassword) {
-      //! api to change password
       setError("");
       delete data.repeatPassword;
 

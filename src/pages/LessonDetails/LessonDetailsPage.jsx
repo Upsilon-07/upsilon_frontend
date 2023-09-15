@@ -1,19 +1,20 @@
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
-import Navbar from "../../components/navbar/Navbar";
+
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import api from "../../api/api";
 import Card from "../../components/Card/Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import "./LessonDetails.css";
 import InfoCard from "../../components/InfoCard/InfoCard";
+import UserContext from "../../contexts/UserContext";
 
 const LessonDetailsPage = () => {
   const { id } = useParams();
 
   const [exercises, setExercises] = useState({});
+  const { user } = useContext(UserContext);
 
   const [lessonInfo, setLessonInfo] = useState({});
 
@@ -36,10 +37,9 @@ const LessonDetailsPage = () => {
   }, []);
   return (
     <div className="lesson-details">
-      <NavbarDesktop />
       <div className="lesson-detail-top">
         <Link to="/user-profile">
-          <ProfilePicture />
+          <ProfilePicture image={user.picture} />
         </Link>
 
         <ArrowButton />
@@ -55,7 +55,6 @@ const LessonDetailsPage = () => {
           <h1>Loading...</h1>
         )}
       </div>
-      <Navbar />
     </div>
   );
 };

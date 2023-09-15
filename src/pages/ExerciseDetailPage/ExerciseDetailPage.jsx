@@ -1,5 +1,4 @@
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
-import Navbar from "../../components/navbar/Navbar";
+
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import ExitPage from "../../components/ExitPage/ExitPage";
@@ -107,7 +106,6 @@ const ExerciseDetailPage = () => {
 
   return (
     <div className="exercise-details">
-      <NavbarDesktop />
       <div className="exercise-detail-top">
         <Link to="/user-profile">
           <ProfilePicture />
@@ -137,7 +135,6 @@ const ExerciseDetailPage = () => {
         </div>
       </div>
 
-      <Navbar />
     </div>
   );
 };

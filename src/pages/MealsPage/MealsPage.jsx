@@ -1,7 +1,5 @@
 import MealsPageIcon from "../../components/MealsPageIcon/mealsPageIcon";
 import "./MealsPage.css";
-import Navbar from "../../components/navbar/Navbar";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
@@ -58,7 +56,6 @@ const MealsPage = () => {
 
   return (
     <div>
-      <NavbarDesktop />
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
@@ -95,7 +92,6 @@ const MealsPage = () => {
             />
           ))}
       </div>
-      <Navbar />
     </div>
   );
 };
