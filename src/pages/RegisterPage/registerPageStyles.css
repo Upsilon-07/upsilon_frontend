@@ -1,16 +1,35 @@
-.register-page{
+.register-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+.register-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+}
+.register-content{
     display: flex;
+    justify-content: center;
     flex-direction: column;
     height: 100vh;
-    align-items: center;
 }
-.register-title{
+
+
+@media screen and (min-width: 1024px) {
+  .register-page {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 16px;
-}
-.register-title{
-    margin-top: 110px;
-    margin-left: 15px;
+    margin-bottom: 320px;
+  }
+  .register-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 220px;
+  }
 }

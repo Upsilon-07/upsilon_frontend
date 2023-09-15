@@ -9,8 +9,8 @@ import TextInputBox from "../../components/Input/TextInputBox.jsx";
 import Title from "../../components/Title";
 import "./LoginPageStyles.css";
 import AuthContext from "../../contexts/AuthContext.jsx";
-import { yupResolver } from "@hookform/resolvers/yup";
-import userSchema from "../../schemas/user-schema";
+import ErrorPopup from "../../components/ErrorPopUp.jsx";
+import { useState } from "react";
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
   const { setIsAuthenticated } = useContext(AuthContext);
@@ -19,40 +19,60 @@ const LoginPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(userSchema),
-  });
+  } = useForm(); // Remove resolver property
 
   const navigate = useNavigate();
+  const [showError, setShowError] = useState(false); // State to control the visibility of the error popup
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const loginUser = (data) => {
-    api
-      .post("/auth/login", data)
-      .then((response) => {
-        if (response.status === 200) {
-          //! save token in cookies
-          Cookies.set("user_token", response.data.token);
-          let config = {
-            headers: {
-              Authorization: "Bearer " + response.data.token,
-            },
-          };
+  const loginUser = async (data) => {
+    try {
+      const response = await api.post("/auth/login", data);
 
-          api
-            .get("/user", config)
-            .then((response) => {
-              if (response.status === 200) {
-                setUser(response.data);
-                setIsAuthenticated(true);
-                navigate("/");
-              }
-            })
-            .catch((error) => console.error(error));
+      if (response.status === 200) {
+        // Save token in cookies
+        Cookies.set("user_token", response.data.token);
+        let config = {
+          headers: {
+            Authorization: "Bearer " + response.data.token,
+          },
+        };
+
+        try {
+          const userResponse = await api.get("/user", config);
+
+          if (userResponse.status === 200) {
+            setUser(userResponse.data);
+            setIsAuthenticated(true);
+            navigate("/");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
         }
-      })
-      .catch((error) => console.error(error));
+      } else {
+        // Check the response data for the specific error message
+        if (
+          response.status === 401 &&
+          response.data ===
+            "This email is not registered, please create an account!"
+        ) {
+          setErrorMessage(
+            "This email is not registered, please create an account!"
+          );
+        } else {
+          // Show the default error message for other errors
+          setErrorMessage("Incorrect email or password");
+        }
+        setShowError(true);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
+  const closeErrorPopup = () => {
+    setShowError(false);
+  };
   return (
     <>
       <div className="login-content">
@@ -80,9 +100,9 @@ const LoginPage = () => {
               />
             </div>
             <div className="forgot-password-left">
-            <Link to="/forgot-password">
-              <p>Forgot Password ?</p>
-            </Link>
+              <Link to="/forgot-password">
+                <p>Forgot Password ?</p>
+              </Link>
             </div>
             <NextButton
               buttonId="orange-button"
@@ -93,6 +113,9 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
+      {showError && (
+        <ErrorPopup message={errorMessage} onClose={closeErrorPopup} />
+      )}
     </>
   );
 };

@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .journey-image {
@@ -20,6 +21,7 @@
   width: 100%;
   mix-blend-mode: multiply;
   flex-grow: 1;
+  
 }
 
 #image-journey-one {
@@ -89,4 +91,11 @@
 }
 #journey-login {
   margin-top: 25px;
+}
+
+@media screen and (min-width: 1024px) {
+  .journey-button{
+    padding: 24px;
+
+  }
 }
