@@ -55,6 +55,7 @@ const ExerciseDetailPage = () => {
 
     if (number > 1) {
       setNumber(number - 1);
+      setTimeInSecond(0);
       getExerciseDetails();
     }
   };
@@ -67,6 +68,7 @@ const ExerciseDetailPage = () => {
 
     if (number < 3) {
       setNumber(number + 1);
+      setTimeInSecond(0);
       getExerciseDetails();
     }
   };
@@ -92,10 +94,14 @@ const ExerciseDetailPage = () => {
         } else if (timeInMinutes > 0) {
           setTimeInMinutes(timeInMinutes - 1);
           setTimeInSecond(59);
+        } else if (number == 3) {
+          setNumber(1);
+          getExerciseDetails();
         } else {
           clearInterval(timerInterval);
           setCurrentImage(start);
           setTimerRunning(false);
+          handleClickNext();
         }
       }, 1000);
     } else {
@@ -124,11 +130,12 @@ const ExerciseDetailPage = () => {
           src={exerciseDetail.image}
           alt=""
         />
-        <p>Set {number}/ 3</p>
-        <div>
-          {timeInMinutes}: {timeInSecond}
+        <p className="sets">Set {number}/ 3</p>
+        <div className="timer">
+          {timeInMinutes < 10 ? `0${timeInMinutes}` : timeInMinutes}:
+          {timeInSecond < 10 ? `0${timeInSecond}` : timeInSecond}
         </div>
-        <div>
+        <div className="start-stop-next-previous">
           <img onClick={handleClickPrevious} src={previous} alt="" />
 
           <img onClick={handleClick} src={currentImage} alt="" />

@@ -55,39 +55,43 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="login-title">
-        <Title title="Log In" weight="title-bold" />
-      </div>
-      <div>
-        <form onSubmit={handleSubmit(loginUser)}>
-          <div>
-            <label>Email:</label>
-            <TextInputBox
-              type="email"
-              placeholder="email"
-              register={register}
-              errors={errors}
+      <div className="login-content">
+        <div className="login-title">
+          <Title title="Log In" weight="title-bold" />
+        </div>
+        <div className="login-page">
+          <form onSubmit={handleSubmit(loginUser)}>
+            <div>
+              <label>Email:</label>
+              <TextInputBox
+                type="email"
+                placeholder="email"
+                register={register}
+                errors={errors}
+              />
+            </div>
+            <div>
+              <label>Password:</label>
+              <TextInputBox
+                type="password"
+                placeholder="password"
+                register={register}
+                errors={errors}
+              />
+            </div>
+            <div className="forgot-password-left">
+            <Link to="/forgot-password">
+              <p>Forgot Password ?</p>
+            </Link>
+            </div>
+            <NextButton
+              buttonId="orange-button"
+              buttonContent="LOG IN"
+              buttonClass="button-square"
+              type="submit"
             />
-          </div>
-          <div>
-            <label>Password:</label>
-            <TextInputBox
-              type="password"
-              placeholder="password"
-              register={register}
-              errors={errors}
-            />
-          </div>
-          <Link to="/forgot-password">
-            <p id="forgot-password-left">forgot password</p>
-          </Link>
-          <NextButton
-            buttonId="orange-button"
-            buttonContent="LOG IN"
-            buttonClass="button-square"
-            type="submit"
-          />
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

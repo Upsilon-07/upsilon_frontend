@@ -1,18 +1,24 @@
 .login-page{
+}
+.login-title{
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 12px;
+    
+}
+
+.forgot-password-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 12px;
+}
+
+.login-content{
+    justify-content: center;
     display: flex;
     flex-direction: column;
     height: 100vh;
-    align-items: center;
-}
-.login-title{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-bottom: 16px;
-    margin-top: 110px;
-    margin-left: 15px;
-}
-
-#forgot-password-left{
-   margin-top: 15px;
+    margin: 12px;
+  
 }
