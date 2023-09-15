@@ -73,7 +73,7 @@ const RecipePage = () => {
       .post(`favourites/meals`, data)
       .then((response) => {
         if (response.status === 200) {
-          setIsFavouriteMeal(!isFavouriteMeal);
+          setIsFavouriteMeal(isFavouriteMeal);
         }
       })
       .catch((err) => console.error(err));
@@ -96,10 +96,10 @@ const RecipePage = () => {
         <IngredientsCard data={meal} />
       </div>
       {/* {delete} */}
-      {isFavouriteMeal === true ? (
+      {isFavouriteMeal ? (
         <button onClick={addToFavourite}>Add to favourite</button>
       ) : (
-        <button onClick={addToFavourite}>Remove from favourite</button>
+        <button onClick={addToFavourite}>Remove from favourites</button>
       )}
 
       {/* {delete} */}
