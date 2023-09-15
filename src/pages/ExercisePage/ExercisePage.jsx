@@ -73,7 +73,7 @@ const ExercisePage = () => {
             <Link to={`/exercise/${id}/details`}>
               <NextButton
                 buttonId="orange-button"
-                buttonContent="Start Journey"
+                buttonContent="Get Started"
                 buttonClass="button-round"
               />
             </Link>
