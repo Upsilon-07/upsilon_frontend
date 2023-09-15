@@ -32,7 +32,7 @@ function NutrientsCircle({data}) {
               y="49%"
               dominantBaseline="middle"
               textAnchor="middle"
-              fill="#171717"
+              fill="rgba(170, 170, 170, 0.70)"
             >
               {nutrient.nutrient_name === "Carbohydrates" ? "Carbs" : nutrient.nutrient_name}
             </text>
@@ -49,7 +49,7 @@ function NutrientsCircle({data}) {
           <div className="stance-bottom">
             <p className="stance-performance">
               {nutrient.nutrient_name === "Carbohydrates" ? "Carbs" : nutrient.nutrient_name}:{" "}
-              {String(nutrient.nutrient_value).replaceAll(".", ",")} g
+              {String(nutrient.nutrient_value)} g
             </p>
           </div>
         </div>
@@ -58,7 +58,7 @@ function NutrientsCircle({data}) {
       <p className="stance-description">
         {caloriesNutrient
           ? `${caloriesNutrient.nutrient_name}: ${caloriesNutrient.nutrient_value} kcal`
-          : "testdescription"}
+          : "loading..."}
       </p>
     </div>
   );

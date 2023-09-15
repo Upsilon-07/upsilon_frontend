@@ -13,6 +13,7 @@ import ArrowButton from '../../components/ArrowButton/ArrowButton';
 import IngredientsCard from '../../components/IngredientsCard/IngredientsCard';
 import NextButton from "../../components/next-page-button/NextButton";
 import NutrientsCircle from '../../components/NutrientsCircle/NutrientsCircle';
+// import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
 
 
 const RecipePage = () => {
@@ -64,8 +65,8 @@ const RecipePage = () => {
           <div className="card-lesson-detail" id="recipe-page-card">
             <InfoCard data={meal} />
             <div className='nutrition-container'>
-              {/* Pass nutrition data to the NutrientsCircle component */}
               <NutrientsCircle data={nutrition} />
+              {/* <NutritionInfo data={nutrition} /> */}
               <IngredientsCard data={meal} />
             </div>
           </div>
