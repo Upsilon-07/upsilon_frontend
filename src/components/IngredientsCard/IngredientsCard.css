@@ -1,0 +1,88 @@
+
+
+.ingredients-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: stretch;
+    font-weight: 500;
+    color: rgba(170, 170, 170, 0.70);
+    padding-bottom: 5%;
+}
+
+.ingredients-card-title {
+    color: #EB784E;
+}
+
+
+.ingredients-card-ingredients {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+.ingredients-card-directions {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+/* Style for the bullet points and numbers */
+.ingredients-card-ingredients ul {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+  }
+  
+  .ingredients-card-ingredients ul li {
+    position: relative;
+    padding-left: 20px; /* Adjust as needed for spacing */
+  }
+  
+  .ingredients-card-ingredients ul li::before {
+    content: "•"; /* Add bullet character */
+    position: absolute;
+    left: 0;
+    color: #C5C884;
+  }
+  
+
+  .ingredients-card-directions div p {
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .ingredients-card-directions div p::before {
+    content: attr(data-number) ". "; /* Use the data-number attribute for numbers */
+    position: absolute;
+    left: 0;
+    color: #C5C884; 
+  }
+
+  /* color: #C5C884;
+color: #EB784E; */
+
+
+@media screen and (min-width: 1024px) {
+    .ingredients-card-ingredients {
+        padding-left: 4%;
+    }
+    
+    .ingredients-card-directions {
+        padding-left: 4%;
+        padding-bottom: 4%;
+    }
+    
+}

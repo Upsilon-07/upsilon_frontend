@@ -1,4 +1,4 @@
-import line from "../../assets/images/Line 14.png";
+import line from "../../assets/images/line.svg";
 import clock from "../../assets/images/time.svg";
 import vector from "../../assets/images/Vector.png";
 import PropTypes from "prop-types";

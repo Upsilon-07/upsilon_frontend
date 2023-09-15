@@ -109,7 +109,7 @@ Card.propTypes = {
     duration: PropTypes.number,
     rating: PropTypes.number,
     trainer: PropTypes.string,
-    difficulty: PropTypes.number,
+    difficulty: PropTypes.string,
   }),
   numberLessons: PropTypes.arrayOf(
     PropTypes.shape({
