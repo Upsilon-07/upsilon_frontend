@@ -11,8 +11,8 @@ import { useParams } from "react-router-dom";
 import "../../components/InfoCard/InfoCard";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import IngredientsCard from "../../components/IngredientsCard/IngredientsCard";
-import NextButton from "../../components/next-page-button/NextButton";
-// import DoughnutChart from '../../components/DoughnutChart/DoughnutChart';
+import NutritionInfo from "../../components/NutritionInfo/NutritionInfo";
+// import NextButton from "../../components/next-page-button/NextButton";
 
 const RecipePage = () => {
   const { user } = useContext(UserContext);
@@ -38,32 +38,28 @@ const RecipePage = () => {
     getMealDetails();
   }, [getMealDetails]);
 
-  // const [nutrition, setNutrition] = useState([]);
+  const [nutrition, setNutrition] = useState([]);
 
-  // const getNutritionDetails = useCallback(() => {
-  //     api
-  //       .get(`/nutrition/${id}`)
-  //       .then((response) => {
-  //         if (response.status === 200) {
-  //           setNutrition(response.data);
-  //         //   console.log(nutrition);
+  const getNutritionDetails = useCallback(() => {
+    api
+      .get(`/nutrition/${id}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setNutrition(response.data);
+          //   console.log(nutrition);
+        } else {
+          console.log("Error getting meal");
+        }
+      })
+      .catch((error) => console.log(error));
+  }, [id]);
 
-  //         } else {
-  //           console.log("Error getting meal");
-  //         }
-  //       })
-  //       .catch((error) => console.log(error));
-  //   }, [id]);
+  useEffect(() => {
+    getNutritionDetails();
+  }, [getNutritionDetails]);
 
-  // useEffect(() => {
-  //     getNutritionDetails();
-  // }, [getNutritionDetails]);
-
-  ////delete///
   const [isFavouriteMeal, setIsFavouriteMeal] = useState(false);
-  ////delete//
 
-  //  {/* For favourite meal */}
   const addToFavourite = () => {
     const data = {
       user_id: user.id,
@@ -79,8 +75,6 @@ const RecipePage = () => {
       .catch((err) => console.error(err));
   };
 
-  //  {/* {for favourtite meal} */}
-
   return (
     <div>
       <NavbarDesktop />
@@ -88,21 +82,18 @@ const RecipePage = () => {
         <ProfilePicture image={user.picture} />
       </Link>
       <ArrowButton />
-      <div className="card-lesson-detail">
+      <div className="card-lesson-detail" id="recipe-page-card">
         <InfoCard data={meal} />
-        <div className="doughnut-chart">
-          {/* <DoughnutChart data={nutrition} /> */}
+        <div className="nutrition-container">
+          <NutritionInfo data={nutrition} />
+          <IngredientsCard data={meal} />
         </div>
-        <IngredientsCard data={meal} />
       </div>
-      {/* {delete} */}
       {isFavouriteMeal ? (
         <button onClick={addToFavourite}>Add to favourite</button>
       ) : (
         <button onClick={addToFavourite}>Remove from favourites</button>
       )}
-
-      {/* {delete} */}
       <Navbar />
     </div>
   );
