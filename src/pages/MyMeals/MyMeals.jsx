@@ -6,7 +6,7 @@ import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../contexts/UserContext";
 import api from "../../api/api";
-import Card from "../../components/Card/Card";
+import clock from "../../assets/images/time.svg";
 import TitleCard from "../../components/TitleCard/TitleCard";
 
 const MyMeals = () => {
@@ -17,9 +17,9 @@ const MyMeals = () => {
     api
       .get(`favourites/meals?userId=${user.id}`)
       .then((response) => {
-        //console.log(response.data[0]);
+        // console.log(response.data);
         if (response.status === 200) {
-          setFavouriteMeals(response.data[0]);
+          setFavouriteMeals(response.data);
         } else {
           console.log("Error getting all favourites");
         }
@@ -38,9 +38,35 @@ const MyMeals = () => {
       </Link>
       <ArrowButton />
       <TitleCard title="Favourite Meals" />
+      {favouriteMeals && favouriteMeals.length > 0 ? (
+        favouriteMeals.map((favouriteMeal) => (
+          <div key={favouriteMeal.id} className="course-container">
+            <div className="left-and-right-container">
+              {favouriteMeal.image ? (
+                <div className="left-container">
+                  <img className="yoga-pose" src={favouriteMeal.image} alt="" />
+                </div>
+              ) : null}
+              <div className="right-container">
+                <div className="title">
+                  {favouriteMeal.meal_name ? (
+                    <h2 className="course-name">{favouriteMeal.meal_name}</h2>
+                  ) : null}
 
-      {favouriteMeals && favouriteMeals.length !== 0 ? (
-        <Card key={favouriteMeals.id} data={favouriteMeals} linkTo="courses" />
+                  {favouriteMeal.duration ? (
+                    <div className="clock-and-time">
+                      <img src={clock} alt="clock of duration" />{" "}
+                      <h4>{favouriteMeal.duration} mins</h4>
+                    </div>
+                  ) : null}
+                </div>
+                <div className="bottom-container"></div>
+              </div>
+            </div>
+          </div>
+
+          // <Card key={favouriteMeal.id} data={favouriteMeal} />
+        ))
       ) : (
         <h1 className="loading">Add your favourite meals...</h1>
       )}

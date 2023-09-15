@@ -96,7 +96,12 @@ const RecipePage = () => {
         <IngredientsCard data={meal} />
       </div>
       {/* {delete} */}
-      <button onClick={addToFavourite}>Add to favourite</button>
+      {isFavouriteMeal === true ? (
+        <button onClick={addToFavourite}>Add to favourite</button>
+      ) : (
+        <button onClick={addToFavourite}>Remove from favourite</button>
+      )}
+
       {/* {delete} */}
       <Navbar />
     </div>
