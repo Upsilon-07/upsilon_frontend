@@ -1,20 +1,18 @@
-import './RecipePage.css'
+import "./RecipePage.css";
 import Navbar from "../../components/navbar/Navbar";
 import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
 import { useContext, useState, useEffect, useCallback } from "react";
-import api from '../../api/api';
-import InfoCard from '../../components/InfoCard/InfoCard';
+import api from "../../api/api";
+import InfoCard from "../../components/InfoCard/InfoCard";
 import { useParams } from "react-router-dom";
 import "../../components/InfoCard/InfoCard";
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 import IngredientsCard from '../../components/IngredientsCard/IngredientsCard';
-import NextButton from "../../components/next-page-button/NextButton";
 import NutrientsCircle from '../../components/NutrientsCircle/NutrientsCircle';
 // import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
-
 
 const RecipePage = () => {
   const { user } = useContext(UserContext);
@@ -49,11 +47,28 @@ const RecipePage = () => {
       .catch((error) => console.log(error));
   }, [id]);
       
+  const [isFavouriteMeal, setIsFavouriteMeal] = useState(false);
+
+  const addToFavourite = () => {
+    const data = {
+      user_id: user.id,
+      meal_id: Number(id),
+    };
+    api
+      .post(`favourites/meals`, data)
+      .then((response) => {
+        if (response.status === 200) {
+          setIsFavouriteMeal(isFavouriteMeal);
+        }
+      })
+      .catch((err) => console.error(err));
+  };
   
       useEffect(() => {
         getMealDetails();
         getNutritionDetails();
       }, [getMealDetails, getNutritionDetails]);
+      
     
       return (
         <div>
@@ -70,16 +85,15 @@ const RecipePage = () => {
               <IngredientsCard data={meal} />
             </div>
           </div>
-          <div className='recipe-page-button'>
-            <NextButton
-              buttonId="orange-button"
-              buttonContent="Add To My Meals"
-              buttonClass="button-square"
-            />
-          </div>
+          {isFavouriteMeal ? (
+        <button onClick={addToFavourite}>Add to favourite</button>
+      ) : (
+        <button onClick={addToFavourite}>Remove from favourites</button>
+      )}
           <Navbar />
         </div>
       );
     };
 
-export default RecipePage
+
+export default RecipePage;
