@@ -18,14 +18,20 @@ const RecipePage = () => {
   const { user } = useContext(UserContext);
   const { id } = useParams();
 
+  const [isFavouriteMeal, setIsFavouriteMeal] = useState(false);
+
   const [meal, setMeal] = useState({});
 
   const getMealDetails = useCallback(() => {
+    let data = {
+      userId: user.id,
+    };
     api
-      .get(`/meals/${id}`)
+      .post(`/meals/${id}`, data)
       .then((response) => {
         if (response.status === 200) {
-          setMeal(response.data[0]);
+          setMeal(response.data.meal);
+          setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
         } else {
           console.log("Error getting meal");
@@ -58,8 +64,6 @@ const RecipePage = () => {
     getNutritionDetails();
   }, [getNutritionDetails]);
 
-  const [isFavouriteMeal, setIsFavouriteMeal] = useState(false);
-
   const addToFavourite = () => {
     const data = {
       user_id: user.id,
@@ -69,7 +73,8 @@ const RecipePage = () => {
       .post(`favourites/meals`, data)
       .then((response) => {
         if (response.status === 200) {
-          setIsFavouriteMeal(isFavouriteMeal);
+          console.log(response);
+          setIsFavouriteMeal(!isFavouriteMeal);
         }
       })
       .catch((err) => console.error(err));
@@ -90,10 +95,18 @@ const RecipePage = () => {
         </div>
       </div>
       {isFavouriteMeal ? (
-        <button onClick={addToFavourite}>Add to favourite</button>
+        <button className="btn-recipe" onClick={addToFavourite}>
+          Remove from favourite
+        </button>
       ) : (
-        <button onClick={addToFavourite}>Remove from favourites</button>
+        <button className="btn-recipe" onClick={addToFavourite}>
+          Add to favourites
+        </button>
       )}
+
+      {/* <button className="btn-recipe" onClick={addToFavourite}>
+        {isFavouriteMeal ? "Add to favourites" : "Remove from favourites"}
+      </button> */}
       <Navbar />
     </div>
   );
