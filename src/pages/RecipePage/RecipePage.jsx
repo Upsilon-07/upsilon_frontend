@@ -21,6 +21,7 @@ const RecipePage = () => {
   const [isFavouriteMeal, setIsFavouriteMeal] = useState(false);
 
   const [meal, setMeal] = useState({});
+  const [nutrition, setNutrition] = useState([]);
 
   const getMealDetails = useCallback(() => {
     let data = {
@@ -40,11 +41,9 @@ const RecipePage = () => {
       .catch((error) => console.log(error));
   }, [id]);
 
-  useEffect(() => {
-    getMealDetails();
-  }, [getMealDetails]);
-
-  const [nutrition, setNutrition] = useState([]);
+  // useEffect(() => {
+  //   getMealDetails();
+  // }, [getMealDetails]);
 
   const getNutritionDetails = useCallback(() => {
     api
@@ -60,9 +59,9 @@ const RecipePage = () => {
       .catch((error) => console.log(error));
   }, [id]);
 
-  useEffect(() => {
-    getNutritionDetails();
-  }, [getNutritionDetails]);
+  // useEffect(() => {
+  //   getNutritionDetails();
+  // }, [getNutritionDetails]);
 
   const addToFavourite = () => {
     const data = {
@@ -80,6 +79,11 @@ const RecipePage = () => {
       .catch((err) => console.error(err));
   };
 
+  useEffect(() => {
+    getMealDetails();
+    getNutritionDetails();
+  }, [getMealDetails, getNutritionDetails]);
+
   return (
     <div>
       <NavbarDesktop />
@@ -95,13 +99,17 @@ const RecipePage = () => {
         </div>
       </div>
       {isFavouriteMeal ? (
-        <button className="btn-recipe" onClick={addToFavourite}>
-          Remove from favourite
-        </button>
+        <div className="center-btn">
+          <button className="btn-recipe" onClick={addToFavourite}>
+            Remove from favourite
+          </button>
+        </div>
       ) : (
-        <button className="btn-recipe" onClick={addToFavourite}>
-          Add to favourites
-        </button>
+        <div className="center-btn">
+          <button className="btn-recipe" onClick={addToFavourite}>
+            Add to favourites
+          </button>
+        </div>
       )}
 
       {/* <button className="btn-recipe" onClick={addToFavourite}>
