@@ -5,6 +5,7 @@
     flex-wrap: nowrap;
     justify-content: space-around;
     padding-bottom: 10px;
+    align-items: center;
 }
 
 .arrow-return-button {
