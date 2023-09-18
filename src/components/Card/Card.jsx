@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
 const Card = ({ data, numberLessons, linkTo }) => {
   const [lessonCount, setLessonCount] = useState();
 
-  //console.log(data);
-
   useEffect(() => {
     if (numberLessons !== null && numberLessons?.length > 0) {
       numberLessons
@@ -109,7 +107,7 @@ Card.propTypes = {
     duration: PropTypes.number,
     rating: PropTypes.number,
     trainer: PropTypes.string,
-    difficulty: PropTypes.string,
+    // difficulty: PropTypes.number || PropTypes.string,
   }),
   numberLessons: PropTypes.arrayOf(
     PropTypes.shape({

@@ -1,8 +1,7 @@
 import "./EditProfilePage.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
-import Navbar from "../../components/navbar/Navbar";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+
 import { Link, useNavigate } from "react-router-dom";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import Title from "../../components/Title";
@@ -10,6 +9,7 @@ import TextInputBox from "../../components/TextInputBox";
 import NextButton from "../../components/next-page-button/NextButton";
 import { useForm } from "react-hook-form";
 import api from "../../api/api";
+import Cookies from 'js-cookie';
 
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import editProfileSchema from "../../schemas/profile-schema";
@@ -20,8 +20,6 @@ import { v4 as uuid } from "uuid";
 
 const EditProfilePage = () => {
   const { user, setUser } = useContext(UserContext);
-
-  const [url, setUrl] = useState(null);
 
   const navigate = useNavigate();
 
@@ -35,6 +33,14 @@ const EditProfilePage = () => {
   // }
 
   const editProfileInfo = (data) => {
+    const token = Cookies.get("user_token");
+    if (token) {
+      let config = {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      };
+
     if (data.username === "") {
       data.username = user.username;
     }
@@ -48,23 +54,15 @@ const EditProfilePage = () => {
 
       const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
 
-      // console.log(profileImage);
-      // console.log(imageRef);
-
-      console.log(data);
-
       uploadBytes(imageRef, profileImage)
         .then(() => {
           getDownloadURL(imageRef)
             .then((downloadImageURL) => {
-              setUrl(downloadImageURL);
               data.picture = downloadImageURL;
-              // console.log(data);
               api
-                .put(`/user/${user.id}`, data)
+                .put(`/user/${user.id}`, data, config)
                 .then((response) => {
                   if (response.status === 200) {
-                    // alert("User updated");
                     setUser((prevUser) => ({ ...prevUser, ...data }));
                     navigate("/user-profile");
                   }
@@ -76,26 +74,28 @@ const EditProfilePage = () => {
         })
         .catch((error) => console.error(error));
     } else {
-      data.picture = user.picture;
+      if(user.picture && user.picture.length > 0){
+        data.picture = user.picture;
+      } else {
+        data.picture = ""
+      }
 
-      // console.log(data);
       api
-        .put(`/user/${user.id}`, data)
+        .put(`/user/${user.id}`, data, config)
         .then((response) => {
           if (response.status === 200) {
-            // alert("User updated");
             setUser((prevUser) => ({ ...prevUser, ...data }));
+            navigate("/user-profile");
+
           }
         })
         .catch((error) => console.error(error));
-
-      // // console.log(data);
     }
+  } 
   };
 
   return (
     <div className="edit-profile-page">
-      <NavbarDesktop />
       <div className="edit-profile-page-return-button">
         <Link to="/user-profile">
           <ArrowButton />
@@ -179,7 +179,6 @@ const EditProfilePage = () => {
           </Link>
         </div>
       </div>
-      <Navbar />
     </div>
   );
 };

@@ -18,14 +18,14 @@ const MyMeals = () => {
     api
       .get(`favourites/meals?userId=${user.id}`)
       .then((response) => {
-        // console.log(response.data);
         if (response.status === 200) {
           setFavouriteMeals(response.data);
         } else {
+          //! What is this??
           console.log("Error getting all favourites");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {

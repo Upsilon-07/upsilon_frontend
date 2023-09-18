@@ -13,9 +13,7 @@ const TitleCard = ({ id, title, isFavourite, setIsFavourite }) => {
   const location = useLocation();
 
   const favourite = () => {
-    //! post in api to:
     const data = {
-      //! change the user_id with the id from the userContext
       user_id: user.id,
       course_id: Number(id),
     };

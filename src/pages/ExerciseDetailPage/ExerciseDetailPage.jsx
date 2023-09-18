@@ -1,5 +1,4 @@
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
-import Navbar from "../../components/navbar/Navbar";
+
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import ExitPage from "../../components/ExitPage/ExitPage";
@@ -37,10 +36,11 @@ const ExerciseDetailPage = () => {
             setTimeInSecond(response.data[0].duration);
           }
         } else {
+          //! What is this?
           console.log("Error getting exercise details");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -113,7 +113,6 @@ const ExerciseDetailPage = () => {
 
   return (
     <div className="exercise-details">
-      <NavbarDesktop />
       <div className="exercise-detail-top">
         <Link to="/user-profile">
           <ProfilePicture />
@@ -144,7 +143,6 @@ const ExerciseDetailPage = () => {
         </div>
       </div>
 
-      <Navbar />
     </div>
   );
 };

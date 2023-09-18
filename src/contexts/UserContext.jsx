@@ -24,7 +24,11 @@ const UserContextProvider = ({ children }) => {
         .then((response) => {
           if (response.status === 200) {
             setUser(response.data);
-            navigate(location.pathname)
+            if(location.pathname === "/" || location.pathname.includes("start-journey")){
+              navigate("/")
+            } else {
+              navigate(location.pathname)
+            }
           }
         })
         .catch((error) => console.error(error));

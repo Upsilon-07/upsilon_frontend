@@ -1,16 +1,17 @@
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
-import Navbar from "../../components/navbar/Navbar";
+
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link, useParams } from "react-router-dom";
 import ExitPage from "../../components/ExitPage/ExitPage";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import NextButton from "../../components/next-page-button/NextButton";
 import api from "../../api/api";
 import "./ExercisePage.css";
+import UserContext from "../../contexts/UserContext";
 
 const ExercisePage = () => {
   const { id } = useParams();
   const [exerciseDetail, setExerciseDetail] = useState({});
+  const { user } = useContext(UserContext);
 
   const getExerciseDetails = () => {
     api
@@ -19,10 +20,11 @@ const ExercisePage = () => {
         if (response.status === 200) {
           setExerciseDetail(response.data[0]);
         } else {
+          //! What is this?
           console.log("Error getting exercise details");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -31,10 +33,9 @@ const ExercisePage = () => {
 
   return (
     <div className="exercise-details">
-      <NavbarDesktop />
       <div className="exercise-detail-top">
         <Link to="/user-profile">
-          <ProfilePicture />
+          <ProfilePicture image={user.picture}/>
         </Link>
         <ExitPage />
       </div>
@@ -82,7 +83,6 @@ const ExercisePage = () => {
       ) : (
         <p>Loading</p>
       )}
-      <Navbar />
     </div>
   );
 };

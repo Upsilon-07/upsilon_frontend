@@ -1,16 +1,15 @@
-import { useNavigate } from "react-router-dom";
+/* eslint-disable react/prop-types */
 import arrow from "../../assets/images/arrow-button.svg";
 import "./ArrowButton.css";
+import { Link } from "react-router-dom";
 
-const ArrowButton = () => {
-  const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
+const ArrowButton = ({path = "/"}) => {
 
   return (
-    <div onClick={goBack} className="arrow-return-button">
-      <img className="img-arrow-button" src={arrow} />
+    <div className="arrow-return-button">
+      <Link to={path}>
+        <img className="img-arrow-button" src={arrow} />
+      </Link>
     </div>
   );
 };
