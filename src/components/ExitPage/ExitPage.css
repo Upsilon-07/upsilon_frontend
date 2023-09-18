@@ -1,8 +1,13 @@
-.exit{
+/* .exit{
  
         display: flex;
         position: relative;
         padding-left: 5.128205128205128%;
         padding-top: 5.128205128205128%;
     
+} */
+
+.img-exit{
+        width: 56px;
+    height: 56px;
 }

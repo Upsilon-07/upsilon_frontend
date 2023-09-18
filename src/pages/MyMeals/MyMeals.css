@@ -1,0 +1,17 @@
+.mymeals-page{
+    background-color: #EAF2F2;
+    /* padding: 1.5rem; */
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 39px;
+  
+}
+
+@media screen and (min-width:768px) {
+    .mymeals-content{
+        display: flex;
+        justify-content: center;
+    }
+  }
