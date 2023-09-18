@@ -33,6 +33,10 @@
 .center-btn{
     display: flex;
     justify-content: center;
+
+}
+.card-lesson-detail {
+    padding-bottom: 2%;
 }
 
 @media screen and (min-width: 768px) {

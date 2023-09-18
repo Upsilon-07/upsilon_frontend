@@ -11,8 +11,8 @@ import { useParams } from "react-router-dom";
 import "../../components/InfoCard/InfoCard";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import IngredientsCard from "../../components/IngredientsCard/IngredientsCard";
-import NutritionInfo from "../../components/NutritionInfo/NutritionInfo";
-// import NextButton from "../../components/next-page-button/NextButton";
+import NutrientsCircle from "../../components/NutrientsCircle/NutrientsCircle";
+// import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
 
 const RecipePage = () => {
   const { user } = useContext(UserContext);
@@ -51,9 +51,8 @@ const RecipePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setNutrition(response.data);
-          //   console.log(nutrition);
         } else {
-          console.log("Error getting meal");
+          console.log("Error getting nutrition");
         }
       })
       .catch((error) => console.log(error));
@@ -94,16 +93,13 @@ const RecipePage = () => {
       <div className="card-lesson-detail" id="recipe-page-card">
         <InfoCard data={meal} />
         <div className="nutrition-container">
-          <NutritionInfo data={nutrition} />
+          <NutrientsCircle data={nutrition} />
+          {/* <NutritionInfo data={nutrition} /> */}
           <IngredientsCard data={meal} />
         </div>
       </div>
       {isFavouriteMeal ? (
-        <div className="center-btn">
-          <button className="btn-recipe" onClick={addToFavourite}>
-            Remove from favourite
-          </button>
-        </div>
+        <button onClick={addToFavourite}>Add to favourite</button>
       ) : (
         <div className="center-btn">
           <button className="btn-recipe" onClick={addToFavourite}>
@@ -111,10 +107,6 @@ const RecipePage = () => {
           </button>
         </div>
       )}
-
-      {/* <button className="btn-recipe" onClick={addToFavourite}>
-        {isFavouriteMeal ? "Add to favourites" : "Remove from favourites"}
-      </button> */}
       <Navbar />
     </div>
   );

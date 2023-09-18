@@ -1,4 +1,8 @@
 
+.nutrient-card {
+  margin-top: 10px;
+}
+
 .nutrient-card-container {
     display: flex;
     flex-direction: column;
@@ -8,8 +12,7 @@
     align-content: stretch;
     width: 80%;
     padding-left: 10%;
-    padding-top: 2%;
-    padding-bottom: 1%;
+    padding-top: 5%;
 }
 
 .nutrient-card-title {
