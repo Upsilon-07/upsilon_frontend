@@ -2,8 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 1rem;
-    padding-top: 6px;
+    /* padding-left: 1rem; */
+    /* padding-top: 6px; */
+    margin-right: 20px;
+    margin-left: 16px;
 }
 
 .course-page {
@@ -13,6 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 39px;
 }
 
 /* .title-courses{
