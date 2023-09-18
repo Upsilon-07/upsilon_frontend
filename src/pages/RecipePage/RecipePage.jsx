@@ -73,10 +73,12 @@ const RecipePage = () => {
       return (
         <div>
           <NavbarDesktop />
+          <div className="recipe-page-profile-pic-return-button-container">
           <Link to="/user-profile">
             <ProfilePicture image={user.picture} />
           </Link>
           <ArrowButton />
+          </div>
           <div className="card-lesson-detail" id="recipe-page-card">
             <InfoCard data={meal} />
             <div className='nutrition-container'>
