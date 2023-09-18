@@ -7,16 +7,12 @@ const DoughnutChart = ({ data }) => {
     const chartRef = useRef(null);
     const [chartData, setChartData] = useState(null);
   
-    console.log(data);
     useEffect(() => {
       if (chartRef.current && data.length > 0) {
         const proteinValue = data.find(item => item.nutrient_name === 'Protein')?.nutrient_value || 0;
         const carbohydratesValue = data.find(item => item.nutrient_name === 'Carbohydrates')?.nutrient_value || 0;
         const fatValue = data.find(item => item.nutrient_name === 'Fat')?.nutrient_value || 0;
-  
-console.log(proteinValue);
-console.log(carbohydratesValue);
-console.log(fatValue);
+
 
         const newChartData = {
           labels: ['Protein', 'Carbohydrates', 'Fat'],

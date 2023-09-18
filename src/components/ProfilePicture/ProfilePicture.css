@@ -1,5 +1,5 @@
 .profile-picture-container-image {
-    background-image: url(src/assets/images/profilePicture/profile-picture-background.svg);
+    background-image: url(../../assets/images/profilePicture/profile-picture-background.svg);
     width: 106.256px;
     height: 65.965px;
     flex-shrink: 0;

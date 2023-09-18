@@ -1,48 +1,25 @@
 import "./HomePage.css";
 import UserName from "../../components/UserName/UserName";
-import Navbar from "../../components/navbar/Navbar";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { homePageData } from "../../assets/HomePage/HomePageData";
 import HomePageImage from "../../components/Image";
 import Description from "../../components/Desciption";
 import Title from "../../components/Title";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import Card from "../../components/Card/Card";
-import { useContext, useEffect, useState } from "react";
-import api from "../../api/api";
+import { useContext} from "react";
+// import api from "../../api/api";
 import UserContext from "../../contexts/UserContext";
 import { Link } from "react-router-dom";
+import CoursesContext from "../../contexts/CoursesContext";
 
 const HomePage = () => {
   const id = 1;
 
   const { user } = useContext(UserContext);
-
-  const [courses, setCourses] = useState({});
-  const [numberLessons, setNumberLessons] = useState([]);
-
-  const getAllCourses = () => {
-    api
-      .get("/courses")
-      .then((response) => {
-        if (response.status === 200) {
-          // console.log(response);
-          setCourses(response.data.courses);
-          setNumberLessons(response.data.numberLessons);
-        } else {
-          console.log("Error getting courses suggestions");
-        }
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    getAllCourses();
-  }, []);
+  const { courses, numberLessons } = useContext(CoursesContext);
 
   return (
     <div className="homepage">
-      <NavbarDesktop />
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
@@ -80,7 +57,6 @@ const HomePage = () => {
           <h1>Loading...</h1>
         )}
       </div>
-      <Navbar />
     </div>
   );
 };

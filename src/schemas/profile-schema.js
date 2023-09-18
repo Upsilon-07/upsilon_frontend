@@ -12,7 +12,7 @@ const editProfileSchema = yup.object().shape({
       "fileType",
       "Invalid file format, please use JPEG, GIF, or PNG.",
       (value) => {
-        console.log(value);
+        // console.log(value);
         if (!value || value.length === 0) return true; // to skip the verification
         return ("image/jpeg", "image/png", "image/gif").includes(value[0].type);
       }

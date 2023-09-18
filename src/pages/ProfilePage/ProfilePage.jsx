@@ -1,10 +1,8 @@
 import "./ProfilePage.css";
 import Title from "../../components/Title";
-import Navbar from "../../components/navbar/Navbar";
 import NextButton from "../../components/next-page-button/NextButton";
 import { Link } from "react-router-dom";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import DisabledTextInputBox from "../../components/DisabledTextInputBox/DisabledTextInputBox";
@@ -17,7 +15,6 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page">
-      <NavbarDesktop />
 
       <Link to="/">
         <ArrowButton />
@@ -51,7 +48,6 @@ const ProfilePage = () => {
           />
         </Link>
       </div>
-      <Navbar />
     </div>
   );
 };

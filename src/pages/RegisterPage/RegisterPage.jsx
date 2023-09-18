@@ -20,7 +20,6 @@ function RegisterPage() {
   const navigate = useNavigate();
 
   const createUser = (data) => {
-    console.log(data);
     api
       .post("/auth/register", data)
       .then((response) => {

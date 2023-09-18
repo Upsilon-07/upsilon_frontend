@@ -1,6 +1,4 @@
-import "./RecipePage.css";
-import Navbar from "../../components/navbar/Navbar";
-import NavbarDesktop from "../../components/NavbarDesktop/NavbarDesktop";
+import './RecipePage.css'
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
@@ -12,6 +10,7 @@ import "../../components/InfoCard/InfoCard";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import IngredientsCard from "../../components/IngredientsCard/IngredientsCard";
 import NutrientsCircle from "../../components/NutrientsCircle/NutrientsCircle";
+import NavbarDesktop from '../../components/NavbarDesktop/NavbarDesktop';
 // import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
 
 const RecipePage = () => {
@@ -37,10 +36,11 @@ const RecipePage = () => {
           setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
         } else {
+          //! What is this??
           console.log("Error getting meal");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }, [id]);
 
   // useEffect(() => {
@@ -54,10 +54,12 @@ const RecipePage = () => {
         if (response.status === 200) {
           setNutrition(response.data);
         } else {
+          //! What is this??
+          console.log("Error getting meal");
           console.log("Error getting nutrition");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }, [id]);
 
   // useEffect(() => {
@@ -116,7 +118,6 @@ const RecipePage = () => {
           </button>
         </div>
       )}
-      <Navbar />
     </div>
   );
 };
