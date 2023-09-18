@@ -31,8 +31,9 @@ const RecipePage = () => {
       .post(`/meals/${id}`, data)
       .then((response) => {
         if (response.status === 200) {
-          setMeal(response.data.meal);
-          console.log(response.data.isFavouriteMeal);
+          setMeal(response.data.meal[0]);
+
+          // console.log(response.data.isFavouriteMeal);
           setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
         } else {
@@ -87,10 +88,12 @@ const RecipePage = () => {
   return (
     <div>
       <NavbarDesktop />
+      <div className="recipe-page-profile-pic-return-button-container">
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
       <ArrowButton />
+      </div>
       <div className="card-lesson-detail" id="recipe-page-card">
         <InfoCard data={meal} />
         <div className="nutrition-container">

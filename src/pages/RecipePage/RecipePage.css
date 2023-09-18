@@ -53,7 +53,7 @@
 .center-btn{
     display: flex;
     justify-content: center;
-
+    padding-bottom: 110px;
 }
 .card-lesson-detail {
     padding-bottom: 2%;
