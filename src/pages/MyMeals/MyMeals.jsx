@@ -6,9 +6,9 @@ import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../contexts/UserContext";
 import api from "../../api/api";
-//import clock from "../../assets/images/time.svg";
 import Card from "../../components/Card/Card";
 import TitleCard from "../../components/TitleCard/TitleCard";
+import "./MyMeals.css";
 
 const MyMeals = () => {
   const { user } = useContext(UserContext);
@@ -18,7 +18,6 @@ const MyMeals = () => {
     api
       .get(`favourites/meals?userId=${user.id}`)
       .then((response) => {
-        // console.log(response.data);
         if (response.status === 200) {
           setFavouriteMeals(response.data);
         } else {
@@ -32,46 +31,30 @@ const MyMeals = () => {
     getAllFavouriteMealsByUser();
   }, []);
   return (
-    <div>
+    <div className="mymeals-page">
       <NavbarDesktop />
-      <Link to="/user-profile">
-        <ProfilePicture image={user.picture} />
-      </Link>
-      <ArrowButton />
-      <TitleCard title="Favourite Meals" />
-      {favouriteMeals && favouriteMeals.length > 0 ? (
-        favouriteMeals.map((favouriteMeal) => (
-          // <div key={favouriteMeal.id} className="course-container">
-          //   <div className="left-and-right-container">
-          //     {favouriteMeal.image ? (
-          //       <div className="left-container">
-          //         <img className="yoga-pose" src={favouriteMeal.image} alt="" />
-          //       </div>
-          //     ) : null}
-          //     <div className="right-container">
-          //       <div className="title">
-          //         {favouriteMeal.meal_name ? (
-          //           <h2 className="course-name">{favouriteMeal.meal_name}</h2>
-          //         ) : null}
+      <div className="top">
+        <Link to="/user-profile">
+          <ProfilePicture image={user.picture} />
+        </Link>
+        <ArrowButton />
+      </div>
+      <div className="mymeals-content">
+        <TitleCard title="My Meals" />
 
-          //         {favouriteMeal.duration ? (
-          //           <div className="clock-and-time">
-          //             <img src={clock} alt="clock of duration" />{" "}
-          //             <h4>{favouriteMeal.duration} mins</h4>
-          //           </div>
-          //         ) : null}
-          //       </div>
-          //       <div className="bottom-container"></div>
-          //     </div>
-          //   </div>
-          // </div>
-
-          <Card key={favouriteMeal.id} data={favouriteMeal} linkTo="recipes" />
-        ))
-      ) : (
-        <h1 className="loading">Add your favourite meals...</h1>
-      )}
-
+        {
+          favouriteMeals && favouriteMeals.length > 0
+            ? favouriteMeals.map((favouriteMeal) => (
+                <Card
+                  key={favouriteMeal.id}
+                  data={favouriteMeal}
+                  linkTo="recipes"
+                />
+              ))
+            : null
+          // <h1 className="loading">Add your favourite meals...</h1>
+        }
+      </div>
       <Navbar />
     </div>
   );

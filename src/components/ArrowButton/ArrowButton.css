@@ -1,10 +1,13 @@
+.img-arrow-button{
+    width:55.94px;
+    height:55.94px;
+}
 
-
-.arrow-return-button {
+/* .arrow-return-button {
     display: flex;
     position: relative;
     padding-left: 5.128205128205128%;
     padding-top: 5.128205128205128%;
 
-}
+} */
 

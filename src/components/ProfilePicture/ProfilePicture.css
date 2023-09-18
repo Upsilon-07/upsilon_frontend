@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
     background-position: bottom;
     position: relative;
-    top: 10px;
+    /* top: 10px; */
 }
 
 .user-profile-icon {
@@ -17,8 +17,8 @@
     width: 6.641rem;
     height: 4.12281rem;
     flex-shrink: 0;
-    padding-left: 5.128205128205128%;
-    padding-top: 2.2559241706161135%;
+    /* padding-left: 5.128205128205128%;
+    padding-top: 2.2559241706161135%; */
 }
 
 .profile-image {
@@ -45,13 +45,13 @@
 
 @media screen and (min-width: 767px) {
     .profile-picture-container-image {
-        padding-top: 10px;
-        position: relative;
+        /* padding-top: 10px;
+        position: relative; */
         display: flex;
     }
     .user-profile-icon {
-        position: relative;
-        width: 90%;
+        /* position: relative;
+        width: 90%; */
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
