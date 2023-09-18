@@ -1,7 +1,28 @@
 
+.meals-page{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
 .meals-page-img {
     display: flex;
-    
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+.meals-page-profile-pic-star-button {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    padding-bottom: 20px;
+    width: 90%;
 }
 
 .meals-page-title {
@@ -41,5 +62,10 @@
     }
     .meals-page-cards {
         padding-bottom: 50px;
+    }
+
+    .meals-page-profile-pic-star-button {
+        padding-top: 40px;
+
     }
   }
