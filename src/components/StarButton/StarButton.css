@@ -1,20 +1,18 @@
 
-  .img {
-    /* position: absolute; */
-    /* top: 20px; */
-    /* right: 20px; */
-    padding-right: 20px;
-    padding-top: 15px;
+  .img-star {
+    /* position: absolute;
+    top: 20px;
+    right: 20px; */
+    /* padding-right: 20px; */
+    width:55.94px;
+    height:55.94px;
 
   }
 
   @media screen and (min-width:765px) {
     
  
-    .img {
-      top: 110px;
   
-    }
 
     }
 

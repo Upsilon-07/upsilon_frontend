@@ -2,9 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 1rem;
+    /* padding-left: 1rem;
     padding-top: 6px;
-    padding-right: 20px;
+    padding-right: 20px; */
+    margin-right: 20px;
+    margin-left: 16px;
 }
 
 .exercise-card-content{
@@ -34,10 +36,10 @@ border-radius: 10px;
     justify-content: center;
     align-items: center;
     font-size: 16px;
-font-weight: 400;
-color: #AAA;
-gap: 0.5rem;
-margin-bottom: 30px;
+    font-weight: 400;
+    color: #AAA;
+    gap: 0.5rem;
+    margin-bottom: 30px;
 }
 
 .exercise-description{
