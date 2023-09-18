@@ -11,7 +11,6 @@ import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import IngredientsCard from "../../components/IngredientsCard/IngredientsCard";
 import NutrientsCircle from "../../components/NutrientsCircle/NutrientsCircle";
 import NavbarDesktop from '../../components/NavbarDesktop/NavbarDesktop';
-// import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
 
 const RecipePage = () => {
   const { user } = useContext(UserContext);
@@ -35,9 +34,6 @@ const RecipePage = () => {
           // console.log(response.data.isFavouriteMeal);
           setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
-        } else {
-          //! What is this??
-          console.log("Error getting meal");
         }
       })
       .catch((error) => console.error(error));
@@ -53,10 +49,6 @@ const RecipePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setNutrition(response.data);
-        } else {
-          //! What is this??
-          console.log("Error getting meal");
-          console.log("Error getting nutrition");
         }
       })
       .catch((error) => console.error(error));
@@ -75,7 +67,7 @@ const RecipePage = () => {
       .post(`favourites/meals`, data)
       .then((response) => {
         if (response.status === 200) {
-          console.log(response);
+          // console.log(response);
           setIsFavouriteMeal(!isFavouriteMeal);
         }
       })
@@ -100,7 +92,6 @@ const RecipePage = () => {
         <InfoCard data={meal} />
         <div className="nutrition-container">
           <NutrientsCircle data={nutrition} />
-          {/* <NutritionInfo data={nutrition} /> */}
           <IngredientsCard data={meal} />
         </div>
       </div>
