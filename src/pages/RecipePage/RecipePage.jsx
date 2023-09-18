@@ -32,6 +32,7 @@ const RecipePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setMeal(response.data.meal);
+          console.log(response.data.isFavouriteMeal);
           setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
         } else {
@@ -98,12 +99,17 @@ const RecipePage = () => {
           <IngredientsCard data={meal} />
         </div>
       </div>
-      {isFavouriteMeal ? (
-        <button onClick={addToFavourite}>Add to favourite</button>
+
+      {isFavouriteMeal === false ? (
+        <div className="center-btn">
+          <button className="btn-recipe" onClick={addToFavourite}>
+            Add to favourite
+          </button>
+        </div>
       ) : (
         <div className="center-btn">
           <button className="btn-recipe" onClick={addToFavourite}>
-            Add to favourites
+            Remove from favourite
           </button>
         </div>
       )}
