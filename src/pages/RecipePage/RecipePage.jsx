@@ -29,14 +29,10 @@ const RecipePage = () => {
       .post(`/meals/${id}`, data)
       .then((response) => {
         if (response.status === 200) {
-<<<<<<< HEAD
-          setMeal(response.data[0]);
-=======
           setMeal(response.data.meal);
           console.log(response.data.isFavouriteMeal);
           setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
->>>>>>> b0e5fb32cbe8080e953228fb53e316a9d7c06301
         } else {
           //! What is this??
           console.log("Error getting meal");
@@ -56,12 +52,9 @@ const RecipePage = () => {
         if (response.status === 200) {
           setNutrition(response.data);
         } else {
-<<<<<<< HEAD
           //! What is this??
           console.log("Error getting meal");
-=======
           console.log("Error getting nutrition");
->>>>>>> b0e5fb32cbe8080e953228fb53e316a9d7c06301
         }
       })
       .catch((error) => console.error(error));
