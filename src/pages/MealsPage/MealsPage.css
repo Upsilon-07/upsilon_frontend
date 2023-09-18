@@ -46,7 +46,8 @@
 
 .meals-page-cards {
     position: relative;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
+    width: 100%;
 }
 
 .meals-page-subtitle {
