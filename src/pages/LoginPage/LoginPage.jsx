@@ -2,7 +2,7 @@ import api from "../../api/api.js";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../../contexts/UserContext.jsx";
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox.jsx";
@@ -14,7 +14,7 @@ import userSchema from "../../schemas/user-schema";
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
   const { setIsAuthenticated } = useContext(AuthContext);
-
+  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -50,7 +50,8 @@ const LoginPage = () => {
             .catch((error) => console.error(error));
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {console.error(error) 
+      setError(error.response.data) });
   };
 
   return (
@@ -79,6 +80,7 @@ const LoginPage = () => {
                 errors={errors}
               />
             </div>
+            {error && <p className="error-message">{error}</p>}
             <div className="forgot-password-left">
             <Link to="/forgot-password">
               <p>Forgot Password ?</p>

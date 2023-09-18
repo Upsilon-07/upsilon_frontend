@@ -13,60 +13,46 @@ const ChangePassword = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
 
   const [error, setError] = useState("");
-  const [isWrongCurrentPassword, setIsWrongCurrentPassword] = useState(false);
-  const [isNewPasswordMismatch, setIsNewPasswordMismatch] = useState(false);
-  const [isSameAsCurrent, setIsSameAsCurrent] = useState(false); // New state for same as current password
   const [isPasswordSaved, setIsPasswordSaved] = useState(false);
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const changePassword = (data) => {
-    if (data.newPassword === data.repeatPassword) {
-      //! api to change password
-      setIsWrongCurrentPassword(false);
-      setIsNewPasswordMismatch(false);
-      setIsSameAsCurrent(false); // Reset the same as current flag
-      delete data.repeatPassword;
+    console.log(data);
+    if (data.password !== data.newPassword) {
+      if (data.newPassword === data.repeatPassword) {
+        setError("");
+        delete data.repeatPassword;
 
-      let config = {
-        headers: {
-          Authorization: "Bearer " + Cookies.get("user_token"),
-        },
-      };
-      api
-        .post("/password/change-password", data, config)
-        .then((response) => {
-          if (response.status === 200) {
-            setIsPasswordSaved(true);
-            setTimeout(() => {
-            navigate("/user-profile")
-            }, 2500)
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            if (error.response.status === 401) {
-              setIsWrongCurrentPassword(true);
-            } else if (error.response.status === 400) {
-              const responseMessage = error.response.data.message;
-              if (responseMessage === "New password same as current password") {
-                setIsSameAsCurrent(true);
-              } else {
-                setIsNewPasswordMismatch(true);
-                setError(
-                  "The new password is different from the repeat password"
-                );
-              }
+        let config = {
+          headers: {
+            Authorization: "Bearer " + Cookies.get("user_token"),
+          },
+        };
+        api
+          .post("/password/change-password", data, config)
+          .then((response) => {
+            if (response.status === 200) {
+              setIsPasswordSaved(true);
+              setTimeout(() => {
+                navigate("/user-profile");
+              }, 2500);
             }
-          }
-        });
+          })
+          .catch((error) =>{
+            console.error(error)
+            setError(error.response.data);
+          } );
+      } else {
+        setError("The repeated password should be the same of new password.");
+      }
     } else {
-      setIsNewPasswordMismatch(true);
-      setError("The new password is different from the repeat password");
+      setError("The new password should be different of the current password.");
     }
   };
-
   return (
     <>
       <ArrowButton path="/user-profile" />
@@ -102,22 +88,16 @@ const navigate = useNavigate();
               errors={errors}
             />
           </div>
-          {isWrongCurrentPassword && (
-            <p className="error-message">Wrong password, please try again.</p>
-          )}
-          {isNewPasswordMismatch && <p className="error-message">{error}</p>}
-          {isSameAsCurrent && (
-            <p className="error-message">
-              New password cannot be the same as the current password.
-            </p>
-          )}
+          {error && <p className="error-message">{error}</p>}
           <div className="button-container">
             <NextButton
               buttonClass={`button-square ${
                 isPasswordSaved ? "green-button" : "orange-button"
               }`}
               buttonContent={
-                isPasswordSaved ? "Password Saved" : "Save New Password"
+                isPasswordSaved
+                  ? "CHANGES HAVE BEEN SAVED"
+                  : "SAVE NEW PASSWORD"
               }
               buttonId={isPasswordSaved ? "green-button" : "orange-button"}
             />
