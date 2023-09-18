@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import api from "../../api/api";
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
@@ -20,7 +20,7 @@ const ChangePassword = () => {
   const [isNewPasswordMismatch, setIsNewPasswordMismatch] = useState(false);
   const [isSameAsCurrent, setIsSameAsCurrent] = useState(false); // New state for same as current password
   const [isPasswordSaved, setIsPasswordSaved] = useState(false);
-
+const navigate = useNavigate();
   const changePassword = (data) => {
     if (data.newPassword === data.repeatPassword) {
       //! api to change password
@@ -39,6 +39,9 @@ const ChangePassword = () => {
         .then((response) => {
           if (response.status === 200) {
             setIsPasswordSaved(true);
+            setTimeout(() => {
+            navigate("/user-profile")
+            }, 2500)
           }
         })
         .catch((error) => {
@@ -66,11 +69,7 @@ const ChangePassword = () => {
 
   return (
     <>
-      <div>
-        <Link to="/user-profile">
-          <ArrowButton />
-        </Link>
-      </div>
+      <ArrowButton path="/user-profile" />
       <div className="change-password-title">
         <h1 id="change-pass-title">Change Password</h1>
       </div>
