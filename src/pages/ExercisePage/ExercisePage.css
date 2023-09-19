@@ -1,10 +1,15 @@
+.exercise-details{
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 29px;
+}
+
 .exercise-detail-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding-left: 1rem;
-    padding-top: 6px;
-    padding-right: 20px; */
     margin-right: 20px;
     margin-left: 16px;
 }
@@ -18,8 +23,8 @@
 }
 
 .image-exercise{
-width:100%;
-border-radius: 10px;
+    width:100%;
+    border-radius: 10px;
 }
 
 .exercise-name{
@@ -43,7 +48,6 @@ border-radius: 10px;
 }
 
 .exercise-description{
-   
     color: #AAA;
     font-family: DM Sans;
     font-size: 16px;
@@ -58,7 +62,7 @@ border-radius: 10px;
 .button-container{
     display: flex;
     justify-content: center;
-    /* padding-bottom: 67px; */
+
 }
 
 @media screen and (min-width:768px) {

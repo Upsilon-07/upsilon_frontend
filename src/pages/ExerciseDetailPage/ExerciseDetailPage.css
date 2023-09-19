@@ -1,5 +1,9 @@
 .exercise-details{
-    margin-top: 39px;
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 29px;
 }
 
 .exercise-detail-page{

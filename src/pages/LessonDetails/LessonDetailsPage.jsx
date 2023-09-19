@@ -1,4 +1,3 @@
-
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
@@ -25,9 +24,6 @@ const LessonDetailsPage = () => {
         if (response.status === 200) {
           setExercises(response.data.exercises);
           setLessonInfo(response.data.lessonInfo[0]);
-        } else {
-          //! What is this?
-          console.log("Error getting lesson details");
         }
       })
       .catch((error) => console.error(error));

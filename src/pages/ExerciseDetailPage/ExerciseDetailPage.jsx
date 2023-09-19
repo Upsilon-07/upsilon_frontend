@@ -1,4 +1,3 @@
-
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link } from "react-router-dom";
 import ExitPage from "../../components/ExitPage/ExitPage";
@@ -35,9 +34,6 @@ const ExerciseDetailPage = () => {
           } else {
             setTimeInSecond(response.data[0].duration);
           }
-        } else {
-          //! What is this?
-          console.log("Error getting exercise details");
         }
       })
       .catch((error) => console.error(error));
@@ -142,7 +138,6 @@ const ExerciseDetailPage = () => {
           <img onClick={handleClickNext} src={next} alt="" />
         </div>
       </div>
-
     </div>
   );
 };
