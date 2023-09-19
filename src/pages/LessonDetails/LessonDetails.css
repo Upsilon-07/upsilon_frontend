@@ -1,16 +1,24 @@
+.lesson-details{
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 29px;
+}
+
 .lesson-detail-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 1rem;
-    padding-top: 6px;
+    margin-right: 20px;
+    margin-left: 16px;
 }
 
 .card-lesson-detail{
     background-color: white;
     margin: 30px auto 110px auto;
     border-radius: 10px;
-    width: 90%;
+    /* width: 90%; */
 }
 
 .image-lesson-detail{
@@ -21,10 +29,8 @@
 
 @media screen and (min-width:768px) {
 
- 
-
     .card-lesson-detail {
-        width: 70%;
+        width: 60%;
         display: flex;
         flex-direction: column;
         justify-content: center;

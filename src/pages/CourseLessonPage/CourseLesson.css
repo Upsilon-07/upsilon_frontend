@@ -1,14 +1,14 @@
 .lessons-page{
     background-color: #EAF2F2;
-    /* padding: 1.5rem; */
+    padding-top: 29px;
 }
 
 .lessons-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 1rem;
-    padding-top: 6px;
+    margin-right: 20px;
+    margin-left: 16px;
 }
 
 .lessons-title{
@@ -42,10 +42,6 @@
     justify-content: flex-start;
 }
 
-.img-arrow-button {
-    margin-right: 1rem;
-    margin-top: 1.1rem;
-}
 
 
 @media screen and (min-width:765px) {
@@ -62,10 +58,5 @@
         margin-bottom: 70px;
     }
 
-    
-
-    /* .container-image,.img-arrow{
-        display: none;
-    } */
 
   }

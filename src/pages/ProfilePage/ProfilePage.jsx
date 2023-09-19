@@ -7,31 +7,52 @@ import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import DisabledTextInputBox from "../../components/DisabledTextInputBox/DisabledTextInputBox";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
+import Cookies from "js-cookie";
+import AuthContext from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+  const { setUser, user } = useContext(UserContext);
+  const { setIsAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const { user } = useContext(UserContext);
-
+  const logout = () => {
+    setIsAuthenticated(false);
+    setUser({});
+    Cookies.remove("user_token");
+    navigate("/login");
+  };
 
   return (
     <div className="profile-page">
-
       <Link to="/">
         <ArrowButton />
       </Link>
       <div className="profile-title">
-        <div><Title title="Profile" weight={"light-title"} /></div>
+        <div>
+          <Title title="Profile" weight={"light-title"} />
+        </div>
       </div>
-        <div className="profile-page-user-picture"><ProfilePicture image={user.picture}/></div>
+      <div className="profile-page-user-picture">
+        <ProfilePicture image={user.picture} />
+      </div>
 
       <form className="profile-input-box">
-        <DisabledTextInputBox type="username" value={user.username ? user.username : null} readOnly />
+        <DisabledTextInputBox
+          type="username"
+          value={user.username ? user.username : null}
+          readOnly
+        />
 
-        <DisabledTextInputBox type="email" value={user.email ? user.email : null} readOnly />
+        <DisabledTextInputBox
+          type="email"
+          value={user.email ? user.email : null}
+          readOnly
+        />
       </form>
 
       <div className="profile-button" id="profile-edit-button">
-      <Link to="/edit-profile">
+        <Link to="/edit-profile">
           <NextButton
             buttonId="orange-button"
             buttonContent="EDIT PROFILE"
@@ -48,6 +69,14 @@ const ProfilePage = () => {
           />
         </Link>
       </div>
+      <form onSubmit={logout} className="profile-button" id="logout-button">
+        <NextButton
+          buttonId="white-button"
+          buttonContent="LOG OUT"
+          buttonClass="button-square"
+          type="submit"
+        />
+      </form>
     </div>
   );
 };

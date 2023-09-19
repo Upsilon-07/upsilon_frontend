@@ -19,9 +19,6 @@ const CourseFavouritePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setFavouriteCourses(response.data);
-        } else {
-          //! what is this?
-          console.log("Error getting all favourites");
         }
       })
       .catch((error) => console.error(error));
@@ -34,25 +31,25 @@ const CourseFavouritePage = () => {
   return (
     <div className="favourite-page">
       <div className="favourite-top">
-        <ProfilePicture image={user.picture}/>
+        <ProfilePicture image={user.picture} />
         <Link to="/courses">
           <ArrowButton />
         </Link>
       </div>
-      <TitleCard title="Favourite Courses" />
+      <TitleCard title="Favourites Courses" />
 
-      {favouriteCourses && favouriteCourses.length > 0 ? (
-        favouriteCourses.map((favouriteCourse) => (
-          <Card
-            key={favouriteCourse.id}
-            data={favouriteCourse}
-            linkTo="courses"
-          />
-        ))
-      ) : (
-        <h1 className="loading">Add your favourite courses...</h1>
-      )}
-
+      {
+        favouriteCourses && favouriteCourses.length > 0
+          ? favouriteCourses.map((favouriteCourse) => (
+              <Card
+                key={favouriteCourse.id}
+                data={favouriteCourse}
+                linkTo="courses"
+              />
+            ))
+          : null
+        // <h1 className="loading">Add your favourite courses...</h1>
+      }
     </div>
   );
 };

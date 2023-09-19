@@ -1,4 +1,3 @@
-
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { Link, useParams } from "react-router-dom";
 import ExitPage from "../../components/ExitPage/ExitPage";
@@ -19,9 +18,6 @@ const ExercisePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setExerciseDetail(response.data[0]);
-        } else {
-          //! What is this?
-          console.log("Error getting exercise details");
         }
       })
       .catch((error) => console.error(error));
@@ -35,7 +31,7 @@ const ExercisePage = () => {
     <div className="exercise-details">
       <div className="exercise-detail-top">
         <Link to="/user-profile">
-          <ProfilePicture image={user.picture}/>
+          <ProfilePicture image={user.picture} />
         </Link>
         <ExitPage />
       </div>

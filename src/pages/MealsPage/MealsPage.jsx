@@ -21,9 +21,6 @@ const MealsPage = () => {
       .then((response) => {
         if (response.status === 200) {
           setMeals(response.data);
-        } else {
-          //! What is this??
-          console.log("Error getting all meals");
         }
       })
       .catch((error) => console.error(error));
@@ -56,11 +53,15 @@ const MealsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="meals-page">
+      <div className="meals-page-profile-pic-star-button">
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
+      <Link to="/favourites/meals">
       <StarButton />
+      </Link>
+      </div>
       <div className="meals-page-img">
         <MealsPageIcon />
       </div>
@@ -89,7 +90,7 @@ const MealsPage = () => {
             <Card
               key={meal.id}
               data={meal}
-              linkTo="recipes"
+              linkTo="meals"
             />
           ))}
       </div>
