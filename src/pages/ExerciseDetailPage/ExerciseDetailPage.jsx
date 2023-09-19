@@ -108,7 +108,7 @@ const ExerciseDetailPage = () => {
   }, [timeInSecond, timeInMinutes, timerRunning]);
 
   return (
-    <div className="exercise-details">
+    <div className="exercise-detail">
       <div className="exercise-detail-top">
         <Link to="/user-profile">
           <ProfilePicture />

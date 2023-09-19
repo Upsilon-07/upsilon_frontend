@@ -6,7 +6,6 @@ import "./CourseLesson.css";
 import { useEffect, useState, useContext } from "react";
 import Card from "../../components/Card/Card";
 import TitleCard from "../../components/TitleCard/TitleCard";
-// import favouriteStar from "../../assets/images/blank-star.svg";
 import UserContext from "../../contexts/UserContext";
 
 const CourseLessonPage = () => {
