@@ -2,26 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding-left: 1rem; */
-    /* padding-top: 6px; */
     margin-right: 20px;
     margin-left: 16px;
 }
 
 .course-page {
     background-color: #EAF2F2;
-    /* padding: 1.5rem; */
     padding-bottom:6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 39px;
+    padding-top: 29px;
 }
 
-/* .title-courses{
-   margin-top: 1rem;
-   font-size: 1.5rem;
-} */
 
 .courses-container{
     display: flex;

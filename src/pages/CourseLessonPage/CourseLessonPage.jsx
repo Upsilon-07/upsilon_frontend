@@ -6,7 +6,6 @@ import "./CourseLesson.css";
 import { useEffect, useState, useContext } from "react";
 import Card from "../../components/Card/Card";
 import TitleCard from "../../components/TitleCard/TitleCard";
-// import favouriteStar from "../../assets/images/blank-star.svg";
 import UserContext from "../../contexts/UserContext";
 
 const CourseLessonPage = () => {
@@ -28,9 +27,6 @@ const CourseLessonPage = () => {
           setIsFavourite(response.data.isFavourite);
           setLessons(response.data.lessons);
           setCourseTitle(response.data.courseTitle[0].courseName);
-        } else {
-          //! What is this?
-          console.log("Error getting all lessons");
         }
       })
       .catch((error) => console.error(error));
@@ -48,7 +44,7 @@ const CourseLessonPage = () => {
         </Link>
 
         <Link to="/courses">
-        <ArrowButton />
+          <ArrowButton />
         </Link>
       </div>
 

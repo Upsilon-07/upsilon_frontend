@@ -19,9 +19,6 @@ const CourseFavouritePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setFavouriteCourses(response.data);
-        } else {
-          //! what is this?
-          console.log("Error getting all favourites");
         }
       })
       .catch((error) => console.error(error));
@@ -39,7 +36,7 @@ const CourseFavouritePage = () => {
           <ArrowButton />
         </Link>
       </div>
-      <TitleCard title="Favourite Courses" />
+      <TitleCard title="Favourites Courses" />
 
       {
         favouriteCourses && favouriteCourses.length > 0
@@ -53,7 +50,6 @@ const CourseFavouritePage = () => {
           : null
         // <h1 className="loading">Add your favourite courses...</h1>
       }
-
     </div>
   );
 };
