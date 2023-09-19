@@ -1,4 +1,25 @@
 
+.recipe-page-profile-pic-return-button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.arrow-return-button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.img-arrow-button {
+    margin-right: 1rem;
+    margin-top: 1.1rem;
+}
+
 .nutrition-container{
     display: flex;
     flex-direction: column;
@@ -33,14 +54,36 @@
 .center-btn{
     display: flex;
     justify-content: center;
-
+    padding-bottom: 110px;
 }
 .card-lesson-detail {
     padding-bottom: 2%;
+    background-color: white;
+    margin-top: 13px;
+    margin-bottom: 7rem;
+    border-radius: 10px;
+    width: 90%;
 }
+
 
 @media screen and (min-width: 768px) {
     .recipe-page-button {
         padding-bottom: 50px;
+    }
+
+    .card-lesson-detail {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .recipe-page-profile-pic-return-button-container {
+        padding-left: 1rem;
+    }
+
+    .center-btn{
+        padding-bottom: 20px;
     }
   }
