@@ -1,8 +1,12 @@
 
+.edit-profile-page {
+    padding-top: 30px;
+}
+
 .edit-profile-page-return-button {
     display: flex;
     position: relative;
-    padding-top: 5.128205128205128%;
+    padding-left: 30px;
 
 }
 
@@ -46,6 +50,9 @@
   }
 
   @media screen and (min-width: 768px) {
+    .edit-profile-page {
+        padding-top: 50px;
+    }
     .cancel-changes-button {
         padding-bottom: 3%;
     }

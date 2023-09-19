@@ -6,6 +6,15 @@ body {
 
 .homepage {
     font-family: Lora;
+    padding-top: 30px;
+}
+
+.home-page-user-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
 
 
@@ -62,6 +71,10 @@ body {
   }
 
   @media screen and (min-width: 768px) {
+    .homepage {
+        padding-top: 50px;
+    }
+
     .homepage-recommended-courses {
         padding-top: 3%;
         padding-bottom: 3%;
