@@ -10,7 +10,7 @@ import "../../components/InfoCard/InfoCard";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import IngredientsCard from "../../components/IngredientsCard/IngredientsCard";
 import NutrientsCircle from "../../components/NutrientsCircle/NutrientsCircle";
-// import NutritionInfo from '../../components/NutritionInfo/NutritionInfo';
+import NavbarDesktop from '../../components/NavbarDesktop/NavbarDesktop';
 
 const RecipePage = () => {
   const { user } = useContext(UserContext);
@@ -29,13 +29,11 @@ const RecipePage = () => {
       .post(`/meals/${id}`, data)
       .then((response) => {
         if (response.status === 200) {
-          setMeal(response.data.meal);
-          console.log(response.data.isFavouriteMeal);
+          setMeal(response.data.meal[0]);
+
+          // console.log(response.data.isFavouriteMeal);
           setIsFavouriteMeal(response.data.isFavouriteMeal);
           // console.log(response.data[0]);
-        } else {
-          //! What is this??
-          console.log("Error getting meal");
         }
       })
       .catch((error) => console.error(error));
@@ -51,10 +49,6 @@ const RecipePage = () => {
       .then((response) => {
         if (response.status === 200) {
           setNutrition(response.data);
-        } else {
-          //! What is this??
-          console.log("Error getting meal");
-          console.log("Error getting nutrition");
         }
       })
       .catch((error) => console.error(error));
@@ -73,7 +67,7 @@ const RecipePage = () => {
       .post(`favourites/meals`, data)
       .then((response) => {
         if (response.status === 200) {
-          console.log(response);
+          // console.log(response);
           setIsFavouriteMeal(!isFavouriteMeal);
         }
       })
@@ -87,15 +81,17 @@ const RecipePage = () => {
 
   return (
     <div>
+      <NavbarDesktop />
+      <div className="recipe-page-profile-pic-return-button-container">
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
       <ArrowButton />
+      </div>
       <div className="card-lesson-detail" id="recipe-page-card">
         <InfoCard data={meal} />
         <div className="nutrition-container">
           <NutrientsCircle data={nutrition} />
-          {/* <NutritionInfo data={nutrition} /> */}
           <IngredientsCard data={meal} />
         </div>
       </div>
