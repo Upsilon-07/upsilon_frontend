@@ -20,9 +20,11 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
+      <div className="home-page-user-profile">
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
+      </div>
       <div>
         <UserName value={user.username} />
       </div>

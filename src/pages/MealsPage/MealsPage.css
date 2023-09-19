@@ -4,6 +4,7 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
+    padding-top: 30px;
 }
 
 .meals-page-img {
@@ -16,7 +17,6 @@
 
 .meals-page-profile-pic-star-button {
     display: flex;
-    padding-top: 20px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
