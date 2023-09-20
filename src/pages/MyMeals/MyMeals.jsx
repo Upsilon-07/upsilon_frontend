@@ -29,11 +29,11 @@ const MyMeals = () => {
   }, []);
   return (
     <div className="mymeals-page">
-      <div className="top">
+      <div className="mymeals-top">
         <Link to="/user-profile">
           <ProfilePicture image={user.picture} />
         </Link>
-        <ArrowButton />
+        <ArrowButton path={"/meals"} />
       </div>
       <TitleCard title="My Meals" />
       <div className="mymeals-content">
