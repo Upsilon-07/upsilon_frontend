@@ -4,22 +4,20 @@ import "./NutritionInfo.css";
 
 const NutritionInfo = ({ data }) => {
   return (
-    <div className="nutrient-card">
-      <div className="nutrient-card-container">
-        {data.map((nutrient) => (
-          <ul key={nutrient.nutrient_name} className="nutrient-card-ul">
-            <div className="nutrient-card-name">
-              <li>{nutrient.nutrient_name}</li>
-              <p>
-                {nutrient.nutrient_name !== "Calories"
-                  ? nutrient.nutrient_value + " g"
-                  : nutrient.nutrient_value + " kcal"}
-              </p>
-            </div>
-          </ul>
-        ))}
+  <>
+  {data.map((nutrient) => (
+    <ul key={nutrient.nutrient_name} className="nutrient-card-ul">
+      <div className="nutrient-card-name">
+        <li>{nutrient.nutrient_name}</li>
+        <p>
+          {nutrient.nutrient_name !== "Calories"
+            ? nutrient.nutrient_value + " g"
+            : nutrient.nutrient_value + " kcal"}
+        </p>
       </div>
-    </div>
+    </ul>
+  ))}
+  </>
   );
 };
 

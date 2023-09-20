@@ -60,10 +60,10 @@ const ChangePassword = () => {
         <ArrowButton path="/user-profile" />
       </div>
       <div className="change-password-page">
+        <form className="form-password" onSubmit={handleSubmit(changePassword)}>
         <div className="change-password-title">
           <h1 id="change-pass-title">Change Password</h1>
         </div>
-        <form className="form-password" onSubmit={handleSubmit(changePassword)}>
           <div className="form-container">
           <div className="form-label">
             <label id="label-style">Current Password:</label>

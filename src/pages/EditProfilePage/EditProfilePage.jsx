@@ -9,7 +9,7 @@ import TextInputBox from "../../components/TextInputBox";
 import NextButton from "../../components/next-page-button/NextButton";
 import { useForm } from "react-hook-form";
 import api from "../../api/api";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import editProfileSchema from "../../schemas/profile-schema";
@@ -41,73 +41,71 @@ const EditProfilePage = () => {
         },
       };
 
-    if (data.username === "") {
-      data.username = user.username;
-    }
-
-    if (data.email === "") {
-      data.email = user.email;
-    }
-
-    if (data.picture[0]) {
-      const profileImage = data.picture[0];
-
-      const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
-
-      uploadBytes(imageRef, profileImage)
-        .then(() => {
-          getDownloadURL(imageRef)
-            .then((downloadImageURL) => {
-              data.picture = downloadImageURL;
-              api
-                .put(`/user/${user.id}`, data, config)
-                .then((response) => {
-                  if (response.status === 200) {
-                    setUser((prevUser) => ({ ...prevUser, ...data }));
-                    navigate("/user-profile");
-                  }
-                })
-                .catch((error) => console.error(error));
-
-            })
-            .catch((error) => console.error(error));
-        })
-        .catch((error) => console.error(error));
-    } else {
-      if(user.picture && user.picture.length > 0){
-        data.picture = user.picture;
-      } else {
-        data.picture = ""
+      if (data.username === "") {
+        data.username = user.username;
       }
 
-      api
-        .put(`/user/${user.id}`, data, config)
-        .then((response) => {
-          if (response.status === 200) {
-            setUser((prevUser) => ({ ...prevUser, ...data }));
-            navigate("/user-profile");
+      if (data.email === "") {
+        data.email = user.email;
+      }
 
-          }
-        })
-        .catch((error) => console.error(error));
+      if (data.picture[0]) {
+        const profileImage = data.picture[0];
+
+        const imageRef = ref(storage, `${uuid()}-profile-picture-${user.id}`);
+
+        uploadBytes(imageRef, profileImage)
+          .then(() => {
+            getDownloadURL(imageRef)
+              .then((downloadImageURL) => {
+                data.picture = downloadImageURL;
+                api
+                  .put(`/user/${user.id}`, data, config)
+                  .then((response) => {
+                    if (response.status === 200) {
+                      setUser((prevUser) => ({ ...prevUser, ...data }));
+                      navigate("/user-profile");
+                    }
+                  })
+                  .catch((error) => console.error(error));
+              })
+              .catch((error) => console.error(error));
+          })
+          .catch((error) => console.error(error));
+      } else {
+        if (user.picture && user.picture.length > 0) {
+          data.picture = user.picture;
+        } else {
+          data.picture = "";
+        }
+
+        api
+          .put(`/user/${user.id}`, data, config)
+          .then((response) => {
+            if (response.status === 200) {
+              setUser((prevUser) => ({ ...prevUser, ...data }));
+              navigate("/user-profile");
+            }
+          })
+          .catch((error) => console.error(error));
+      }
     }
-  } 
   };
 
   return (
-    <div className="edit-profile-page">
-      <div className="edit-profile-page-return-button">
-          <ArrowButton path="/user-profile"/>
+    <>
+      <div className="change-password-header">
+        <ArrowButton path="/user-profile" />
       </div>
-      <div className="edit-profile-title">
-        <Title title="Edit Profile" weight={"light-title"} />
-      </div>
-      <div>
+      <div className="change-password-page">
         <form
           onSubmit={handleSubmit(editProfileInfo)}
-          className="edit-profile-form"
+          className="form-password"
         >
-          <div className="edit-profile-form-container">
+          <div className="change-password-title">
+            <h1 id="change-pass-title">Edit profile</h1>
+          </div>
+          <div className="form-container">
             <TextInputBox
               label="Username"
               type="text"
@@ -117,7 +115,7 @@ const EditProfilePage = () => {
               placeholder={user.username ? user.username : null}
             />
           </div>
-          <div className="edit-profile-form-container">
+          <div className="form-container">
             <TextInputBox
               label="Email"
               type="email"
@@ -127,11 +125,10 @@ const EditProfilePage = () => {
               placeholder={user.email ? user.email : null}
             />
           </div>
-          <div className="edit-profile-form-label">
-            <label>Upload a Profile Image</label>
-            </div>
-          <div className="edit-profile-form-container">
-          <div className="edit-profile-image-input">
+          <div className="form-label">
+            <label id="label-style">Upload a Profile Image:</label>
+          </div>
+          <div className="form-container">
             <TextInputBox
               label="Picture"
               type="file"
@@ -139,7 +136,6 @@ const EditProfilePage = () => {
               register={register}
               errors={errors}
             />
-            </div>
           </div>
           <div className="save-changes-button">
             <NextButton
@@ -149,28 +145,6 @@ const EditProfilePage = () => {
             />
           </div>
         </form>
-        {/* <form onSubmit={handleSubmit(editProfileInfo)}>
-          <div>
-            <label>Profile Picture:</label>
-            <br />
-            <input type="file" {...register("image")} />
-            {errors.image && <p>{errors.image?.message}</p>}
-            <br />
-            <label>Email:</label>
-            <br />
-
-            <input
-              placeholder="email"
-              type="email"
-              {...register("email")}
-              aria-invalid={errors.email ? "true" : "false"}
-            />
-            {errors.email && <p>{errors.email?.message}</p>}
-            <br />
-            <button type="submit">Save Changes</button>
-          </div>
-        </form> */}
-
         <div className="cancel-changes-button">
           <Link to="/user-profile">
             <NextButton
@@ -181,7 +155,7 @@ const EditProfilePage = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

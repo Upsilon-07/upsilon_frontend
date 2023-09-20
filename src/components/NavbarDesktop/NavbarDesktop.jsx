@@ -10,7 +10,7 @@ import relaxingMusicButtonGrey from "/src/assets/images/navbar/relaxing_music_bu
 import relaxingMusicButtonOrange from "/src/assets/images/navbar/relaxing_music_button_orange.svg";
 import mealsButtonGrey from "/src/assets/images/navbar/meals_button_grey.svg";
 import mealsButtonOrange from "/src/assets/images/navbar/meals_button_orange.svg";
-import logo from "/src/assets/images/NavbarDesktop/logo_upsilon.svg"
+import logo from "/src/assets/images/NavbarDesktop/logo_upsilon.svg";
 
 const NavbarDesktop = () => {
   const location = useLocation();
@@ -18,58 +18,60 @@ const NavbarDesktop = () => {
   return (
     <nav className="navbar-desktop">
       <ul className="navbar-container-desktop">
-        <img className="navbar-logo-desktop" src={logo} />
-        <div className="navbar-icons-desktop">
         <Link to="/">
-          <img
-            src={
-              location.pathname === "/"
-                ? homepageButtonOrange
-                : homepageButtonGrey
-            }
-            alt="button to go to homepage"
-          />
+          <img className="navbar-logo-desktop" src={logo} />
         </Link>
-        <Link to="/courses">
-          <img
-            src={
-              location.pathname.includes("/courses")
-                ? coursesButtonOrange
-                : coursesButtonGrey
-            }
-            alt="button to go to courses page"
-          />
-        </Link>
-        <Link>
-          <img
-            src={
-              location.pathname.includes("/relaxing-music")
-                ? relaxingMusicButtonOrange
-                : relaxingMusicButtonGrey
-            }
-            alt="button to go to relaxing music page"
-          />
-        </Link>
-        <Link to="/meals">
-          <img
-            src={
-              location.pathname.includes("/meals")
-                ? mealsButtonOrange
-                : mealsButtonGrey
-            }
-            alt="button to go to meals page"
-          />
-        </Link>
-        <Link to="/user-profile">
-          <img
-            src={
-              location.pathname.includes("/user-profile")
-                ? profileButtonOrange
-                : profileButtonGrey
-            }
-            alt="button to go to user profile"
-          />
-        </Link>
+        <div className="navbar-icons-desktop">
+          <Link to="/">
+            <img
+              src={
+                location.pathname === "/"
+                  ? homepageButtonOrange
+                  : homepageButtonGrey
+              }
+              alt="button to go to homepage"
+            />
+          </Link>
+          <Link to="/courses">
+            <img
+              src={
+                location.pathname.includes("/courses")
+                  ? coursesButtonOrange
+                  : coursesButtonGrey
+              }
+              alt="button to go to courses page"
+            />
+          </Link>
+          <Link>
+            <img
+              src={
+                location.pathname.includes("/relaxing-music")
+                  ? relaxingMusicButtonOrange
+                  : relaxingMusicButtonGrey
+              }
+              alt="button to go to relaxing music page"
+            />
+          </Link>
+          <Link to="/meals">
+            <img
+              src={
+                location.pathname.includes("/meals")
+                  ? mealsButtonOrange
+                  : mealsButtonGrey
+              }
+              alt="button to go to meals page"
+            />
+          </Link>
+          <Link to="/user-profile">
+            <img
+              src={
+                location.pathname.includes("/user-profile")
+                  ? profileButtonOrange
+                  : profileButtonGrey
+              }
+              alt="button to go to user profile"
+            />
+          </Link>
         </div>
       </ul>
     </nav>

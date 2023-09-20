@@ -4,7 +4,6 @@ import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import { homePageData } from "../../assets/HomePage/HomePageData";
 import HomePageImage from "../../components/Image";
 import Description from "../../components/Desciption";
-import Title from "../../components/Title";
 import Card from "../../components/Card/Card";
 import { useContext} from "react";
 // import api from "../../api/api";
@@ -31,18 +30,17 @@ const HomePage = () => {
       <div className="homepage-img">
         <HomePageImage data={homePageData.find((data) => data.id === id)} />
       </div>
+      <div className="homepage-subtitles">
       <div className="homepage-subtitle1">
-        <Title title="Let's start basic" weight={"light-title"} />
+        <h2 id="subtitle-home-one">Lets start basic</h2>
       </div>
-
       <div className="homepage-subtitle2">
-        <Title title="yoga and meditation" weight={"bold-title"} />
+        <h2>yoga and meditation</h2>
       </div>
-      <div>
+      </div>
         <div className="homepage-recommended-courses">
           <Description data={homePageData.find((data) => data.id === id)} />
         </div>
-      </div>
       <div className="homepage-courses-card">
         {courses && courses.length > 0 ? (
           courses

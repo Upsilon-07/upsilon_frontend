@@ -3,9 +3,9 @@ import "./DisabledTextInputBox.css"
 
 const DisabledTextInputBox = ({ type, value }) => {
   return (
-    <div className='disabled-text-input-box'>
+    <div>
         <input
-        className="text-disabled-text-input-box"
+        className="text-input-class"
         type={type}
         value={value}
         readOnly={true}

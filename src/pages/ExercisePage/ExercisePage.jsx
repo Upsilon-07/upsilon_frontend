@@ -33,7 +33,7 @@ const ExercisePage = () => {
         <Link to="/user-profile">
           <ProfilePicture image={user.picture} />
         </Link>
-        <ExitPage />
+        <ExitPage path={`/lesson/${id}`} />
       </div>
       {exerciseDetail ? (
         <div className="exercise-card-content">
@@ -71,7 +71,7 @@ const ExercisePage = () => {
               <NextButton
                 buttonId="orange-button"
                 buttonContent="Get Started"
-                buttonClass="button-round"
+                buttonClass="button-round-small"
               />
             </Link>
           </div>

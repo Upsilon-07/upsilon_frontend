@@ -8,6 +8,16 @@
   height: 55px;
 }
 
+.button-round-small {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 30px;
+  width: 200px;
+  height: 55px;
+}
+
 .button-square {
   display: inline-block;
   border: none;

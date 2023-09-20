@@ -6,13 +6,14 @@ import next from "../../assets/images/Exercise/next-set.svg";
 import previous from "../../assets/images/Exercise/previous-set.svg";
 import stop from "../../assets/images/Exercise/pause-button.svg";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import api from "../../api/api";
 import "./ExerciseDetailPage.css";
+import UserContext from "../../contexts/UserContext";
 
 const ExerciseDetailPage = () => {
   const { id } = useParams();
-
+  const { user } = useContext(UserContext);
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [number, setNumber] = useState(1);
 
@@ -111,9 +112,9 @@ const ExerciseDetailPage = () => {
     <div className="exercise-detail">
       <div className="exercise-detail-top">
         <Link to="/user-profile">
-          <ProfilePicture />
+          <ProfilePicture image={user.picture} />
         </Link>
-        <ExitPage />
+        <ExitPage path={`/exercise/${id}`}/>
       </div>
 
       <div className="exercise-detail-page">
