@@ -26,9 +26,7 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <div className="profile-page-return-button">
-      <Link to="/">
-        <ArrowButton />
-      </Link>
+        <ArrowButton path="/"/>
       </div>
       <div className="profile-title">
         <div>
