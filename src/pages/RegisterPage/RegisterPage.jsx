@@ -1,6 +1,5 @@
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
-import Title from "../../components/Title";
 import "./registerPageStyles.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -36,42 +35,53 @@ function RegisterPage() {
   };
   return (
     <>
-    <div className="register-content">
-
-      <div className="register-title">
-        <Title title="Register" weight="title-bold" />
-      </div>
       <div className="register-page">
         <form onSubmit={handleSubmit(createUser)}>
-          <label>username:</label>
-          <TextInputBox
-            type="username"
-            placeholder="username"
-            register={register}
-            errors={errors}
-          />
-            <label>Email:</label>
+          <div className="register-title">
+            <h1 id="change-pass-title">Register</h1>
+          </div>
+          <div className="register-container">
+            <div className="register-label">
+              <label>username:</label>
+            </div>
+            <TextInputBox
+              type="username"
+              placeholder="username"
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <div className="register-container">
+            <div className="register-label">
+              <label>Email:</label>
+            </div>
             <TextInputBox
               type="email"
               placeholder="email"
               register={register}
               errors={errors}
             />
-            <label>Password:</label>
+          </div>
+          <div className="register-container">
+            <div className="register-label">
+              <label>Password:</label>
+            </div>
             <TextInputBox
               type="password"
               placeholder="password"
               register={register}
               errors={errors}
             />
+          </div>
+          <div className="register-button">
           <NextButton
             buttonId="orange-button"
             buttonContent="Next"
             buttonClass="button-square"
           />
+          </div>
         </form>
       </div>
-    </div>
     </>
   );
 }

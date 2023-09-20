@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Title from "../../components/Title";
 import Button from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import { useForm } from "react-hook-form";
@@ -37,38 +36,37 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <div className="forgot-password-content">
-        <ArrowButton />
-        <div className="forgot-password-page">
-          <div className="forgot-title">
-            <Title title="Reset Password" weight="light-title" />
+      <div className="forgot-password-header">
+        <ArrowButton path="/login" />
+      </div>
+      <div className="forgot-password-page">
+          <div className="forgot-password-title">
+            <h1 id="change-pass-title">Reset Password</h1>
           </div>
-          <div className="forgot-password-content">
-            <p id="forgot-description">
-              Enter your email to receive the instructions to reset your
-              password
-            </p>
-            <form onSubmit={handleSubmit(forgotPassword)}>
-              <div>
-                <TextInputBox
-                  type="email"
-                  placeholder="email"
-                  register={register}
-                  errors={errors}
-                />
-              </div>
-              <div className="forgot-button">
-                <Button
-                  buttonClass="button-square"
-                  buttonContent={buttonState.buttonText}
-                  buttonId={`${
-                    buttonState.isClicked ? "green-button" : "orange-button"
-                  }`}
-                />
-              </div>
-            </form>
+          <div>
+          <p id="forgot-description">
+            Enter your email to receive the instructions to reset your password
+          </p>
           </div>
-        </div>
+        <form onSubmit={handleSubmit(forgotPassword)}>
+          <div className="forgot-container">
+            <TextInputBox
+              type="email"
+              placeholder="email"
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <div className="forgot-button">
+            <Button
+              buttonClass="button-square"
+              buttonContent={buttonState.buttonText}
+              buttonId={`${
+                buttonState.isClicked ? "green-button" : "orange-button"
+              }`}
+            />
+          </div>
+        </form>
       </div>
     </>
   );

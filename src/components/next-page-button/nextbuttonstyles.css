@@ -1,40 +1,70 @@
-.button-round{
-    display: inline-block;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 240px;
-    height: 59px;
-    border-radius:30px;
+.button-round {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 30px;
+  width: 320px;
+  height: 55px;
 }
 
-.button-square{
-    display: inline-block;
-    border: none;
-    border-radius:10px;
-    font-size: 18px;
-    cursor: pointer;
-    width: 344px;
-    height: 55px;
-    margin-left: 4px;
-    margin-top: 42px;
+.button-square {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 338px;
+  height: 55px;
 }
 
-#orange-button{
-    color: white;
-    background-color: #EB784E;
-    font-size: large;
+#orange-button {
+  background-color: #eb784e;
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.52px;
+  text-transform: uppercase;
 }
 
-#white-button{
-    background-color:white ;
-    color: #EB784E ;
-    margin-top: 15px;
+#white-button {
+  background-color: white;
+  color: #eb784e;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.52px;
+  text-transform: uppercase;
 }
 
-#green-button{
-    background-color: #C5C884;
-    color: white; 
-    transition: background-color 1s ease;
+#green-button {
+  background-color: #c5c884;
+  color: white;
+  transition: background-color 1s ease;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.52px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1024px) {
+  .button-round {
+    width: 440px;
+    height: 64px;
+  }
+  .button-square {
+    width: 440px;
+    height: 64px;
+  }
+  
 }

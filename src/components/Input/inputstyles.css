@@ -1,7 +1,15 @@
 .text-input-class{
-    width: 340px;
-    height: 40px;
-    margin: 5px;
-    border-radius: 5px;
-    padding-left: 4%;
+    width: 320px;
+    height: 46px;
+    border-radius: 10px;
+    padding-left: 14px;
 }
+
+@media screen and (min-width: 1024px) {
+    .text-input-class{
+        width: 420px;
+        height: 58px;
+     
+    }
+    
+  }

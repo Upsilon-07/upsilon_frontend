@@ -3,33 +3,37 @@
   flex-direction: column;
   height: 100vh;
   align-items: center;
-}
-.register-title {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-bottom: 16px;
-  padding: 12px;
-}
-.register-content{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
+  justify-content: center;
 }
 
+.register-container {
+  margin-bottom: 12px;
+}
+
+.register-label {
+  margin-bottom: 12px;
+}
+
+.register-title{
+  margin-bottom: 12px;
+}
+
+.register-button{
+  margin-top: 32px;
+  margin-bottom: 100px;
+}
 
 @media screen and (min-width: 1024px) {
   .register-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 320px;
+    padding: 32px;
   }
   .register-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 220px;
+    margin-top: 120px;
   }
 }

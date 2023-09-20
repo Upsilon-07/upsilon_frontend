@@ -2,11 +2,10 @@ import api from "../../api/api.js";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../../contexts/UserContext.jsx";
 import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox.jsx";
-import Title from "../../components/Title";
 import "./LoginPageStyles.css";
 import AuthContext from "../../contexts/AuthContext.jsx";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,7 +13,7 @@ import userSchema from "../../schemas/user-schema";
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
   const { setIsAuthenticated } = useContext(AuthContext);
-
+  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -50,48 +49,56 @@ const LoginPage = () => {
             .catch((error) => console.error(error));
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.response.data);
+      });
   };
 
   return (
     <>
-      <div className="login-content">
-        <div className="login-title">
-          <Title title="Log In" weight="title-bold" />
-        </div>
-        <div className="login-page">
-          <form onSubmit={handleSubmit(loginUser)}>
-            <div>
+      <div className="login-page">
+        <form onSubmit={handleSubmit(loginUser)}>
+        <div className="register-title">
+            <h1 id="change-pass-title">Log In</h1>
+          </div>
+          <div className="register-container">
+            <div className="register-label">
               <label>Email:</label>
-              <TextInputBox
-                type="email"
-                placeholder="email"
-                register={register}
-                errors={errors}
-              />
             </div>
-            <div>
+            <TextInputBox
+              type="email"
+              placeholder="email"
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <div className="register-container">
+            <div className="register-label">
               <label>Password:</label>
-              <TextInputBox
-                type="password"
-                placeholder="password"
-                register={register}
-                errors={errors}
-              />
             </div>
-            <div className="forgot-password-left">
+            <TextInputBox
+              type="password"
+              placeholder="password"
+              register={register}
+              errors={errors}
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <div className="forgot-password-left">
             <Link to="/forgot-password">
               <p>Forgot Password ?</p>
             </Link>
-            </div>
+          </div>
+          <div className="login-button">
             <NextButton
               buttonId="orange-button"
               buttonContent="LOG IN"
               buttonClass="button-square"
               type="submit"
             />
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </>
   );

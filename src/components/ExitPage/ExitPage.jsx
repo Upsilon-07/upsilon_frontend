@@ -1,16 +1,13 @@
-import { useNavigate } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import exit from "../../assets/images/exitPage.png";
 import "./ExitPage.css";
 
-const ExitPage = () => {
-  const navigate = useNavigate();
-  const back = () => {
-    navigate(-1);
-  };
+const ExitPage = ({ path = "/" }) => {
   return (
-    <div onClick={back} className="exit">
+    <Link to={path}>
       <img className="img-exit" src={exit} />
-    </div>
+    </Link>
   );
 };
 

@@ -7,76 +7,67 @@ import NextButton from "../../components/next-page-button/NextButton";
 import TextInputBox from "../../components/Input/TextInputBox";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import "./ChangePasswordStyles.css";
-
+import passwordSchema from "../../schemas/password-schema";
+import { yupResolver } from "@hookform/resolvers/yup";
 const ChangePassword = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(passwordSchema),
+  });
 
   const [error, setError] = useState("");
-  const [isWrongCurrentPassword, setIsWrongCurrentPassword] = useState(false);
-  const [isNewPasswordMismatch, setIsNewPasswordMismatch] = useState(false);
-  const [isSameAsCurrent, setIsSameAsCurrent] = useState(false); // New state for same as current password
   const [isPasswordSaved, setIsPasswordSaved] = useState(false);
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const changePassword = (data) => {
-    if (data.newPassword === data.repeatPassword) {
-      //! api to change password
-      setIsWrongCurrentPassword(false);
-      setIsNewPasswordMismatch(false);
-      setIsSameAsCurrent(false); // Reset the same as current flag
-      delete data.repeatPassword;
+    console.log(data);
+    if (data.password !== data.newPassword) {
+      if (data.newPassword === data.repeatPassword) {
+        setError("");
+        delete data.repeatPassword;
 
-      let config = {
-        headers: {
-          Authorization: "Bearer " + Cookies.get("user_token"),
-        },
-      };
-      api
-        .post("/password/change-password", data, config)
-        .then((response) => {
-          if (response.status === 200) {
-            setIsPasswordSaved(true);
-            setTimeout(() => {
-            navigate("/user-profile")
-            }, 2500)
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            if (error.response.status === 401) {
-              setIsWrongCurrentPassword(true);
-            } else if (error.response.status === 400) {
-              const responseMessage = error.response.data.message;
-              if (responseMessage === "New password same as current password") {
-                setIsSameAsCurrent(true);
-              } else {
-                setIsNewPasswordMismatch(true);
-                setError(
-                  "The new password is different from the repeat password"
-                );
-              }
+        let config = {
+          headers: {
+            Authorization: "Bearer " + Cookies.get("user_token"),
+          },
+        };
+        api
+          .post("/password/change-password", data, config)
+          .then((response) => {
+            if (response.status === 200) {
+              setIsPasswordSaved(true);
+              setTimeout(() => {
+                navigate("/user-profile");
+              }, 2500);
             }
-          }
-        });
+          })
+          .catch((error) => {
+            console.error(error);
+            setError(error.response.data);
+          });
+      } else {
+        setError("The repeated password should be the same of new password.");
+      }
     } else {
-      setIsNewPasswordMismatch(true);
-      setError("The new password is different from the repeat password");
+      setError("The new password should be different of the current password.");
     }
   };
-
   return (
     <>
-      <ArrowButton path="/user-profile" />
-      <div className="change-password-title">
-        <h1 id="change-pass-title">Change Password</h1>
+      <div className="change-password-header">
+        <ArrowButton path="/user-profile" />
       </div>
       <div className="change-password-page">
-        <form onSubmit={handleSubmit(changePassword)}>
-          <div>
-            <label>Current Password:</label>
+        <div className="change-password-title">
+          <h1 id="change-pass-title">Change Password</h1>
+        </div>
+        <form className="form-password" onSubmit={handleSubmit(changePassword)}>
+          <div className="form-container">
+          <div className="form-label">
+            <label id="label-style">Current Password:</label>
+            </div>
             <TextInputBox
               type="password"
               placeholder="password"
@@ -84,8 +75,10 @@ const navigate = useNavigate();
               errors={errors}
             />
           </div>
-          <div>
-            <label>New Password:</label>
+          <div className="form-container">
+          <div className="form-label">
+            <label id="label-style">New Password:</label>
+            </div>
             <TextInputBox
               type="password"
               placeholder="newPassword"
@@ -93,8 +86,10 @@ const navigate = useNavigate();
               errors={errors}
             />
           </div>
-          <div>
-            <label>Repeat Password:</label>
+          <div className="form-container">
+            <div className="form-label">
+            <label id="label-style">Repeat New Password:</label>
+            </div>
             <TextInputBox
               type="password"
               placeholder="repeatPassword"
@@ -102,32 +97,24 @@ const navigate = useNavigate();
               errors={errors}
             />
           </div>
-          {isWrongCurrentPassword && (
-            <p className="error-message">Wrong password, please try again.</p>
-          )}
-          {isNewPasswordMismatch && <p className="error-message">{error}</p>}
-          {isSameAsCurrent && (
-            <p className="error-message">
-              New password cannot be the same as the current password.
-            </p>
-          )}
-          <div className="button-container">
-            <NextButton
-              buttonClass={`button-square ${
-                isPasswordSaved ? "green-button" : "orange-button"
-              }`}
-              buttonContent={
-                isPasswordSaved ? "Password Saved" : "Save New Password"
-              }
-              buttonId={isPasswordSaved ? "green-button" : "orange-button"}
-            />
+          {error && <p className="error-message">{error}</p>}
+          <div className="change-password-button">
+          <NextButton
+            buttonClass={`button-square ${
+              isPasswordSaved ? "green-button" : "orange-button"
+            }`}
+            buttonContent={
+              isPasswordSaved ? "CHANGES HAVE BEEN SAVED" : "SAVE NEW PASSWORD"
+            }
+            buttonId={isPasswordSaved ? "green-button" : "orange-button"}
+          />
           </div>
         </form>
         {!isPasswordSaved && (
           <Link to="/user-profile">
             <NextButton
               buttonClass="button-square"
-              buttonContent="Cancel Changes"
+              buttonContent="CANCEL CHANGES"
               buttonId="white-button"
             />
           </Link>
