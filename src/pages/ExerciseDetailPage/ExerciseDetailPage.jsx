@@ -113,7 +113,7 @@ const ExerciseDetailPage = () => {
         <Link to="/user-profile">
           <ProfilePicture />
         </Link>
-        <ExitPage />
+        <ExitPage path={`/exercise/${id}`} />
       </div>
 
       <div className="exercise-detail-page">
