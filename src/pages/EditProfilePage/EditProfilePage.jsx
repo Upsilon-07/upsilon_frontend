@@ -97,9 +97,7 @@ const EditProfilePage = () => {
   return (
     <div className="edit-profile-page">
       <div className="edit-profile-page-return-button">
-        <Link to="/user-profile">
-          <ArrowButton />
-        </Link>
+          <ArrowButton path="/user-profile"/>
       </div>
       <div className="edit-profile-title">
         <Title title="Edit Profile" weight={"light-title"} />
@@ -109,7 +107,7 @@ const EditProfilePage = () => {
           onSubmit={handleSubmit(editProfileInfo)}
           className="edit-profile-form"
         >
-          <div>
+          <div className="edit-profile-form-container">
             <TextInputBox
               label="Username"
               type="text"
@@ -119,7 +117,7 @@ const EditProfilePage = () => {
               placeholder={user.username ? user.username : null}
             />
           </div>
-          <div>
+          <div className="edit-profile-form-container">
             <TextInputBox
               label="Email"
               type="email"
@@ -129,8 +127,11 @@ const EditProfilePage = () => {
               placeholder={user.email ? user.email : null}
             />
           </div>
-          <div>
+          <div className="edit-profile-form-label">
             <label>Upload a Profile Image</label>
+            </div>
+          <div className="edit-profile-form-container">
+          <div className="edit-profile-image-input">
             <TextInputBox
               label="Picture"
               type="file"
@@ -138,6 +139,7 @@ const EditProfilePage = () => {
               register={register}
               errors={errors}
             />
+            </div>
           </div>
           <div className="save-changes-button">
             <NextButton

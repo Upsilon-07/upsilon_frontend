@@ -86,7 +86,9 @@ const RecipePage = () => {
       <Link to="/user-profile">
         <ProfilePicture image={user.picture} />
       </Link>
-      <ArrowButton />
+      <div className='recipe-page-arrow-button'>
+      <ArrowButton path="/meals"/>
+      </div>
       </div>
       <div className="card-lesson-detail" id="recipe-page-card">
         <InfoCard data={meal} />

@@ -83,8 +83,7 @@
     }
     .profile-input-box {
         flex-direction: column;
-        padding-bottom: 0;
-        padding-top: 0;
+        padding-bottom: 5%;
     }
     .profile-page-user-picture {
         transform: scale(3);
