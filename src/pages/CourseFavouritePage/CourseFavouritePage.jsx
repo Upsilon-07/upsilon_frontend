@@ -1,6 +1,6 @@
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
 import { useState, useEffect, useContext } from "react";
 import TitleCard from "../../components/TitleCard/TitleCard";
@@ -32,9 +32,8 @@ const CourseFavouritePage = () => {
     <div className="favourite-page">
       <div className="favourite-top">
         <ProfilePicture image={user.picture} />
-        <Link to="/courses">
-          <ArrowButton />
-        </Link>
+
+        <ArrowButton path={"/courses"} />
       </div>
       <TitleCard title="Favourites Courses" />
 

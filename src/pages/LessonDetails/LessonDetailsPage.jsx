@@ -39,7 +39,7 @@ const LessonDetailsPage = () => {
           <ProfilePicture image={user.picture} />
         </Link>
 
-        <ArrowButton />
+        <ArrowButton path={`/courses/${id}`} />
       </div>
       <div className="card-lesson-detail">
         <InfoCard data={lessonInfo} />
