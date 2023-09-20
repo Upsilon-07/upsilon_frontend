@@ -43,9 +43,7 @@ const CourseLessonPage = () => {
           <ProfilePicture image={user.picture} />
         </Link>
 
-        <Link to="/courses">
-          <ArrowButton />
-        </Link>
+        <ArrowButton path={"/courses"} />
       </div>
 
       {id && courseTitle ? (
