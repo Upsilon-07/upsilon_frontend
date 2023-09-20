@@ -1,10 +1,8 @@
 import "./EditProfilePage.css";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
-
 import { Link, useNavigate } from "react-router-dom";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
-import Title from "../../components/Title";
 import TextInputBox from "../../components/TextInputBox";
 import NextButton from "../../components/next-page-button/NextButton";
 import { useForm } from "react-hook-form";
