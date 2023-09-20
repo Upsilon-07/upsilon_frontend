@@ -56,3 +56,15 @@
   letter-spacing: 0.52px;
   text-transform: uppercase;
 }
+
+@media screen and (min-width: 1024px) {
+  .button-round {
+    width: 440px;
+    height: 64px;
+  }
+  .button-square {
+    width: 440px;
+    height: 64px;
+  }
+  
+}

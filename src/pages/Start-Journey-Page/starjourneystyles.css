@@ -96,6 +96,12 @@
 @media screen and (min-width: 1024px) {
   .journey-button{
     padding: 24px;
-
   }
+  
+  #image-journey-three {
+      margin-top: 64px;
+    }
+    #image-journey-four {
+      margin-top: 64px;
+    }
 }

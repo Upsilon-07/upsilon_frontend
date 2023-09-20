@@ -1,39 +1,35 @@
 .login-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
+
 .login-title{
     justify-content: start;
     align-items: center;
     margin-bottom: 12px;
-    
 }
 
 .forgot-password-left{
     display: flex;
     flex-direction: row;
     justify-content: end;
+    margin-bottom: 24px;
     margin-top: 12px;
 }
 
-.login-content{
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 12px;
-  
+.login-button{
+  margin-bottom: 32px;
 }
 
 @media screen and (min-width: 1024px) {
-    .login-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 320px;
-    }
-    .login-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .login-button{
+   margin: 0;
+  }
+
+  .forgot-password-left{
+    margin-bottom: 68px;
+  }
   }
   

@@ -56,7 +56,7 @@ const ChangePassword = () => {
   };
   return (
     <>
-      <div className="change-pass-header">
+      <div className="change-password-header">
         <ArrowButton path="/user-profile" />
       </div>
       <div className="change-password-page">
@@ -98,6 +98,7 @@ const ChangePassword = () => {
             />
           </div>
           {error && <p className="error-message">{error}</p>}
+          <div className="change-password-button">
           <NextButton
             buttonClass={`button-square ${
               isPasswordSaved ? "green-button" : "orange-button"
@@ -107,6 +108,7 @@ const ChangePassword = () => {
             }
             buttonId={isPasswordSaved ? "green-button" : "orange-button"}
           />
+          </div>
         </form>
         {!isPasswordSaved && (
           <Link to="/user-profile">
