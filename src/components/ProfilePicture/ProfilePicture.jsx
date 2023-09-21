@@ -4,9 +4,11 @@ import Avatar from "@mui/material/Avatar";
 
 const ProfilePicture = ({ image}) => {
   return (
-    <div className="background-green">
-        <Avatar sx={{ height: '110px', width: '110px' }} className="profile-image" src={image ? image : null} />
-    </div>
+    // <div className="user-profile-icon">
+       <div className="profile-picture-container-image">
+        <Avatar sx={{ height: '60px', width: '60px' }} className="profile-image" src={image ? image : null} />
+       </div>
+    // </div>
   );
 };
 

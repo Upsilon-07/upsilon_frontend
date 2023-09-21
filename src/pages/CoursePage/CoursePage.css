@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
-    margin-left: 16px;
+    margin-left: 20px;
 }
 
 .course-page {
@@ -36,7 +36,11 @@ a {
 
 
     @media screen and (min-width:765px) {
-    
+        .top {
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+        
         .navbar-container{
             display: none;
         }

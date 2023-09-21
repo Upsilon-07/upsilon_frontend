@@ -8,7 +8,7 @@
 
 .exercise-detail-page{
     border-radius: 10px;
-    margin: 14px 23px 44px 27px;
+    margin: 14px 27px 44px 27px;
     margin-bottom: 100px;
     padding-bottom: 60px;
     background-color: white;
@@ -53,8 +53,13 @@ font-weight:700;
         display: flex;
         margin: 0 auto;
         margin-bottom: 7rem;
-      
       }
+
+      .image-exercise-detail{
+        width: 55%;
+        margin-top:28px;
+        height: 300px;
+    }
 
   }
 

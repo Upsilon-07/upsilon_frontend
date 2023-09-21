@@ -13,6 +13,8 @@
     align-items: center;
     flex-wrap: nowrap;
     position: absolute;
+    margin-top: 0;
+
 }
 
 .meals-page-img {
@@ -23,9 +25,10 @@
     object-fit: cover;
 }
 
-/* 
+
 @media screen and (min-width: 768px) {
     .meal-page-icon {
+    margin-top:-100px;
 
     }
-  } */
+  }

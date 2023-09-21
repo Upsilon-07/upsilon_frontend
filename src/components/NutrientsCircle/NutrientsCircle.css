@@ -39,7 +39,35 @@
     transform-origin: 50% 50%;
     stroke-dasharray: 570;
     stroke-dashoffset: 0;
-    stroke: #C5C884;
+    stroke: rgb(227, 158, 142);
+    animation: progress-1 5000ms ease-out;
+}
+
+.stance-circle .meter-2 {
+    fill: none;
+    width: 100%;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 570;
+    stroke-dashoffset: 0;
+    stroke: rgb(74, 87, 49);
+
+    animation: progress-1 5000ms ease-out;
+}
+
+.stance-circle .meter-3 {
+    fill: none;
+    width: 100%;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 570;
+    stroke-dashoffset: 0;
+    stroke: rgb(239, 187, 142);
+
     animation: progress-1 5000ms ease-out;
 }
 
@@ -62,7 +90,6 @@
 
 .stance-performance {
     display: flex;
-    left: -50px;
     top: 8px;
     flex-wrap: wrap;
     position: relative;
@@ -71,6 +98,20 @@
     align-content: center;
     align-items: flex-end;
     color: rgba(170, 170, 170, 0.70);
+}
+
+.stance-protein{
+    left: -40px;
+}
+
+.stance-carbo{
+    left: -40px;
+    
+}
+
+.stance-fat{
+    left: -50px;
+    
 }
 
 .nutrient-circles {
@@ -83,14 +124,13 @@
 }
 
 @media screen and (min-width: 768px) {
-    .stance-circle{
+    .stance-circle {
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        margin-left: 70px;
-        padding-top: 0.5%;
-        padding-bottom: 0.5%;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding-bottom: 30px;
     }
 
     .nutrient-circles {
@@ -115,17 +155,6 @@
   }
 
 @media screen and (min-width: 1024px) {
-    .stance-circle {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-direction: row;
-        gap: 35px;
-        padding-bottom: 0.5%;
-        align-content: center;
-        flex-wrap: wrap;
-        margin-left: 110px;
-    }
     
     .nutrient-circles {
         display: flex;

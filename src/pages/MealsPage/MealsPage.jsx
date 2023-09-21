@@ -55,16 +55,17 @@ const MealsPage = () => {
   return (
     <div className="meals-page">
       <div className="meals-page-profile-pic-star-button">
-      <Link to="/user-profile">
-        <ProfilePicture image={user.picture} />
-      </Link>
-      <Link to="/favourites/meals">
-      <StarButton />
-      </Link>
+        <Link to="/user-profile">
+          <ProfilePicture image={user.picture} />
+        </Link>
+        <Link to="/favourites/meals">
+          <StarButton />
+        </Link>
       </div>
-      <div className="meals-page-img">
-        <MealsPageIcon />
-      </div>
+        <div className="meals-page-img">
+          <MealsPageIcon />
+        </div>
+      <div className="meals-page-body">
       <div className="meals-page-title-container">
         <Title
           title={
@@ -78,21 +79,19 @@ const MealsPage = () => {
           weight="bold-title"
         />
         <div className="meals-page-subtitle">
-        <Title 
-          title={`Fuel your day with these healthy ${currentMealType} recipes`}
-          weight="light-title"
-        /></div>
+          <Title
+            title={`Fuel your day with these healthy ${currentMealType} recipes`}
+            weight="light-title"
+          />
+        </div>
       </div>
       <div className="meals-page-cards">
         {meals
           .filter((meal) => meal.meal_type === currentMealType)
           .map((meal) => (
-            <Card
-              key={meal.id}
-              data={meal}
-              linkTo="meals"
-            />
+            <Card key={meal.id} data={meal} linkTo="meals" />
           ))}
+      </div>
       </div>
     </div>
   );

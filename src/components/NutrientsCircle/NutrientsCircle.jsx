@@ -25,7 +25,7 @@ function NutrientsCircle({ data }) {
         {macroNutrients.map((nutrient, index) => (
           <div className="stance-circle" key={index}>
             <svg width="70" height="70">
-              <circle className={`meter-1`} cx="50" cy="50" r="40" />
+              <circle className={nutrient.nutrient_name === "Protein" ? 'meter-1' : nutrient.nutrient_name === "Carbohydrates" ? 'meter-2': "meter-3"} cx="50" cy="50" r="40" />
               <text
                 x="37%"
                 y="49%"
@@ -42,7 +42,7 @@ function NutrientsCircle({ data }) {
                 y="66%"
                 dominantBaseline="middle"
                 textAnchor="middle"
-                fill="#EB784E"
+                fill={nutrient.nutrient_name === "Protein" ? 'rgb(227, 158, 142)' : nutrient.nutrient_name === "Carbohydrates" ? 'rgb(74, 87, 49)': "rgb(239, 187, 94)"}
               >
                 {`${((nutrient.nutrient_value / totalMacroValue) * 100).toFixed(
                   2
@@ -50,7 +50,7 @@ function NutrientsCircle({ data }) {
               </text>
             </svg>
             <div className="stance-bottom">
-              <p className="stance-performance">
+              <p className={nutrient.nutrient_name === "Protein" ? 'stance-performance stance-protein' : nutrient.nutrient_name === "Carbohydrates" ? 'stance-performance stance-carbo': "stance-performance stance-fat"}>
                 {nutrient.nutrient_name === "Carbohydrates"
                   ? "Carbs"
                   : nutrient.nutrient_name}

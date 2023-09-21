@@ -53,7 +53,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/user-profile" element={<ProfilePage />} />
           <Route
-            path="/user-profile/change-password"
+            path="/profile-change-password"
             element={<ChangePassword />}
           />
           <Route path="/edit-profile" element={<EditProfile />} />

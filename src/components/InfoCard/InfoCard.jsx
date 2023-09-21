@@ -2,18 +2,19 @@ import line from "../../assets/images/line.svg";
 import clock from "../../assets/images/time.svg";
 import vector from "../../assets/images/Vector.png";
 import PropTypes from "prop-types";
-
+import { useLocation } from "react-router-dom";
 import "./InfoCard.css";
 
 const InfoCard = ({ data }) => {
+  const location = useLocation()
   return (
     <div className="infoCard">
       {data.lesson_name || data.meal_name || data.image ? (
         <div className="card-lesson-card">
-          <p className="card-lesson-title">
+          <h2 className="card-lesson-title">
             {data.lesson_name ? data.lesson_name : data.meal_name}
-          </p>
-          <img className="card-lesson-image" src={data.image} alt="" />
+          </h2>
+          <img className={location.pathname.includes("meals") ? "card-recipe-image": "card-lesson-image"} src={data.image} alt="" />
         </div>
       ) : null}
 
