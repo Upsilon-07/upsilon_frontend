@@ -63,10 +63,10 @@ body {
 .homepage-courses-card {
     display: flex;
     flex-flow: row wrap;
-    width: 50%;
+    width: 100%;
     justify-content: center;
     align-items: center;
-  padding-bottom: 110px;
+    padding-bottom: 7rem;
 }
 
 .homepage-recommended-courses-list{
@@ -98,6 +98,11 @@ body {
     padding-top: 10px;
     position: relative;
     display: flex;
+  }
+
+  .homepage-courses-card {
+    width: 50%;
+    padding-bottom: 2rem;
   }
 
   .homepage-img {

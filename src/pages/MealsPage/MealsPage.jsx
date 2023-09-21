@@ -86,11 +86,13 @@ const MealsPage = () => {
         </div>
       </div>
       <div className="meals-page-cards">
+        <div className="meals-page-container-cards">
         {meals
           .filter((meal) => meal.meal_type === currentMealType)
           .map((meal) => (
             <Card key={meal.id} data={meal} linkTo="meals" />
           ))}
+        </div>
       </div>
       </div>
     </div>

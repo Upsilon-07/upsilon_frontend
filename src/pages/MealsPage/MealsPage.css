@@ -32,6 +32,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    
     width: 100%;
 }
 
@@ -45,9 +46,21 @@
 }
 
 .meals-page-cards {
+    display: flex;
     position: relative;
-    padding-bottom: 120px;
+    padding-bottom: 50px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.meals-page-container-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 50px;
 }
 
 .meals-page-subtitle {
@@ -86,6 +99,14 @@
     }
     .meals-page-title-container {
         padding-top: 0px;
+    }
+    .meals-page-container-cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding-top: 30px;
     }
     
   }
