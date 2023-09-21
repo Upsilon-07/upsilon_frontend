@@ -17,10 +17,34 @@
     font-size: 1rem;
 }
 
+.favourites-page-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.favourites-page-container-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
 
 
 @media screen and (min-width:765px) {
     
+    .favourites-page-container-cards{
+        width: 50%;
+        padding-top: 50px;
+        gap: 10px;
+    }
  
     .title-courses{
         margin:0 auto;

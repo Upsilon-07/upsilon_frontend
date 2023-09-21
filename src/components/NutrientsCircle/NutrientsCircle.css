@@ -133,6 +133,10 @@
         padding-bottom: 30px;
     }
 
+    .stance-description {
+        
+    }
+
     .nutrient-circles {
         display: flex;
         flex-direction: row;
