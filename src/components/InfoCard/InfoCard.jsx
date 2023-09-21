@@ -22,13 +22,13 @@ const InfoCard = ({ data }) => {
         {data.duration ? (
           <div className="clock-and-duration-info">
             <img src={clock} alt="clock of duration" />{" "}
-            <h4>Duration: {data.duration} mins</h4>
+            <h4>Duration: <span>{data.duration} mins</span></h4>
           </div>
         ) : null}
         {data.lesson_type || data.meal_type ? (
           <div className="vector-and-type">
             <img src={vector} className="vector" alt="vector" />
-            <h4>Type: {data.lesson_type ? data.lesson_type : data.meal_type}</h4>
+            <h4>Type: <span>{data.lesson_type ? data.lesson_type : data.meal_type}</span></h4>
           </div>
         ) : null}
       </div>
