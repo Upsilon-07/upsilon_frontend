@@ -33,7 +33,7 @@ const ExercisePage = () => {
         <Link to="/user-profile">
           <ProfilePicture image={user.picture} />
         </Link>
-        <ExitPage path={`/lesson/${id}`} />
+        <ExitPage path={`/lesson/${localStorage.getItem('lessonID')}`} />
       </div>
       {exerciseDetail ? (
         <div className="exercise-card-content">
