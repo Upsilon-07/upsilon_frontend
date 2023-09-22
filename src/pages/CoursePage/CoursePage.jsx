@@ -26,6 +26,7 @@ const CoursePage = () => {
         <div className="title-container">
           <TitleCard title="Courses" />
         </div>
+        <div className="courses-list-container">
         {courses && courses.length > 0 ? (
           courses.map((course) => (
             <Card
@@ -38,6 +39,7 @@ const CoursePage = () => {
         ) : (
           <h1>Loading...</h1>
         )}
+        </div>
       </div>
     </div>
   );

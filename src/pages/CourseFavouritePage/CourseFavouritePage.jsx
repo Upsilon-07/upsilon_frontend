@@ -36,7 +36,8 @@ const CourseFavouritePage = () => {
         <ArrowButton path={"/courses"} />
       </div>
       <TitleCard title="Favourites Courses" />
-
+      <div className="favourites-page-cards">
+        <div className="favourites-page-container-cards">
       {
         favouriteCourses && favouriteCourses.length > 0
           ? favouriteCourses.map((favouriteCourse) => (
@@ -47,8 +48,9 @@ const CourseFavouritePage = () => {
               />
             ))
           : null
-        // <h1 className="loading">Add your favourite courses...</h1>
       }
+  </div>
+</div>
     </div>
   );
 };

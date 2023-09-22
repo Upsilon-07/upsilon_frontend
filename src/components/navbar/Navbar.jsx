@@ -60,7 +60,7 @@ const Navbar = () => {
         <Link to="/user-profile">
           <img
             src={
-              location.pathname.includes("/user-profile")
+              location.pathname.includes("profile")
                 ? profileButtonOrange
                 : profileButtonGrey
             }

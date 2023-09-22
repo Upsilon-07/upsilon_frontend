@@ -2,18 +2,19 @@ import line from "../../assets/images/line.svg";
 import clock from "../../assets/images/time.svg";
 import vector from "../../assets/images/Vector.png";
 import PropTypes from "prop-types";
-
+import { useLocation } from "react-router-dom";
 import "./InfoCard.css";
 
 const InfoCard = ({ data }) => {
+  const location = useLocation()
   return (
     <div className="infoCard">
       {data.lesson_name || data.meal_name || data.image ? (
         <div className="card-lesson-card">
-          <p className="card-lesson-title">
+          <h2 className="card-lesson-title">
             {data.lesson_name ? data.lesson_name : data.meal_name}
-          </p>
-          <img className="card-lesson-image" src={data.image} alt="" />
+          </h2>
+          <img className={location.pathname.includes("meals") ? "card-recipe-image": "card-lesson-image"} src={data.image} alt="" />
         </div>
       ) : null}
 
@@ -21,13 +22,13 @@ const InfoCard = ({ data }) => {
         {data.duration ? (
           <div className="clock-and-duration-info">
             <img src={clock} alt="clock of duration" />{" "}
-            <h4>Duration: {data.duration} mins</h4>
+            <h4>Duration: <span>{data.duration} mins</span></h4>
           </div>
         ) : null}
         {data.lesson_type || data.meal_type ? (
           <div className="vector-and-type">
             <img src={vector} className="vector" alt="vector" />
-            <h4>Type: {data.lesson_type ? data.lesson_type : data.meal_type}</h4>
+            <h4>Type: <span>{data.lesson_type ? data.lesson_type : data.meal_type}</span></h4>
           </div>
         ) : null}
       </div>

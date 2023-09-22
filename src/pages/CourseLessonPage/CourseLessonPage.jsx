@@ -27,6 +27,7 @@ const CourseLessonPage = () => {
           setIsFavourite(response.data.isFavourite);
           setLessons(response.data.lessons);
           setCourseTitle(response.data.courseTitle[0].courseName);
+          localStorage.setItem("courseID", id)
         }
       })
       .catch((error) => console.error(error));
@@ -57,14 +58,17 @@ const CourseLessonPage = () => {
           />
         </div>
       ) : null}
-
-      {lessons && lessons.length > 0 ? (
-        lessons.map((lesson) => (
-          <Card key={lesson.id} data={lesson} linkTo="lesson" />
-        ))
-      ) : (
-        <h1>Loading...</h1>
-      )}
+      <div className="lessons-container">
+        <div className="lessons-list-container">
+          {lessons && lessons.length > 0 ? (
+            lessons.map((lesson) => (
+              <Card key={lesson.id} data={lesson} linkTo="lesson" />
+            ))
+          ) : (
+            <h1>Loading...</h1>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

@@ -63,7 +63,7 @@ const ProfilePage = () => {
             </Link>
           </div>
           <div className="profile-button" id="change-password">
-            <Link to="/user-profile/change-password">
+            <Link to="/profile-change-password">
               <NextButton
                 buttonId="white-button"
                 buttonContent="CHANGE PASSWORD"

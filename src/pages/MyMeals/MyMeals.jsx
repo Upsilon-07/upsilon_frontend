@@ -36,19 +36,21 @@ const MyMeals = () => {
         <ArrowButton path={"/meals"} />
       </div>
       <TitleCard title="My Meals" />
-      <div className="mymeals-content">
-        {
-          favouriteMeals && favouriteMeals.length > 0
-            ? favouriteMeals.map((favouriteMeal) => (
-                <Card
-                  key={favouriteMeal.id}
-                  data={favouriteMeal}
-                  linkTo="meals"
-                />
-              ))
-            : null
-          // <h1 className="loading">Add your favourite meals...</h1>
-        }
+      <div className="mymeal-container">
+        <div className="mymeals-content">
+          {
+            favouriteMeals && favouriteMeals.length > 0
+              ? favouriteMeals.map((favouriteMeal) => (
+                  <Card
+                    key={favouriteMeal.id}
+                    data={favouriteMeal}
+                    linkTo="meals"
+                  />
+                ))
+              : null
+            // <h1 className="loading">Add your favourite meals...</h1>
+          }
+        </div>
       </div>
       <Navbar />
     </div>

@@ -8,7 +8,7 @@
 .navbar-logo-desktop {
     height: 3rem;
     position: relative;
-    
+    border-radius: 30px;
 }
 
 .navbar-container-desktop {

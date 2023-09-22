@@ -24,6 +24,7 @@ const LessonDetailsPage = () => {
         if (response.status === 200) {
           setExercises(response.data.exercises);
           setLessonInfo(response.data.lessonInfo[0]);
+          localStorage.setItem('lessonID', id)
         }
       })
       .catch((error) => console.error(error));
@@ -39,7 +40,7 @@ const LessonDetailsPage = () => {
           <ProfilePicture image={user.picture} />
         </Link>
 
-        <ArrowButton path={`/courses/${id}`} />
+        <ArrowButton path={`/courses/${localStorage.getItem("courseID")}`} />
       </div>
       <div className="card-lesson-detail">
         <InfoCard data={lessonInfo} />
